@@ -1,0 +1,14 @@
+apiVersion: imageregistry.operator.openshift.io/v1
+kind: Config
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true
+  name: cluster
+spec:
+  managementState: Managed
+  replicas: 1
+  storage:
+    managementState: Managed
+    pvc:
+      claim: image-registry-storage

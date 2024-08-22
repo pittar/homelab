@@ -1,1 +1,2 @@
 creds.yaml
+gitops/catalog/openshift-cert-manager-operator/instances/route53/route53-creds-secret.yaml

@@ -1,0 +1,6 @@
+namespace: cert-manager
+
+resources:
+  - namespace.yaml
+  - route53-creds-secret.yaml
+  - le-clusterissuer.yaml

@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: apitt@redhat.com
+    # This key doesn't exist, cert-manager creates it
+    privateKeySecretRef:
+      name: apitt-redhat-issuer-account-key
+    solvers:
+    - selector:
+        dnsZones:
+          - "pitt.ca"
+      dns01:
+        route53:
+          region: ca-central-1
+          hostedZoneID: Z1C8TI47I0X3NN
+          accessKeyIDSecretRef:
+            name: route53-creds
+            key: access-key-id
+          secretAccessKeySecretRef:
+            name: route53-creds
+            key: secret-access-key
