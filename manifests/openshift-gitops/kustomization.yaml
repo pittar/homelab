@@ -1,0 +1,7 @@
+namespace: openshift-gitops
+
+resources:
+  #- openshift-gitops-extended-clusterrole.yaml
+  - openshift-gitops-admins-group.yaml
+  - openshift-gitops-extended-clusterrolebinding.yaml
+  - argocd.yaml
