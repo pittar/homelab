@@ -1,2 +1,2 @@
 resources:
-  - ../../gitops/argocd/lusters/homelab/bootstrap
+  - ../../gitops/argocd/clusters/homelab/bootstrap
