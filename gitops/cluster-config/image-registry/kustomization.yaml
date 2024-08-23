@@ -1,0 +1,3 @@
+resources:
+  - registry-storage-pvc.yaml
+  - image-registry-config.yaml
