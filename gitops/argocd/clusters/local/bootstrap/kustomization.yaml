@@ -1,0 +1,5 @@
+namespace: openshift-gitops
+
+resources:
+  - bootstrap-project.yaml
+  - bootstrap-application.yaml

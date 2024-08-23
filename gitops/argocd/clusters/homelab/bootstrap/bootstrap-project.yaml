@@ -2,7 +2,7 @@ kind: AppProject
 apiVersion: argoproj.io/v1alpha1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-wave: "0"
   name: cluster-bootstrap
   namespace: openshift-gitops
 spec:
