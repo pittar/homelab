@@ -1,0 +1,14 @@
+namespace: cert-manager
+
+resources:
+  - namespace.yaml
+  - le-clusterissuer.yaml
+
+secretGenerator:
+  - name: route53-creds
+    behavior: replace
+    envs:
+      - ../../files/route53.env
+
+generatorOptions:
+  disableNameSuffixHash: true
