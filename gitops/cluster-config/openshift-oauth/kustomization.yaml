@@ -1,13 +1,2 @@
-# resources:
-#   - namespace.yaml
-#   - le-clusterissuer.yaml
-
-secretGenerator:
-  - name: htpass-secret
-    namespace: openshift-config
-    behavior: replace
-    files:
-      - htpasswd=users.secret
-
-generatorOptions:
-  disableNameSuffixHash: true
+resources:
+  - htpasswd-external-secret.yaml
