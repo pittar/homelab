@@ -1,0 +1,3 @@
+resources:
+  - homelab-admins-group.yaml
+  - homelab-admins-clusterrolebinding.yaml
