@@ -1,0 +1,10 @@
+namespace: openshift-gitops
+
+resources:
+  - cluster-config-project.yaml
+  - ../../../cluster-config/external-secrets-operator
+  - ../../../cluster-config/openshift-oauth
+  - ../../../cluster-config/groups-and-membership
+#  - ../../../02-cluster-config/03-cluster-monitoring
+
+
