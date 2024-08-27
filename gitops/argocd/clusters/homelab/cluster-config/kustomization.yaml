@@ -2,6 +2,7 @@ namespace: openshift-gitops
 
 resources:
   - cluster-config-project.yaml
+  - ../../../cluster-config/openshift-gitops/cluster
   - ../../../cluster-config/image-registry
   - ../../../cluster-config/external-secrets-operator
   - ../../../cluster-config/openshift-oauth
