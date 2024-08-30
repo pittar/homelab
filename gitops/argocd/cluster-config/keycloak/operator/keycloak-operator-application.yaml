@@ -12,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: gitops/cluster-config/keycloak/operator
+    path: gitops/cluster-config/keycloak/operator/overlays/stable-v24
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:
