@@ -7,6 +7,7 @@ resources:
   - ../../../cluster-config/external-secrets-operator
   - ../../../cluster-config/openshift-oauth
   - ../../../cluster-config/groups-and-membership
+  - ../../../cluster-config/keycloak/operator
 #  - ../../../02-cluster-config/03-cluster-monitoring
 
 
