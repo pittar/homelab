@@ -1,3 +1,4 @@
 resources:
   - htpasswd-external-secret.yaml
+  - entraid-external-secret.yaml
   - oauth-config.yaml
