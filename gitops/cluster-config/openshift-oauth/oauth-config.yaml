@@ -22,7 +22,7 @@ spec:
           name: entraid
         claims: 
           preferredUsername:
-            - preferred_username
+            - email
           name:
             - name
           email:
