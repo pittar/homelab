@@ -13,3 +13,18 @@ spec:
       htpasswd:
         fileData:
           name: htpasswd
+    - name: EntraID 
+      mappingMethod: claim 
+      type: OpenID
+      openID:
+        clientID: c1231ba3-11eb-4158-9674-f287ea9da85a
+        clientSecret: 
+          name: entraid
+        claims: 
+          preferredUsername:
+            - preferred_username
+          name:
+            - name
+          email:
+            - email
+        issuer: https://login.microsoftonline.com/3b07ae55-7c3f-44ea-b8bd-03230c8aef4d/v2.0
