@@ -1,0 +1,6 @@
+namespace: keycloak
+
+resources:
+  - postgresql-pvc.yaml
+  - postgresql-statefulset.yaml
+  - postgresql-svc.yaml
