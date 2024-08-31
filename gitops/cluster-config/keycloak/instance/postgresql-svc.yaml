@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "3"
-  name: postgresql-data
+  name: postgresql-db
 spec:
   selector:
     app: postgresql-db

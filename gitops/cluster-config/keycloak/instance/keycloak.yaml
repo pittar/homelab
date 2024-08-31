@@ -1,0 +1,23 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  name: keycloak
+spec:
+  instances: 1
+  db:
+    vendor: postgres
+    host: postgresql-db
+    usernameSecret:
+      name: keycloak-creds
+      key: POSTGRESQL_USER
+    passwordSecret:
+      name: keycloak-creds
+      key: POSTGRESQL_PASSWORD
+  http:
+    tlsSecret: keycloak-cert
+  hostname:
+    hostname: keycloak.apps.lab.pitt.ca
+  proxy:
+    headers: xforwarded # double check your reverse proxy sets and overwrites the X-Forwarded-* headers
