@@ -23,3 +23,10 @@ spec:
     hostname: keycloak.apps.lab.pitt.ca
   proxy:
     headers: xforwarded # double check your reverse proxy sets and overwrites the X-Forwarded-* headers
+  resources:
+    requests:
+      cpu: 500m
+      memory: 896Mi
+    limits:
+      cpu: 2
+      memory: 2Gi
