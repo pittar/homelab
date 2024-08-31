@@ -1,6 +1,7 @@
 namespace: keycloak
 
 resources:
+  - keycloak-certificate.yaml
   - postgresql-pvc.yaml
   - postgresql-statefulset.yaml
   - postgresql-svc.yaml
