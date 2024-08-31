@@ -15,6 +15,8 @@ spec:
     passwordSecret:
       name: keycloak-creds
       key: POSTGRESQL_PASSWORD
+  ingress:
+    className: openshift-default
   http:
     tlsSecret: keycloak-cert
   hostname:
