@@ -51,7 +51,7 @@ spec:
               value: keycloakpass
             - name: PGDATA
               value: /data/pgdata
-            - name: POSTGRES_DB
+            - name: POSTGRES_DATABASE
               value: keycloak
       volumes:
       - name: postgresql-data
