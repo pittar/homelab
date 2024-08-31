@@ -45,14 +45,16 @@ spec:
             - mountPath: /data
               name: postgresql-data
           env:
-            - name: POSTGRES_USER
+            - name: POSTGRESQL_USER
               value: keycloakuser
-            - name: POSTGRES_PASSWORD
+            - name: POSTGRESQL_PASSWORD
               value: keycloakpass
             - name: PGDATA
               value: /data/pgdata
-            - name: POSTGRES_DATABASE
+            - name: POSTGRESQL_DATABASE
               value: keycloak
+            - name: POSTGRESQL_ADMIN_PASSWORD
+              value: keycloakadmin
       volumes:
       - name: postgresql-data
         persistentVolumeClaim:
