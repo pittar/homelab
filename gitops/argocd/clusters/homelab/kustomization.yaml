@@ -1,4 +1,4 @@
 resources:
   - cluster-config
-  #- 02-cluster-services
+  - cluster-services
   #- 03-tenants
