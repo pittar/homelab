@@ -3,4 +3,4 @@ commonAnnotations:
 
 resources:
   - operator/overlays/stable-v1.14
-  - instance/route53
+  - instances/route53
