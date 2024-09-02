@@ -2,17 +2,17 @@ kind: Application
 apiVersion: argoproj.io/v1alpha1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "20"
+    argocd.argoproj.io/sync-wave: "21"
   labels:
     gitops.ownedBy: openshift-gitops
-  name: external-secrets-operator
+  name: cert-manager
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: gitops/cluster-config/external-secrets-operator
+    path: gitops/cluster-config/cert-manager
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:

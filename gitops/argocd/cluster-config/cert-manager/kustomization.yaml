@@ -1,0 +1,4 @@
+namespace: openshift-gitops
+
+resources:
+  - cert-manager-application.yaml
