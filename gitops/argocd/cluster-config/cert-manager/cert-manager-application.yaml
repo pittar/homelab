@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "21"
   labels:
     gitops.ownedBy: openshift-gitops
+    app.type: operator
   name: cert-manager
 spec:
   destination:

@@ -3,6 +3,9 @@ apiVersion: argoproj.io/v1alpha1
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+  labels:
+    gitops.ownedBy: openshift-gitops
+    app.type: bootstrap
   name: cluster-bootstrap
 spec:
   destination:

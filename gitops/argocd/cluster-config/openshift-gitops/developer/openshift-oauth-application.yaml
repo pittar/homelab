@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "22"
   labels:
     gitops.ownedBy: openshift-gitops
+    app.type: operator-instance
   name: openshift-oauth-config
 spec:
   destination:

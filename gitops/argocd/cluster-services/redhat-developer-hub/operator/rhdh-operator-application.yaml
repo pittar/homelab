@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "300"
   labels:
     gitops.ownedBy: openshift-gitops
+    app.type: operator
   name: rhdh-operator
 spec:
   destination:

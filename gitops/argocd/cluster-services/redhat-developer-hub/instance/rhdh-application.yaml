@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "301"
   labels:
     gitops.ownedBy: openshift-gitops
+    app.type: operator-instance
   name: keycloak
 spec:
   destination:
