@@ -1,0 +1,8 @@
+namespace: rhdh
+
+resources:
+  - ../../base
+  - read-only-clusterrolebinding.yaml
+  - app-config-rhdh.yaml
+  - dynamic-plugins-rhdh.yaml
+  - backstage.yaml

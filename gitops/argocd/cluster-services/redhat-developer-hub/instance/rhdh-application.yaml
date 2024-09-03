@@ -6,14 +6,14 @@ metadata:
   labels:
     gitops.ownedBy: openshift-gitops
     app.type: operator-instance
-  name: keycloak
+  name: rhdh
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: gitops/cluster-config/redhat-developer-hub/instance
+    path: gitops/cluster-config/redhat-developer-hub/instance/overlays/github
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:

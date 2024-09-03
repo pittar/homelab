@@ -1,0 +1,95 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: app-config-rhdh
+data:
+  app-config-rhdh.yaml: |
+    app:
+      title: Super Duper IDP
+      baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
+      
+    auth:
+      providers:
+        guest:
+          dangerouslyAllowOutsideDevelopment: true
+
+    # integrations:
+    #   gitea:
+    #     - host: gitea-scm.apps.cluster-w8rdk.w8rdk.sandbox848.opentlc.com
+    #       username: ${GITEA_USERNAME}
+    #       password: ${GITEA_PASSWORD}
+
+
+    # argocd:
+    #   waitCycles: 25
+    #   secure: false
+    #   projectSettings:
+    #     # Sets the allowed resources at the cluster level
+    #     clusterResourceWhitelist:
+    #       - group: '*'
+    #         kind: '*'
+    #     # Sets the allowed resources at the namespace level
+    #     namespaceResourceWhitelist:
+    #       - group: '*'
+    #         kind: '*'
+    #   appLocatorMethods:
+    #     - type: 'config'
+    #       instances:
+    #         - name: openshift-gitops
+    #           url: https://openshift-gitops-server-openshift-gitops.apps.lab.pitt.ca
+    #           username: ${ARGOCD_ADMIN_USER}
+    #           password: ${ARGOCD_ADMIN_PASSWORD}
+
+    # catalog:
+    #     rules:
+    #       - allow: [Component, System, Group, Resource, Location, Template, API]
+    #     locations:
+    #       - type: url
+    #         target: https://gitea-scm.apps.cluster-w8rdk.w8rdk.sandbox848.opentlc.com/developer/rhdh-build-an-idp/src/branch/main/gpts/demo-templates.yaml
+  
+    techdocs:
+      builder: 'local'
+      generators:
+        runIn: 'local'
+      publisher:
+        type: 'local'
+
+    backend:
+      auth:
+        keys:
+          - secret: ${BACKEND_AUTH_SECRET}
+      baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
+      cors:
+        origin: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
+
+    # kubernetes:
+    #   clusterLocatorMethods:
+    #     - clusters:
+    #       - authProvider: serviceAccount
+    #         name: ${K8S_CLUSTER_NAME}
+    #         serviceAccountToken: ${K8S_CLUSTER_TOKEN}
+    #         url: ${K8S_CLUSTER_URL}
+    #         skipTLSVerify: true
+    #         skipMetricsLookup: true
+    #       type: config
+    #   customResources:
+    #     - group: 'tekton.dev'
+    #       apiVersion: 'v1beta1'
+    #       plural: 'pipelines'
+    #     - group: 'tekton.dev'
+    #       apiVersion: 'v1beta1'
+    #       plural: 'pipelineruns'
+    #     - group: 'tekton.dev'
+    #       apiVersion: 'v1beta1'
+    #       plural: 'taskruns'
+    #     - group: 'route.openshift.io'
+    #       apiVersion: 'v1'
+    #       plural: 'routes'
+    #   serviceLocatorMethod:
+    #       type: multiTenant
+
+    # enabled:
+    #   argocd: true
+    #   gitea: true
+    #   techdocs: true
+    #   kubernetes: true
