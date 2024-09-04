@@ -12,6 +12,7 @@ spec:
   applicationInstanceLabelKey: argocd.argoproj.io/instance
   server:
     insecure: true
+    host: https://openshift-gitops-server-openshift-gitops.apps.lab.pitt.ca
     route:
       enabled: true
       tls:
