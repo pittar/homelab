@@ -2,8 +2,8 @@ namespace: openshift-gitops
 
 resources:
   - cluster-services-project.yaml
-  - ../../../cluster-services/redhat-developer-hub/operator
-  - ../../../cluster-services/redhat-developer-hub/instance
+  # - ../../../cluster-services/redhat-developer-hub/operator
+  # - ../../../cluster-services/redhat-developer-hub/instance
 
 
 

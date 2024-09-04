@@ -1,6 +1,8 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
   name: dynamic-plugins-rhdh
 data:
   dynamic-plugins.yaml: |
