@@ -1,4 +1,4 @@
 namespace: openshift-gitops
 
 resources:
-  - groups-and-membership-application.yaml
+  - custom-roles-application.yaml
