@@ -1,2 +1,2 @@
 resources:
-  - secrets-reader.yaml
+  - secrets-reader-cr.yaml
