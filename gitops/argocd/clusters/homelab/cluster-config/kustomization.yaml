@@ -6,6 +6,8 @@ resources:
   - ../../../cluster-config/external-secrets-operator
   - ../../../cluster-config/cert-manager
   - ../../../cluster-config/openshift-gitops/cluster
+  - ../../../cluster-config/openshift-storage/operator
+  - ../../../cluster-config/openshift-storage/mcg
   - ../../../cluster-config/image-registry
   - ../../../cluster-config/openshift-oauth
   - ../../../cluster-config/groups-and-membership

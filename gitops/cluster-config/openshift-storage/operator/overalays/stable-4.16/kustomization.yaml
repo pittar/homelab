@@ -1,0 +1,17 @@
+namespace: openshift-storage
+
+commonAnnotations:
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
+resources:
+  - ../../base
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/channel
+        value: 'stable-v4.16'
+    target:
+      kind: Subscription
+      name: odf-operator
+      namespace: openshift-storage
