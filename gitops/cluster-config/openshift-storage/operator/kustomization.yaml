@@ -1,0 +1,9 @@
+namespace: openshift-storage
+
+commonAnnotations:
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
+resources:
+  - namespace.yaml.yaml
+  - operatorgroup.yaml
+  - subscription.yaml

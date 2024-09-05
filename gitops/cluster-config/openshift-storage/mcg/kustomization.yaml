@@ -1,0 +1,7 @@
+namespace: openshift-storage
+
+commonAnnotations:
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
+resources:
+  - mcg.yaml
