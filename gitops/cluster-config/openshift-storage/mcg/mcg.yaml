@@ -30,3 +30,25 @@ spec:
     dbStorageClassName: lvms-vg1
     reconcileStrategy: standalone
     disableLoadBalancerService: true
+  resources:
+    noobaa-core:
+      limits:
+        cpu: "2"
+        memory: "4Gi"
+      requests:
+        cpu: "1"
+        memory: "2Gi"
+    noobaa-db:
+      limits:
+        cpu: "2"
+        memory: "2Gi"
+      requests:
+        cpu: "1"
+        memory: "2Gi"
+    noobaa-endpoint:
+      limits:
+        cpu: "2"
+        memory: 4Gi
+      requests:
+        cpu: "1"
+        memory: 2Gi
