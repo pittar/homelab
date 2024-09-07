@@ -7,3 +7,4 @@ resources:
   - postgresql-statefulset.yaml
   - postgresql-svc.yaml
   - keycloak.yaml
+  - consolelink.yaml
