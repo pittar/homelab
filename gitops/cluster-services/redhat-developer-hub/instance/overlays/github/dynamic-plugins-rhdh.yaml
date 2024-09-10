@@ -21,3 +21,7 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-tekton
         disabled: false
+      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-analytics-provider-segment 
+        disabled: false
+      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-keycloak-backend-dynamic 
+        disabled: false

@@ -1,0 +1,21 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: app-config-rhdh
+data:
+  app-config-rhdh.yaml: |
+    app:
+      title: Pitt Lab IDP
+      baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
+    
+    auth:
+      providers:
+        guest:
+          dangerouslyAllowOutsideDevelopment: true
+
+    backend:
+      baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
+      cors:
+        origin: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
