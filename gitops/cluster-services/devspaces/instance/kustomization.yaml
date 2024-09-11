@@ -1,0 +1,4 @@
+namespace: openshift-devspaces
+
+resources:
+  - subscription.yaml
