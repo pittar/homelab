@@ -1,4 +1,5 @@
 namespace: openshift-devspaces
 
 resources:
-  - subscription.yaml
+  - namespace.yaml
+  - checluster.yaml

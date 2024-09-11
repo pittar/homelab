@@ -1,4 +1,4 @@
 namespace: openshift-gitops
 
 resources:
-  - rhdh-application.yaml
+  - devspaces-application.yaml
