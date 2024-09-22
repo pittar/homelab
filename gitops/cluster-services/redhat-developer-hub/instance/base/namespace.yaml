@@ -5,4 +5,5 @@ metadata:
     openshift.io/display-name: "Red Hat Developer Hub"
   labels:
     argocd.argoproj.io/managed-by: openshift-gitops
+    insights_cost_management_optimizations: "true"
   name: rhdh
