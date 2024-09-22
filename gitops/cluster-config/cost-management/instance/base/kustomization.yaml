@@ -1,0 +1,4 @@
+namespace: costmanagement-metrics-operator
+
+resources:
+  - costmanagementmetrics.yaml

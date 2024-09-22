@@ -13,6 +13,8 @@ resources:
   - ../../../cluster-config/groups-and-membership
   - ../../../cluster-config/keycloak/operator
   - ../../../cluster-config/keycloak/instance
+  - ../../../cluster-config/cost-management/operator
+  - ../../../cluster-config/cost-management/instance
 #  - ../../../02-cluster-config/03-cluster-monitoring
 
 
