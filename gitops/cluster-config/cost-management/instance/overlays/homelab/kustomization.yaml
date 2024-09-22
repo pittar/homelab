@@ -1,7 +1,7 @@
 namespace: costmanagement-metrics-operator
 
 resources:
-  - ../../base/instance
+  - ../../base
 
 patches:
   - patch: |-
