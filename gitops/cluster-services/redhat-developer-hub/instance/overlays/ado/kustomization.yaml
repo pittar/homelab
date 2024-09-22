@@ -4,6 +4,8 @@ resources:
   - ../../base
   - ado-creds-external-secret.yaml
   - read-only-clusterrolebinding.yaml
+  - secret-job-clusterrolebinding.yaml
+  - secret-job.yaml
   - app-config-rhdh.yaml
   - dynamic-plugins-rhdh.yaml
   - backstage.yaml
