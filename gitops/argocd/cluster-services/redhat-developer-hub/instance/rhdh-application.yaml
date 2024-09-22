@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: gitops/cluster-services/redhat-developer-hub/instance/overlays/basic
+    path: gitops/cluster-services/redhat-developer-hub/instance/overlays/ado
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:
