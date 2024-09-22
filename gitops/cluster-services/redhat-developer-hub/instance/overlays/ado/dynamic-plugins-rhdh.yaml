@@ -27,7 +27,7 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-azure-devops-backend-dynamic 
         disabled: false
-      - package: ./dynamic-plugins/dist/parfuemerie-douglas-scaffolder-backend-module-azure-repositories
-        disabled: false
+      # - package: ./dynamic-plugins/dist/parfuemerie-douglas-scaffolder-backend-module-azure-repositories
+      #   disabled: false
       # - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-keycloak-backend-dynamic 
       #   disabled: false

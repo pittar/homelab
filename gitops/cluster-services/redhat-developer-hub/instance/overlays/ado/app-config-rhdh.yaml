@@ -15,6 +15,24 @@ data:
         guest:
           dangerouslyAllowOutsideDevelopment: true
 
+    azureDevOps:
+      host: dev.azure.com
+      token: ${PERSONAL_ACCESS_TOKEN}
+      organization: pittar-demos
+
+    integrations:
+      azure:
+        - host: dev.azure.com
+          credentials:
+            - personalAccessToken: ${PERSONAL_ACCESS_TOKEN}
+
+    catalog:
+      rules:
+        - allow: [Component, System, Group, Resource, Location, Template, API]
+      locations:
+        - type: url
+          target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/showcase-templates.yaml
+
     # auth:
     #   environment: production
     #   session:
