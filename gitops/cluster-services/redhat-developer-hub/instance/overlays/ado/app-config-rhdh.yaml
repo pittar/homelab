@@ -15,6 +15,52 @@ data:
         guest:
           dangerouslyAllowOutsideDevelopment: true
 
+    argocd:
+      waitCycles: 25
+      secure: false
+      projectSettings:
+        # Sets the allowed resources at the cluster level
+        clusterResourceWhitelist:
+          - group: '*'
+            kind: '*'
+        # Sets the allowed resources at the namespace level
+        namespaceResourceWhitelist:
+          - group: '*'
+            kind: '*'
+      appLocatorMethods:
+        - type: 'config'
+          instances:
+            - name: openshift-gitops
+              url: https://openshift-gitops-server-openshift-gitops.apps-crc.testing
+              username: ${ARGOCD_ADMIN_USER}
+              password: ${ARGOCD_ADMIN_PASSWORD}
+
+    kubernetes:
+      clusterLocatorMethods:
+        - clusters:
+          - authProvider: serviceAccount
+            name: ${K8S_CLUSTER_NAME}
+            serviceAccountToken: ${K8S_CLUSTER_TOKEN}
+            url: ${K8S_CLUSTER_URL}
+            skipTLSVerify: true
+            skipMetricsLookup: true
+          type: config
+      customResources:
+        - group: 'tekton.dev'
+          apiVersion: 'v1beta1'
+          plural: 'pipelines'
+        - group: 'tekton.dev'
+          apiVersion: 'v1beta1'
+          plural: 'pipelineruns'
+        - group: 'tekton.dev'
+          apiVersion: 'v1beta1'
+          plural: 'taskruns'
+        - group: 'route.openshift.io'
+          apiVersion: 'v1'
+          plural: 'routes'
+      serviceLocatorMethod:
+          type: multiTenant
+
     azureDevOps:
       host: dev.azure.com
       token: ${PERSONAL_ACCESS_TOKEN}
