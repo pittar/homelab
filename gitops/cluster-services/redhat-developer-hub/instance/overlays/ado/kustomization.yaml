@@ -1,0 +1,9 @@
+namespace: rhdh
+
+resources:
+  - ../../base
+  - ado-creds-external-secret.yaml
+  - read-only-clusterrolebinding.yaml
+  - app-config-rhdh.yaml
+  - dynamic-plugins-rhdh.yaml
+  - backstage.yaml

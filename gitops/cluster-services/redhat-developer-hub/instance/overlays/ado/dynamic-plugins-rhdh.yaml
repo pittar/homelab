@@ -1,0 +1,27 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+  name: dynamic-plugins-rhdh
+data:
+  dynamic-plugins.yaml: |
+    includes:
+      - dynamic-plugins.default.yaml
+    plugins:
+      - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd
+        disabled: false
+      - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
+        disabled: false
+      - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
+        disabled: false
+      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
+        disabled: false
+      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
+        disabled: false
+      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-tekton
+        disabled: false
+      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-analytics-provider-segment 
+        disabled: false
+      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-keycloak-backend-dynamic 
+        disabled: false
