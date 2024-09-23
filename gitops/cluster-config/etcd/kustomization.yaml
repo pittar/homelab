@@ -1,0 +1,5 @@
+namespace: openshift-etcd
+
+resources:
+  - sa-rbac.yaml
+  - defrag-cronjob.yaml
