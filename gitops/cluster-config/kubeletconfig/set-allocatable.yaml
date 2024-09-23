@@ -10,4 +10,4 @@ spec:
   kubeletConfig:
     systemReserved:
       cpu: 500m        # change the CPU if needed
-      memory: 1512Mi   # change the memory if needed
+      memory: 2148Mi   # change the memory if needed
