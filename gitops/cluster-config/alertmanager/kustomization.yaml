@@ -1,0 +1,4 @@
+namespace: openshift-monitoring
+
+resources:
+  - alertmanager-main-externalsecret.yaml
