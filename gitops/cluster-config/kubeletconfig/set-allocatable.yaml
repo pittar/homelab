@@ -6,7 +6,7 @@ metadata:
 spec:
   machineConfigPoolSelector:
     matchLabels:
-      pools.operator.machineconfiguration.openshift.io/worker: ""  # change the label to find the nodes with heavy workload
+      pools.operator.machineconfiguration.openshift.io/master: ""  # change the label to find the nodes with heavy workload
   kubeletConfig:
     systemReserved:
       cpu: 500m        # change the CPU if needed
