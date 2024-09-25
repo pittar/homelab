@@ -1,0 +1,4 @@
+namespace: openshift-gitops
+
+resources:
+  - rhsso-operator-application.yaml
