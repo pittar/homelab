@@ -4,3 +4,4 @@ metadata:
   name: homelab-cluster-admins
 users:
   - admin
+  - andrew.pitt@gmail.com
