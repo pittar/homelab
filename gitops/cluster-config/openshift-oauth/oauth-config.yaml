@@ -20,6 +20,10 @@ spec:
         clientID: c1231ba3-11eb-4158-9674-f287ea9da85a
         clientSecret: 
           name: entraid
+        extraScopes: 
+          - profile
+          - openid
+          - email
         claims: 
           preferredUsername:
             - preferred_username
