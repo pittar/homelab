@@ -1,0 +1,4 @@
+namespace: openshift-cnv
+
+resources:
+  - hyperconverged.yaml

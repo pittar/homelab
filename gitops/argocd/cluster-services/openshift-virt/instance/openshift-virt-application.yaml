@@ -2,7 +2,7 @@ kind: Application
 apiVersion: argoproj.io/v1alpha1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "310"
+    argocd.argoproj.io/sync-wave: "399"
   labels:
     gitops.ownedBy: openshift-gitops
     app.type: operator-instance
