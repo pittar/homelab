@@ -1,0 +1,4 @@
+namespace: openshift-gitops
+
+resources:
+  - openshift-virt-application.yaml

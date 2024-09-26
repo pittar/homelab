@@ -1,0 +1,6 @@
+namespace: openshift-cnv
+
+resources:
+  - namespace.yaml
+  - operator-group.yaml
+  - subscription.yaml
