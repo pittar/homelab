@@ -1,4 +1,4 @@
 namespace: openshift-gitops
 
 resources:
-  - openshift-virt-application.yaml
+  - openshift-virt-operator-application.yaml
