@@ -9,3 +9,4 @@ resources:
   - ../../../cluster-services/devspaces/operator
   - ../../../cluster-services/devspaces/instance
   - ../../../cluster-services/openshift-virt/operator
+  - ../../../cluster-services/openshift-virt/instance
