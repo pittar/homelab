@@ -3,7 +3,8 @@ kind: Certificate
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: apps-wildcard-cert 
+  name: apps-wildcard-cert
+  namespace: openshift-ingress
 spec:
   isCA: false
   commonName: "apps.lab.pitt.ca" 

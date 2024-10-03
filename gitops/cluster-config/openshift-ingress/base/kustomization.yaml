@@ -1,4 +1,2 @@
-namespace: openshift-ingress
-
 resources:
   - ingress-controller.yaml
