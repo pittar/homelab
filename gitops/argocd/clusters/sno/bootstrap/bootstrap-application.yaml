@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-bootstrap
   source:
-    path: gitops/argocd/clusters/homelab
+    path: gitops/argocd/clusters/sno
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:
