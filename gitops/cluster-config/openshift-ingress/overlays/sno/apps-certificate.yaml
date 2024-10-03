@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: apps-wildcard-cert 
+spec:
+  isCA: false
+  commonName: "apps.sno.pitt.ca" 
+  secretName: apps-wildcard-cert 
+  dnsNames:
+  - "apps.sno.pitt.ca" 
+  - "*.apps.sno.pitt.ca" 
+  issuerRef:
+    name: letsencrypt-prod 
+    kind: ClusterIssuer

@@ -1,0 +1,16 @@
+namespace: openshift-gitops
+
+resources:
+  - ../../base
+
+patches:
+- patch: |-
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: openshift-ingress-config
+    spec:
+      template:
+        spec:
+          source:
+            path: gitops/cluster-config/openshift-ingress/overlays/homelab

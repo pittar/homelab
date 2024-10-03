@@ -1,0 +1,5 @@
+namespace: openshift-ingress
+
+resources:
+  - ../../base
+  - apps-certificate.yaml

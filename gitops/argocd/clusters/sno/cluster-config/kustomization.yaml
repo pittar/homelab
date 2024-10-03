@@ -3,6 +3,7 @@ namespace: openshift-gitops
 resources:
   - cluster-config-project.yaml
   - ../../../cluster-config/external-secrets-operator
+  - ../../../cluster-config/openshift-ingress/overlays/sno
   - ../../../cluster-config/kubeletconfig
   # Etcd defrag cronjob only needed for SNO
   - ../../../cluster-config/etcd
