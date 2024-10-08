@@ -11,7 +11,7 @@ resources:
   - ../../../cluster-config/custom-roles
   - ../../../cluster-config/cert-manager
   - ../../../cluster-config/openshift-gitops/cluster
-  # - ../../../cluster-config/image-registry
+  - ../../../cluster-config/image-registry
   - ../../../cluster-config/openshift-oauth/overlays/sno
   - ../../../cluster-config/groups-and-membership
   # - ../../../cluster-config/cost-management/operator
