@@ -9,6 +9,7 @@ spec:
   managementState: Managed
   rolloutStrategy: Recreate
   replicas: 1
+  defaultRoute: true
   storage:
     managementState: Managed
     pvc:
