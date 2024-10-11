@@ -1,0 +1,16 @@
+namespace: costmanagement-metrics-operator
+
+resources:
+  - ../../base
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/source/name
+        value: 'SNO - i5'
+    target:
+      group: costmanagement-metrics-cfg.openshift.io
+      version: v1beta1
+      kind: CostManagementMetricsConfig
+      name: costmanagementmetrics
+      namespace: costmanagement-metrics-operator

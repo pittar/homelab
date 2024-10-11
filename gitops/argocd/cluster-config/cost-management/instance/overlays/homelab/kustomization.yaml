@@ -1,0 +1,14 @@
+namespace: openshift-gitops
+
+resources:
+  - ../../base
+
+patches:
+- patch: |-
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: cost-management
+    spec:
+      source:
+        path: gitops/cluster-config/cost-management/instance/overlays/homelab

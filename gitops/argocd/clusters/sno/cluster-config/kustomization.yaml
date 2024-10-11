@@ -14,8 +14,8 @@ resources:
   - ../../../cluster-config/image-registry
   - ../../../cluster-config/openshift-oauth/overlays/sno
   - ../../../cluster-config/groups-and-membership
-  # - ../../../cluster-config/cost-management/operator
-  # - ../../../cluster-config/cost-management/instance
+  - ../../../cluster-config/cost-management/operator
+  - ../../../cluster-config/cost-management/instance/overlays/sno
 #  - ../../../02-cluster-config/03-cluster-monitoring
 
 
