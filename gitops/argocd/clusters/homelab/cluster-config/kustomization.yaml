@@ -2,26 +2,40 @@ namespace: openshift-gitops
 
 resources:
   - cluster-config-project.yaml
-  - ../../../cluster-config/kubeletconfig
-  # Etcd defrag cronjob only needed for SNO
-  - ../../../cluster-config/etcd
-  - ../../../cluster-config/alertmanager
+  # Custom roles, including GitOps admin.
   - ../../../cluster-config/custom-roles
-  - ../../../cluster-config/external-secrets-operator
-  - ../../../cluster-config/cert-manager
-  - ../../../cluster-config/openshift-ingress/overlays/homelab
+  - ../../../cluster-config/groups-and-membership
+  # Custom config for OpenShift GitOps.
   - ../../../cluster-config/openshift-gitops/cluster
+  # External Secrets - needed to bootstrap a lot of other services.
+  - ../../../cluster-config/external-secrets-operator
+  # Cert-Manager for ingress/api/keycloak certs.
+  - ../../../cluster-config/cert-manager
+  # Update auth with proper login options.
+  - ../../../cluster-config/openshift-oauth/overlays/homelab
+
+  # Update ingress (*.apps) with good wildcard cert.
+  - ../../../cluster-config/openshift-ingress/overlays/homelab
+  # Configure the image registry (add PVC)
+  - ../../../cluster-config/image-registry
+  # Configure AlertManager.
+  - ../../../cluster-config/alertmanager
+  # Object Storage - Multicloud Object Gateway
   - ../../../cluster-config/openshift-storage/operator
   - ../../../cluster-config/openshift-storage/mcg
-  - ../../../cluster-config/image-registry
-  - ../../../cluster-config/openshift-oauth
-  - ../../../cluster-config/groups-and-membership
-  # - ../../../cluster-config/keycloak/operator
-  # - ../../../cluster-config/keycloak/instance
+  # Enable Cost Management.
   - ../../../cluster-config/cost-management/operator
   - ../../../cluster-config/cost-management/instance/overlays/homelab
 #  - ../../../02-cluster-config/03-cluster-monitoring
+  # Etcd defrag cronjob only needed for SNO
+  - ../../../cluster-config/etcd
+  # Give kubelet more resources.
+  - ../../../cluster-config/kubeletconfig
 
+
+
+  # - ../../../cluster-config/keycloak/operator
+  # - ../../../cluster-config/keycloak/instance
 
 
 
