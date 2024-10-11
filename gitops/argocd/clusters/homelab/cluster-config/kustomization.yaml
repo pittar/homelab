@@ -9,6 +9,7 @@ resources:
   - ../../../cluster-config/custom-roles
   - ../../../cluster-config/external-secrets-operator
   - ../../../cluster-config/cert-manager
+  - ../../../cluster-config/openshift-ingress/overlays/sno
   - ../../../cluster-config/openshift-gitops/cluster
   - ../../../cluster-config/openshift-storage/operator
   - ../../../cluster-config/openshift-storage/mcg
