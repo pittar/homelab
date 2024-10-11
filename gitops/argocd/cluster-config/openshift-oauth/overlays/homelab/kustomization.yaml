@@ -1,4 +1,14 @@
 namespace: openshift-gitops
 
 resources:
-  - openshift-oauth-application.yaml
+  - ../../base
+
+patches:
+- patch: |-
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: openshift-oauth-config
+    spec:
+      source:
+        path: gitops/cluster-config/openshift-oauth/overlays/homelab
