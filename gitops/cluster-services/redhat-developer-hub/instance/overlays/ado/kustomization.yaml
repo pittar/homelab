@@ -7,5 +7,5 @@ resources:
   - secret-job.yaml
   - app-config-rhdh.yaml
   - dynamic-plugins-rhdh.yaml
-  - plugins-pvc.yaml
+  # - plugins-pvc.yaml
   - backstage.yaml
