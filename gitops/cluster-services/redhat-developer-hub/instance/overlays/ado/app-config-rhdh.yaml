@@ -71,6 +71,8 @@ data:
 
     auth:
       environment: production
+      session:
+        secret: abc123
       providers:
         oidc:
           production:
