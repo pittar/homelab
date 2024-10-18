@@ -66,19 +66,19 @@ data:
       token: ${PERSONAL_ACCESS_TOKEN}
       organization: pittar-demos
 
-    integrations:
-      azure:
-        - host: dev.azure.com
-          credentials:
-            - clientId: ${AZURE_CLIENT_ID}
-              clientSecret: ${AZURE_CLIENT_SECRET}
-              tenantId: ${AZURE_TENANT_ID}
-
     # integrations:
     #   azure:
     #     - host: dev.azure.com
     #       credentials:
-    #         - personalAccessToken: ${PERSONAL_ACCESS_TOKEN}
+    #         - clientId: ${AZURE_CLIENT_ID}
+    #           clientSecret: ${AZURE_CLIENT_SECRET}
+    #           tenantId: ${AZURE_TENANT_ID}
+
+    integrations:
+      azure:
+        - host: dev.azure.com
+          credentials:
+            - personalAccessToken: ${PERSONAL_ACCESS_TOKEN}
 
     catalog:
       rules:
