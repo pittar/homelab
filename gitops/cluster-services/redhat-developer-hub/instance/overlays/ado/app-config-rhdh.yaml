@@ -76,13 +76,13 @@ data:
       providers:
         oidc:
           production:
-            metadataUrl: ${KEYCLOAK_BASE_URL}/auth/realms/${KEYCLOAK_REALM} #${AUTH_OIDC_METADATA_URL}
+            metadataUrl: ${KEYCLOAK_BASE_URL}/auth/realms/${KEYCLOAK_REALM}/.well-known/openid-configuration
             clientId: ${KEYCLOAK_CLIENT_ID}
             clientSecret: ${KEYCLOAK_CLIENT_SECRET}
 
     catalog:
       rules:
-        - allow: [Component, System, Group, Resource, Location, Template, API]
+        - allow: [Component, System,   Group, Resource, Location, Template, API]
       locations:
         - type: url
           target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/showcase-templates.yaml
