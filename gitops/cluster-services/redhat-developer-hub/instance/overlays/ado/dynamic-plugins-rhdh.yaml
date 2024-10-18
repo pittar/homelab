@@ -11,8 +11,8 @@ data:
     plugins:
       - package: ./dynamic-plugins/dist/backstage-community-plugin-redhat-argocd
         disabled: false
-      - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
-        disabled: false
+      # - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
+      #   disabled: false
       - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
@@ -21,8 +21,8 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-tekton
         disabled: false
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-analytics-provider-segment 
-        disabled: false
+      # - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-analytics-provider-segment 
+      #   disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-azure-devops 
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-azure-devops-backend-dynamic 

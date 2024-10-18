@@ -63,7 +63,7 @@ data:
 
     azureDevOps:
       host: dev.azure.com
-      token: ${PERSONAL_ACCESS_TOKEN}
+      # token: ${PERSONAL_ACCESS_TOKEN}
       organization: pittar-demos
 
     integrations:
