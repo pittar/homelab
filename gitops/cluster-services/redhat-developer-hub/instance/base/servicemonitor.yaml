@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: developer-hub 
+  namespace: rhdh 
+  labels:
+    app.kubernetes.io/instance: developer-hub
+    app.kubernetes.io/name: backstage
+spec:
+  namespaceSelector:
+    matchNames:
+      - rhdh
+  selector:
+    matchLabels:
+      rhdh.redhat.com/app: backstage-developer-hub
+  endpoints:
+  - port: backend
+    path: '/metrics'
