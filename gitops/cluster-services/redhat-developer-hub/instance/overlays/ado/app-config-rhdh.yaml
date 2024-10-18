@@ -72,7 +72,7 @@ data:
     auth:
       environment: production
       session:
-        secret: abc123
+        secret: abc123supers3cr3t
       providers:
         oidc:
           production:
@@ -100,6 +100,9 @@ data:
               initialDelay: { seconds: 15 }
 
     backend:
+      auth:
+        keys:
+          - secret: abc123supers3cr3t
       baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
       cors:
         origin: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
