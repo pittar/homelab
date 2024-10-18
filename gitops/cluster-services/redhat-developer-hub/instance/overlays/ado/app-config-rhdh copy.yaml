@@ -9,6 +9,11 @@ data:
     app:
       title: Home Lab IDP
       baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
+      
+    # auth:
+    #   providers:
+    #     guest:
+    #       dangerouslyAllowOutsideDevelopment: true
 
     argocd:
       waitCycles: 25
@@ -61,22 +66,42 @@ data:
       token: ${PERSONAL_ACCESS_TOKEN}
       organization: pittar-demos
 
+    # integrations:
+    #   azure:
+    #     - host: dev.azure.com
+    #       credentials:
+    #         - clientId: ${AZURE_CLIENT_ID}
+    #           clientSecret: ${AZURE_CLIENT_SECRET}
+    #           tenantId: ${AZURE_TENANT_ID}
+
     integrations:
       azure:
         - host: dev.azure.com
           credentials:
             - personalAccessToken: ${PERSONAL_ACCESS_TOKEN}
 
-    signInPage: oidc
+    # catalog:
+    #   rules:
+    #     - allow: [Component, System, Group, Resource, Location, Template, API]
+    #   locations:
+    #     - type: url
+    #       target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/showcase-templates.yaml
 
     auth:
       environment: production
+      # session:
+      #   secret: ${BACKEND_AUTH_SECRET}
       providers:
         oidc:
           production:
             metadataUrl: ${KEYCLOAK_BASE_URL}/realms/${KEYCLOAK_REALM} #${AUTH_OIDC_METADATA_URL}
             clientId: ${KEYCLOAK_CLIENT_ID}
             clientSecret: ${KEYCLOAK_CLIENT_SECRET}
+            # prompt: ${AUTH_OIDC_PROMPT} 
+            # signIn:
+            #   resolvers:
+            #     - resolver: preferredUsernameMatchingUserEntityName
+    signInPage: oidc
 
     catalog:
       rules:
@@ -97,7 +122,11 @@ data:
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
 
+
     backend:
+      # auth:
+      #   keys:
+      #     - secret: ${BACKEND_AUTH_SECRET}
       baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
       cors:
         origin: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
