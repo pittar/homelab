@@ -15,6 +15,7 @@ spec:
       secrets:
         - name: rhdh-secrets
         - name: ado-secrets
+        - name: rhsso-secret
     replicas: 1
     route:
       enabled: true

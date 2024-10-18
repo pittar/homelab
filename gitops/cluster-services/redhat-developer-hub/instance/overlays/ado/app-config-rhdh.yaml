@@ -10,10 +10,10 @@ data:
       title: Home Lab IDP
       baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
       
-    auth:
-      providers:
-        guest:
-          dangerouslyAllowOutsideDevelopment: true
+    # auth:
+    #   providers:
+    #     guest:
+    #       dangerouslyAllowOutsideDevelopment: true
 
     argocd:
       waitCycles: 25
@@ -87,35 +87,35 @@ data:
         - type: url
           target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/showcase-templates.yaml
 
-    # auth:
-    #   environment: production
-    #   session:
-    #     secret: ${BACKEND_AUTH_SECRET}
-    #   providers:
-    #     oidc:
-    #       production:
-    #         metadataUrl: ${KEYCLOAK_BASE_URL}/realms/${KEYCLOAK_REALM} #${AUTH_OIDC_METADATA_URL}
-    #         clientId: ${KEYCLOAK_CLIENTID}
-    #         clientSecret: ${KEYCLOAK_CLIENTSECRET}
-    #         prompt: ${AUTH_OIDC_PROMPT} 
-    #         signIn:
-    #           resolvers:
-    #             - resolver: preferredUsernameMatchingUserEntityName
-    # signInPage: oidc
+    auth:
+      environment: production
+      # session:
+      #   secret: ${BACKEND_AUTH_SECRET}
+      providers:
+        oidc:
+          production:
+            metadataUrl: ${KEYCLOAK_BASE_URL}/realms/${KEYCLOAK_REALM} #${AUTH_OIDC_METADATA_URL}
+            clientId: ${KEYCLOAK_CLIENT_ID}
+            clientSecret: ${KEYCLOAK_CLIENT_SECRET}
+            # prompt: ${AUTH_OIDC_PROMPT} 
+            # signIn:
+            #   resolvers:
+            #     - resolver: preferredUsernameMatchingUserEntityName
+    signInPage: oidc
 
-    # catalog:
-    #  providers:
-    #    keycloakOrg:
-    #      production:
-    #        baseUrl: ${KEYCLOAK_BASE_URL}
-    #        loginRealm: ${KEYCLOAK_REALM}
-    #        realm: ${KEYCLOAK_REALM}
-    #        clientId: ${KEYCLOAK_CLIENTID}
-    #        clientSecret: ${KEYCLOAK_CLIENTSECRET}
-    #        schedule:
-    #         frequency: { minutes: 1 }
-    #         timeout: { minutes: 1 }
-    #         initialDelay: { seconds: 15 }
+    catalog:
+     providers:
+       keycloakOrg:
+         default:
+           baseUrl: ${KEYCLOAK_BASE_URL}
+           loginRealm: ${KEYCLOAK_REALM}
+           realm: ${KEYCLOAK_REALM}
+           clientId: ${KEYCLOAK_CLIENT_ID}
+           clientSecret: ${KEYCLOAK_CLIENT_SECRET}
+           schedule:
+            frequency: { minutes: 1 }
+            timeout: { minutes: 1 }
+            initialDelay: { seconds: 15 }
 
 
     backend:
