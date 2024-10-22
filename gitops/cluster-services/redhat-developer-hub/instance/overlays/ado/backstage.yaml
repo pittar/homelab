@@ -16,6 +16,9 @@ spec:
         - name: rhdh-secrets
         - name: ado-secrets
         - name: rhsso-secret
+      envs:
+        - name: LOG_LEVEL
+          value: debug
     replicas: 1
     route:
       enabled: true
