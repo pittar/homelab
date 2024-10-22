@@ -93,7 +93,7 @@ data:
       providers:
         keycloakOrg:
           default:
-            baseUrl: ${KEYCLOAK_BASE_URL}/auth
+            baseUrl: ${KEYCLOAK_BASE_URL}/auth/realms/${KEYCLOAK_REALM}
             loginRealm: ${KEYCLOAK_REALM}
             realm: ${KEYCLOAK_REALM}
             clientId: ${KEYCLOAK_CLIENT_ID}
