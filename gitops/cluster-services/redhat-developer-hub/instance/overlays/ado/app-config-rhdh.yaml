@@ -85,11 +85,11 @@ data:
                 - resolver: preferredUsernameMatchingUserEntityName
 
     catalog:
-      # rules:
-      #   - allow: [Component, System,   Group, Resource, Location, Template, API]
-      # locations:
-      #   - type: url
-      #     target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/showcase-templates.yaml
+      rules:
+        - allow: [Component, System,   Group, Resource, Location, Template, API]
+      locations:
+        - type: url
+          target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/showcase-templates.yaml
       providers:
         keycloakOrg:
           default:
