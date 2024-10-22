@@ -84,6 +84,7 @@ data:
               resolvers:
                 - resolver: preferredUsernameMatchingUserEntityName
 
+    dangerouslyAllowSignInWithoutUserInCatalog: true
     catalog:
       rules:
         - allow: [Component, System,   Group, Resource, Location, Template, API]
