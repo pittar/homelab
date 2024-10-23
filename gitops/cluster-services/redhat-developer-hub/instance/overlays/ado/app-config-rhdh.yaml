@@ -105,6 +105,13 @@ data:
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
 
+    permission:
+      enabled: true
+      rbac:
+        admin:
+          users:
+            - name: user:default/homelab-admin
+
     backend:
       auth:
         keys:
