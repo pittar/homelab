@@ -1,0 +1,20 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: rbac-policy
+data:
+  rbac-policy.csv: |
+    # Developer
+    p, role:default/developer, catalog.entity.read, read, allow
+    p, role:default/developer, catalog.location.read, read, allow
+    p, role:default/developer, topology.view.read, read, allow
+    # Team Lead 
+    p, role:default/teamlead, catalog.entity.read, read, allow
+    p, role:default/teamlead, catalog.location.read, read, allow
+    p, role:default/teamlead, topology.view.read, read, allow
+    p, role:default/teamlead, scaffolder.action.execute, use, allow
+    p, role:default/teamlead, scaffolder.template.parameter.read, read, allow
+    p, role:default/teamlead, scaffolder.template.step.read, read, allow
+    p, role:default/teamlead, scaffolder.task.create, create, allow
+    p, role:default/teamlead, scaffolder.task.cancel, use, allow
+    p, role:default/teamlead, scaffolder.task.read, read, allow

@@ -19,18 +19,22 @@ spec:
       envs:
         - name: LOG_LEVEL
           value: debug
+    extraFiles:
+      mountPath: /opt/app-root/src
+      configMaps:
+        - name: rbac-policy
     replicas: 1
     route:
       enabled: true
-  # deployment:
-  #   patch:
-  #     spec:
-  #       template:
-  #         spec:
-  #           volumes:
-  #             - $patch: replace
-  #               name: dynamic-plugins-root
-  #               persistentVolumeClaim:
-  #                 claimName: dynamic-plugins-root
+  deployment:
+    patch:
+      spec:
+        template:
+          spec:
+            volumes:
+              - $patch: replace
+                name: dynamic-plugins-root
+                persistentVolumeClaim:
+                  claimName: dynamic-plugins-root
   database:
     enableLocalDb: true
