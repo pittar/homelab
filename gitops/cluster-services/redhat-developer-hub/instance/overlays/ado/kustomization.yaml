@@ -6,6 +6,7 @@ resources:
   - read-only-clusterrolebinding.yaml
   - secret-job.yaml
   - app-config-rhdh.yaml
+  - rbac-policy-cm.yaml
   - dynamic-plugins-rhdh.yaml
   - plugins-pvc.yaml
   - backstage.yaml
