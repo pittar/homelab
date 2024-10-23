@@ -109,7 +109,7 @@ data:
       enabled: true
       rbac:
         admin:
-          users:
+          superUsers:
             - name: user:default/homelab-admin
 
     backend:
