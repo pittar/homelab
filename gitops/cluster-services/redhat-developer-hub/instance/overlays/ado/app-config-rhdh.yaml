@@ -84,7 +84,7 @@ data:
               resolvers:
                 - resolver: preferredUsernameMatchingUserEntityName
 
-    dangerouslyAllowSignInWithoutUserInCatalog: false
+    dangerouslyAllowSignInWithoutUserInCatalog: true
 
     catalog:
       rules:
@@ -109,7 +109,7 @@ data:
       enabled: true
       rbac:
         admin:
-          superUsers:
+          users:
             - name: user:default/homelab-admin
 
     backend:
