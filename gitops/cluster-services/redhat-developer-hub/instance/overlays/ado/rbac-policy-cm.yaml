@@ -19,3 +19,6 @@ data:
     p, role:default/teamlead, scaffolder.task.create, create, allow
     p, role:default/teamlead, scaffolder.task.cancel, use, allow
     p, role:default/teamlead, scaffolder.task.read, read, allow
+    # Role assignments (to group)
+    g, group:default/developer, role:default/developer
+    g, group:default/teamlead, role:default/teamlead
