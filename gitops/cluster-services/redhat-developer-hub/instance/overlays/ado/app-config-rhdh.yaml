@@ -105,13 +105,13 @@ data:
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
 
-    permission:
-      enabled: true
-      rbac:
-        #policies-csv-file: ./rbac-policy.csv
-        admin:
-          users:
-            - name: user:default/homelab-admin
+    # permission:
+    #   enabled: true
+    #   rbac:
+    #     #policies-csv-file: ./rbac-policy.csv
+    #     admin:
+    #       users:
+    #         - name: user:default/homelab-admin
 
     backend:
       auth:
