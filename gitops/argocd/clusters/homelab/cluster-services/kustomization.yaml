@@ -8,5 +8,6 @@ resources:
   - ../../../cluster-services/redhat-developer-hub/instance
   - ../../../cluster-services/devspaces/operator
   - ../../../cluster-services/devspaces/instance
+  - ../../../cluster-services/openshift-pipelines/operator
   - ../../../cluster-services/openshift-virt/operator
   - ../../../cluster-services/openshift-virt/instance
