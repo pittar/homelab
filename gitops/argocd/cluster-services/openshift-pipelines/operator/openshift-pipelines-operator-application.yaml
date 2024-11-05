@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-services
   source:
-    path: gitops/cluster-services/openshift-pipelines/operator/overlays/pipelines-1.16
+    path: gitops/cluster-services/openshift-pipelines/operator
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:
