@@ -18,6 +18,7 @@ spec:
         - name: rhsso-secret
       envs:
         # Only needed because gitea uses a self-signed cert.
+        # Can be removed once OCP API gets a good cert.
         - name: NODE_TLS_REJECT_UNAUTHORIZED
           value: "0"
         # - name: LOG_LEVEL
