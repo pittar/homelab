@@ -118,3 +118,16 @@ data:
       baseUrl: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
       cors:
         origin: https://backstage-developer-hub-rhdh.apps.lab.pitt.ca
+
+    enabled:
+      argocd: true
+      github: false
+      githubOrg: false
+      gitlab: false
+      jenkins: false
+      keycloak: true
+      kubernetes: true
+      ocm: false
+      permission: false
+      sonarqube: false
+      techdocs: true
