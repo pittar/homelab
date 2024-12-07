@@ -4,7 +4,7 @@ metadata:
   name: policy-hub-boostrap
   annotations:
     policy.open-cluster-management.io/standards: iac
-    policy.open-cluster-management.io/categories: GitOps
+    policy.open-cluster-management.io/categories: bootstrap
     policy.open-cluster-management.io/controls: Hub Bootstrap
 spec:
   remediationAction: enforce
@@ -27,7 +27,7 @@ spec:
                   annotations:
                     argocd.argoproj.io/sync-wave: "0"
                   name: cluster-bootstrap
-                  namespace: openshift-gitops
+                  namespace: policy-bootstrap
                 spec:
                   clusterResourceWhitelist:
                     - group: '*'
@@ -45,7 +45,7 @@ spec:
                   annotations:
                     argocd.argoproj.io/sync-wave: "101"
                   labels:
-                    gitops.ownedBy: openshift-gitops
+                    bootstrap.ownedBy: policy-bootstrap
                     app.type: acm-config
                   name: acm-policies
                 spec:
@@ -69,43 +69,24 @@ spec:
                         duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
                         factor: 2 # a factor to multiply the base duration after each failed retry
                         maxDuration: 10m # the maximum amount of time allowed for the backoff strategy
-    - objectDefinition:
-        apiVersion: policy.open-cluster-management.io/v1beta1
-        kind: OperatorPolicy
-        metadata:
-          name: install-openshift-gitops-operator
-        spec:
-          remediationAction: enforce
-          severity: critical
-          complianceType: musthave
-          upgradeApproval: Automatic
-          subscription:
-            name: openshift-gitops-operator
-            namespace: openshift-gitops-operator
-            channel: gitops-1.14
-            source: redhat-operators
-            sourceNamespace: openshift-marketplace
-            startingCSV: openshift-gitops-operator.v1.14.2
-          versions:
-            - openshift-gitops-operator.v1.14.2
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-openshift-gitops-operator
+  name: binding-argocd-policy-application
 placementRef:
-  name: placement-policy-openshift-gitops-operator
+  name: placement-argocd-policy-application
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-  - name: policy-openshift-gitops-operator
+  - name: argocd-policy-application
     kind: Policy
     apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-policy-openshift-gitops-operator
+  name: placement-argocd-policy-application
 spec:
   clusterConditions:
     - status: 'True'

@@ -1,4 +1,4 @@
 resources:
   - custom-policies-namespace.yaml
-  - penshift-gitops-operator
+  - openshift-gitops-operator
   - hub-bootstrap
