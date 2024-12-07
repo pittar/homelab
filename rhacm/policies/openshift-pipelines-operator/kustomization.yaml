@@ -1,0 +1,4 @@
+namespace: acm-custom-policies
+
+resources:
+  - pipelines-operator-policy.yaml
