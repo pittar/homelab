@@ -70,15 +70,3 @@ oc create secret generic rhdh-secrets  \
 ```
 oc label node <node> cluster.ocs.openshift.io/openshift-storage=''
 ```
-
-apiVersion: objectbucket.io/v1alpha1
-kind: ObjectBucketClaim
-metadata:
-  name: 3scale
-spec:
-  additionalConfig:
-    bucketclass: noobaa-default-bucket-class
-  generateBucketName: 3scale
-  storageClassName: openshift-storage.noobaa.io
-
-  ./oc login --token=sha256~QZobhLjCu3ZQBVb-A3secQcnVccVvY108AWIVbHcGhE --server=https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT
