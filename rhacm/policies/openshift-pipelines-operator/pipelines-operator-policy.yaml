@@ -21,7 +21,7 @@ spec:
           complianceType: musthave
           upgradeApproval: Automatic
           subscription:
-            name: openshift-pipelines-operator
+            name: openshift-pipelines-operator-rh
             namespace: openshift-operators
             channel: pipelines-1.16
             source: redhat-operators
