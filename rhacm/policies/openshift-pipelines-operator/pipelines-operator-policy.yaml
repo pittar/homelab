@@ -27,7 +27,7 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - openshift-pipelines-operator.v1.16.1
+            - v1.16.1
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
