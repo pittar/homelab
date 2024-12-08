@@ -1,11 +1,11 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: policy-openshift-pipelines-operator
+  name: openshift-pipelines-operator
   annotations:
     policy.open-cluster-management.io/standards: DevOps
-    policy.open-cluster-management.io/categories: pipelines
-    policy.open-cluster-management.io/controls: OpenShift Pipeliness Operator
+    policy.open-cluster-management.io/categories: Coninumous Integratoin
+    policy.open-cluster-management.io/controls: Tekton
 spec:
   remediationAction: enforce
   disabled: false
@@ -32,27 +32,26 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-openshift-pipelines-operator
+  name: openshift-pipelines-operator
 placementRef:
-  name: placement-policy-openshift-pipelines-operator
-  kind: PlacementRule
+  name: openshift-pipelines-operator
+  kind: Placement
   apiGroup: apps.open-cluster-management.io
 subjects:
-  - name: policy-openshift-pipelines-operator
+  - name: openshift-pipelines-operator
     kind: Policy
     apiGroup: policy.open-cluster-management.io
 ---
-apiVersion: apps.open-cluster-management.io/v1
-kind: PlacementRule
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
 metadata:
-  name: placement-policy-openshift-pipelines-operator
+  name: openshift-pipelines-operator
 spec:
-  clusterConditions:
-    - status: 'True'
-      type: ManagedClusterConditionAvailable
-  clusterSelector:
-    matchExpressions:
-      - key: role
-        operator: In
-        values:
-          - "hub"
+  predicates:
+  - requiredClusterSelector:
+      labelSelector:
+        matchExpressions:
+          - key: role
+            operator: In
+            values:
+              - hub

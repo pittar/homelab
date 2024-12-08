@@ -1,9 +1,9 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: policy-hub-boostrap
+  name: policy-bootstrap-app
   annotations:
-    policy.open-cluster-management.io/standards: iac
+    policy.open-cluster-management.io/standards: CM iac
     policy.open-cluster-management.io/categories: bootstrap
     policy.open-cluster-management.io/controls: Hub Bootstrap
 spec:
@@ -27,7 +27,7 @@ spec:
                   annotations:
                     argocd.argoproj.io/sync-wave: "0"
                   name: cluster-bootstrap
-                  namespace: policy-bootstrap
+                  namespace: openshift-gitops
                 spec:
                   clusterResourceWhitelist:
                     - group: '*'
@@ -48,9 +48,10 @@ spec:
                     bootstrap.ownedBy: policy-bootstrap
                     app.type: acm-config
                   name: acm-policies
+                  namespace: openshift-gitops
                 spec:
                   destination:
-                    namespace: acm-custom-policies
+                    namespace: openshift-gitops
                     server: https://kubernetes.default.svc
                   project: bootstrap
                   source:
@@ -64,36 +65,35 @@ spec:
                     syncOptions:
                       - ApplyOutOfSyncOnly=true
                     retry:
-                      limit: 5 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+                      limit: 5
                       backoff:
-                        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
-                        factor: 2 # a factor to multiply the base duration after each failed retry
-                        maxDuration: 10m # the maximum amount of time allowed for the backoff strategy
+                        duration: 5s
+                        factor: 2 
+                        maxDuration: 10m
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-argocd-policy-application
+  name: policy-bootstrap-app
 placementRef:
-  name: placement-argocd-policy-application
-  kind: PlacementRule
-  apiGroup: apps.open-cluster-management.io
+  name: policy-bootstrap-app
+  apiGroup: cluster.open-cluster-management.io
+  kind: Placement
 subjects:
-  - name: policy-hub-bootstrap
-    kind: Policy
+  - name: policy-bootstrap-app
     apiGroup: policy.open-cluster-management.io
+    kind: Policy
 ---
-apiVersion: apps.open-cluster-management.io/v1
-kind: PlacementRule
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
 metadata:
-  name: placement-argocd-policy-application
+  name: policy-bootstrap-app
 spec:
-  clusterConditions:
-    - status: 'True'
-      type: ManagedClusterConditionAvailable
-  clusterSelector:
-    matchExpressions:
-      - key: role
-        operator: In
-        values:
-          - "hub"
+  predicates:
+  - requiredClusterSelector:
+      labelSelector:
+        matchExpressions:
+          - key: role
+            operator: In
+            values:
+              - hub
