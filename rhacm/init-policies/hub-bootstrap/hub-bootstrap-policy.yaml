@@ -79,7 +79,7 @@ placementRef:
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-  - name: argocd-policy-application
+  - name: policy-hub-bootstrap
     kind: Policy
     apiGroup: policy.open-cluster-management.io
 ---
@@ -93,7 +93,7 @@ spec:
       type: ManagedClusterConditionAvailable
   clusterSelector:
     matchExpressions:
-      - key: vendor
+      - key: role
         operator: In
         values:
-          - "OpenShift"
+          - "hub"
