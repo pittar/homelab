@@ -1,4 +1,7 @@
 namespace: acm-custom-policies
 
 resources:
+  - default-managedclustersetbinding.yaml
   - hub-bootstrap-policy.yaml
+  - hub-policyset.yaml
+  - global-policyset.yaml

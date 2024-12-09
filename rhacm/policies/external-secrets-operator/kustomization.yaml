@@ -1,0 +1,4 @@
+namespace: acm-custom-policies
+
+resources:
+  - external-secrets-operator-policy.yaml
