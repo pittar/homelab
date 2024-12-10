@@ -1,2 +1,3 @@
 resources:
   - acm-global-policies-namespace.yaml
+  - acm-prime-policies-namespace.yaml

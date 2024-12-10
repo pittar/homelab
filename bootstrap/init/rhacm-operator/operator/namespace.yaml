@@ -4,5 +4,6 @@ metadata:
   annotations:
     openshift.io/display-name: "Advanced Cluster Management for Kubernetes"
   labels:
+    argocd.argoproj.io/managed-by: openshift-gitops
     openshift.io/cluster-monitoring: 'true'
   name: open-cluster-management
