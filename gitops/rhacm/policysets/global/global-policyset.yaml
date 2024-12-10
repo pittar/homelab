@@ -1,0 +1,10 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: PolicySet
+metadata:
+  labels:
+    app.kubernetes.io/instance: acm-global-policies
+  name: global
+spec:
+  description: Global policies.
+  policies:
+    - openshift-gitops

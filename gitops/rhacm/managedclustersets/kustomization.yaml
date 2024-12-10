@@ -1,0 +1,4 @@
+resources:
+  - prime-mcs.yaml
+  - dev-mcs.yaml
+  - prod-mcs.yaml

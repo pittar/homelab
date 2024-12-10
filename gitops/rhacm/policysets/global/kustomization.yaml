@@ -1,0 +1,6 @@
+namespace: acm-global-policies
+
+resources:
+  - global-policyset.yaml
+  - global-policyset-placement.yaml
+  - global-policyset-placementbinding.yaml

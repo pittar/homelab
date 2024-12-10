@@ -1,0 +1,7 @@
+resources:
+  - namespaces
+  - instance
+  - ../../../gitops/rhacm/managedclustersets
+  - ../../../gitops/rhacm/managedclustersetbindings/global
+  - ../../../gitops/rhacm/policies/global/openshift-gitops-operator
+  - ../../../gitops/rhacm/policysets/global
