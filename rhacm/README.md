@@ -17,7 +17,8 @@ This will install the RHACM operator and seed the token required for External Se
 Once the operator has finished installing, run the following command to install an instance of RHACM:
 
 ```
-oc apply -k bootstrap/init/rhacm/instance
+oc apply -k bootstrap/init/rhacm-install
+oc apply -k bootstrap/init/rhacm-postinstall
 ```
 
 This will take a few minutes to install.  Once it's complete, login to RHACM and import your clusters. For simplicy, I call mine:

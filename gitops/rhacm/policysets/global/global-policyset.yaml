@@ -7,4 +7,4 @@ metadata:
 spec:
   description: Global policies.
   policies:
-    - openshift-gitops
+    - openshift-gitops-operator
