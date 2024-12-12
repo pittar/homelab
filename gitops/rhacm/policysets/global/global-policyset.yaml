@@ -8,3 +8,4 @@ spec:
   description: Global policies.
   policies:
     - openshift-gitops-operator
+    - external-secrets-operator
