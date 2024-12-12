@@ -4,3 +4,5 @@ resources:
   - ../../../gitops/rhacm/managedclustersetbindings
   - ../../../gitops/rhacm/policies/global/openshift-gitops-operator
   - ../../../gitops/rhacm/policysets/global
+  - ../../../gitops/rhacm/policies/prime/gitops-bootstrap
+  - ../../../gitops/rhacm/policysets/prime

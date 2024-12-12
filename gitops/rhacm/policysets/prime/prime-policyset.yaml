@@ -5,6 +5,6 @@ metadata:
     app.kubernetes.io/instance: acm-prime-policies
   name: prime
 spec:
-  description: prime policies.
+  description: Prime cluster policies.
   policies:
-    - openshift-gitops-operator
+    - bootstrap-gitops
