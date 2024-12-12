@@ -1,0 +1,7 @@
+namespace: openshift-gitops
+
+resources:
+  - global-policyset-application.yaml
+  - prime-policyset-application.yaml
+  - dev-policyset-application.yaml
+  - prod-policyset-application.yaml

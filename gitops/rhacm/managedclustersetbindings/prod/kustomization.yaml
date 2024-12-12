@@ -1,0 +1,4 @@
+namespace: acm-prod-policies
+
+resources:
+  - prod-policies-mcsb.yaml

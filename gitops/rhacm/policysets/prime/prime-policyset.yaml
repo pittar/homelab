@@ -1,0 +1,10 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: PolicySet
+metadata:
+  labels:
+    app.kubernetes.io/instance: acm-prime-policies
+  name: prime
+spec:
+  description: prime policies.
+  policies:
+    - openshift-gitops-operator

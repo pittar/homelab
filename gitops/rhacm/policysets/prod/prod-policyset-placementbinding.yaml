@@ -1,0 +1,14 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  labels:
+    app.kubernetes.io/instance: acm-prod-policies
+  name: prod
+placementRef:
+  apiGroup: cluster.open-cluster-management.io
+  kind: Placement
+  name: prod
+subjects:
+  - apiGroup: policy.open-cluster-management.io
+    kind: PolicySet
+    name: prod

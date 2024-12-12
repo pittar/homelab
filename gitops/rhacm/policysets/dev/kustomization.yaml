@@ -1,0 +1,6 @@
+namespace: acm-dev-policies
+
+resources:
+  - dev-policyset.yaml
+  - dev-policyset-placement.yaml
+  - dev-policyset-placementbinding.yaml
