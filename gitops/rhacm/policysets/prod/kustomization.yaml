@@ -1,6 +1,7 @@
 namespace: acm-prod-policies
 
 resources:
+  - namespace.yaml
   - prod-policyset.yaml
   - prod-policyset-placement.yaml
   - prod-policyset-placementbinding.yaml

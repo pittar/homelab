@@ -1,6 +1,7 @@
 namespace: acm-prime-policies
 
 resources:
+  - namespace.yaml
   - prime-policyset.yaml
   - prime-policyset-placement.yaml
   - prime-policyset-placementbinding.yaml
