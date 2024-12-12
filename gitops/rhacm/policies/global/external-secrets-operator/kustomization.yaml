@@ -1,0 +1,4 @@
+namespace: external-secrets
+
+resources:
+  - external-secrets-operator-policy.yaml
