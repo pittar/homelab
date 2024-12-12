@@ -6,5 +6,4 @@ metadata:
   name: prod
 spec:
   description: prod policies.
-  policies:
-    - openshift-gitops-operator
+  policies: []

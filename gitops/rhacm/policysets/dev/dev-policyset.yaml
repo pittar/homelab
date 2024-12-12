@@ -6,5 +6,4 @@ metadata:
   name: dev
 spec:
   description: dev policies.
-  policies:
-    - openshift-gitops-operator
+  policies: []
