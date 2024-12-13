@@ -1,4 +1,7 @@
 namespace: acm-prime-policies
 
 resources:
-  - pipelines-operator-policy.yaml
+  - prime-rbac-policy.yaml
+
+
+

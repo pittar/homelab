@@ -1,4 +1,8 @@
 namespace: acm-prime-policies
 
 resources:
+  - rbac
   - gitops-bootstrap
+
+
+

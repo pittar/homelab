@@ -7,5 +7,6 @@ metadata:
 spec:
   description: Prime cluster policies.
   policies:
+    - prime-policy-namespace-rbac
     - bootstrap-rhacm-gitops
     - bootstrap-openshift-gitops

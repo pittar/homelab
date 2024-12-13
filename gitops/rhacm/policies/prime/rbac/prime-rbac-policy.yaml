@@ -1,0 +1,56 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: prime-policy-namespace-rbac
+  annotations:
+    policy.open-cluster-management.io/standards: DevOps
+    policy.open-cluster-management.io/categories: GitOps
+    policy.open-cluster-management.io/controls: RBAC
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: prime-policy-namespace-rbac
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: ClusterRole
+                metadata:
+                  # "namespace" omitted since ClusterRoles are not namespaced
+                  name: prime-clusterrole-read
+                rules:
+                - apiGroups: [""]
+                  #
+                  # at the HTTP level, the name of the resource for accessing Secret
+                  # objects is "secrets"
+                  resources: ["secret", "configmap"]
+                  verbs: ["get", "watch", "list", "view"]
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: ServiceAccount
+                metadata:
+                  name: prime
+                  namespace: acm-prime-policies
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: ClusterRoleBinding
+                metadata:
+                  name: prime-policy-clusterrolebinding
+                roleRef:
+                  apiGroup: rbac.authorization.k8s.io
+                  kind: ClusterRole
+                  name: prime-clusterrole-read
+                subjects:
+                - kind: ServiceAccount
+                  name: prime
+                  namespace: acm-prime-policies
