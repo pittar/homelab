@@ -1,4 +1,0 @@
-resources:
-  - cluster-config
-  - cluster-services
-  #- 03-tenants

@@ -1,0 +1,4 @@
+resources:
+  - ../cluster-config-argocd
+  - ../cluster-services-argocd
+  #- 03-tenants

@@ -1,4 +1,5 @@
 namespace: acm-prime-policies
 
 resources:
-  - bootstrap-gitops-policy.yaml
+  - bootstrap-rhacm-gitops-policy.yaml
+  - bootstrap-openshift-gitops-policy.yaml

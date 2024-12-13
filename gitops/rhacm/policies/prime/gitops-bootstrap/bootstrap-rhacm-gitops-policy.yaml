@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: bootstrap-gitops
+  name: bootstrap-rhacm-gitops
   annotations:
     policy.open-cluster-management.io/standards: DevOps
     policy.open-cluster-management.io/categories: GitOps
