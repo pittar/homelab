@@ -1,4 +1,4 @@
 namespace: acm-prime-policies
 
 resources:
-  - gitps-bootstrap
+  - gitops-bootstrap
