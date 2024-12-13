@@ -31,7 +31,7 @@ spec:
                   #
                   # at the HTTP level, the name of the resource for accessing Secret
                   # objects is "secrets"
-                  resources: ["Secret"]
+                  resources: ["secrets"]
                   verbs: ["get", "watch", "list", "view"]
             - complianceType: musthave
               objectDefinition:
