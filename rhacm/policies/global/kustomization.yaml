@@ -1,0 +1,4 @@
+namespace: acm-global-policies
+
+resources:
+  - external-secrets-operator
