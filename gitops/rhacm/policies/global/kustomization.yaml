@@ -3,3 +3,4 @@ namespace: acm-global-policies
 resources:
   - openshift-gitops-operator
   - external-secrets-operator
+  - cert-manager-operator

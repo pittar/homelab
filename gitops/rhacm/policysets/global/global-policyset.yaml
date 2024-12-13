@@ -9,3 +9,4 @@ spec:
   policies:
     - openshift-gitops-operator
     - external-secrets-operator
+    - cert-manager-operator
