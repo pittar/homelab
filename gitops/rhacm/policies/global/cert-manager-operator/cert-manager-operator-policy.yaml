@@ -9,8 +9,6 @@ metadata:
 spec:
   remediationAction: enforce
   disabled: false
-  hubTemplateOptions:
-    serviceAccountName: global
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -45,6 +43,11 @@ spec:
             channel: stable-v1.14
             source: redhat-operators
             sourceNamespace: openshift-marketplace
+          operatorGroup:
+            name: cert-manager-operator
+            namespace: cert-manager-operator
+            targetNamespaces:
+              - cert-manager-operator
           versions:
             - cert-manager-operator.v1.14.1
 
