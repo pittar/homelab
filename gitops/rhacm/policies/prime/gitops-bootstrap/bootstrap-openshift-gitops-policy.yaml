@@ -48,6 +48,7 @@ spec:
                     gitops.ownedBy: openshift-gitops
                     app.type: bootstrap
                   name: cluster-bootstrap
+                  namespace: openshift-gitops
                 spec:
                   destination:
                     namespace: openshift-gitops
