@@ -1,6 +1,7 @@
 namespace: acm-prime-policies
 
 resources:
+  - global-rbac-policy.yaml
   - prime-rbac-policy.yaml
 
 

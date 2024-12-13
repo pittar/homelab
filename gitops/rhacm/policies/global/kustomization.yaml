@@ -1,6 +1,5 @@
 namespace: acm-global-policies
 
 resources:
-  - rbac
   - openshift-gitops-operator
   - external-secrets-operator

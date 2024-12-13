@@ -7,6 +7,5 @@ metadata:
 spec:
   description: Global policies.
   policies:
-    - global-policy-namespace-rbac
     - openshift-gitops-operator
     - external-secrets-operator

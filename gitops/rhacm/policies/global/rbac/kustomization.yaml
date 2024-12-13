@@ -1,7 +1,0 @@
-namespace: acm-global-policies
-
-resources:
-  - global-rbac-policy.yaml
-
-
-
