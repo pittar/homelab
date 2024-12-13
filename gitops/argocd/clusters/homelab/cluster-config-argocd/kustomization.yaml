@@ -9,6 +9,7 @@ resources:
   - ../../../cluster-config/openshift-gitops/cluster
   # External Secrets - needed to bootstrap a lot of other services.
   - ../../../cluster-config/external-secrets-operator
+  - ../../../cluster-config/external-secrets-config
   # Cert-Manager for ingress/api/keycloak certs.
   - ../../../cluster-config/cert-manager
   # Update auth with proper login options.

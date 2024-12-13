@@ -1,3 +1,5 @@
+namespace: external-secrets
+
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
