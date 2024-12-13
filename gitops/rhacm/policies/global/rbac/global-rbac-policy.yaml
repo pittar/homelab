@@ -1,0 +1,56 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: global-policy-namespace-rbac
+  annotations:
+    policy.open-cluster-management.io/standards: DevOps
+    policy.open-cluster-management.io/categories: GitOps
+    policy.open-cluster-management.io/controls: RBAC
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: global-policy-namespace-rbac
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: ClusterRole
+                metadata:
+                  # "namespace" omitted since ClusterRoles are not namespaced
+                  name: global-clusterrole-read
+                rules:
+                - apiGroups: [""]
+                  #
+                  # at the HTTP level, the name of the resource for accessing Secret
+                  # objects is "secrets"
+                  resources: ["secret", "configmap"]
+                  verbs: ["get", "watch", "list", "view"]
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: ServiceAccount
+                metadata:
+                  name: global
+                  namespace: acm-global-policies
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: ClusterRoleBinding
+                metadata:
+                  name: global-policy-clusterrolebinding
+                roleRef:
+                  apiGroup: rbac.authorization.k8s.io
+                  kind: ClusterRole
+                  name: global-clusterrole-read
+                subjects:
+                - kind: ServiceAccount
+                  name: global
+                  namespace: acm-global-policies
