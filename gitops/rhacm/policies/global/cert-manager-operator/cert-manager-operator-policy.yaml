@@ -29,16 +29,6 @@ spec:
                     labels:
                       argocd.argoproj.io/managed-by: openshift-gitops
                     name: cert-manager-operator
-            - complianceType: musthave
-              objectDefinition:
-                apiVersion: operators.coreos.com/v1
-                kind: OperatorGroup
-                metadata:
-                  name: openshift-cert-manager-operator
-                  namespace: cert-manager-operator
-                spec:
-                  targetNamespaces:
-                    - cert-manager-operator
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1beta1
         kind: OperatorPolicy
