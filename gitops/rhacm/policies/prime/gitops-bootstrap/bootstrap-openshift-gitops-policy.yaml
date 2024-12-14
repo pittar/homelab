@@ -55,7 +55,7 @@ spec:
                     server: https://kubernetes.default.svc
                   project: cluster-bootstrap
                   source:
-                    path: gitops/argocd/clusters/homelab/rhacm
+                    path: gitops/argocd/clusters/prime/rhacm
                     repoURL: https://github.com/pittar/homelab.git
                     targetRevision: main
                   syncPolicy:

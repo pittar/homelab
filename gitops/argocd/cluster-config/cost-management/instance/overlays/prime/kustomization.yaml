@@ -11,4 +11,4 @@ patches:
       name: cost-management
     spec:
       source:
-        path: gitops/cluster-config/cost-management/instance/overlays/sno
+        path: gitops/cluster-config/cost-management/instance/overlays/prime

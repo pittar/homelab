@@ -1,2 +1,0 @@
-resources:
-  - ../../gitops/argocd/clusters/homelab/bootstrap

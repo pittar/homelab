@@ -9,35 +9,22 @@ resources:
   - ../../../cluster-config/openshift-gitops/cluster
   # External Secrets - needed to bootstrap a lot of other services.
   - ../../../cluster-config/external-secrets-operator
-  - ../../../cluster-config/external-secrets-config
   # Cert-Manager for ingress/api/keycloak certs.
-  - ../../../cluster-config/cert-manager-operator
-  - ../../../cluster-config/cert-manager-instance
+  - ../../../cluster-config/cert-manager
   # Update auth with proper login options.
-  - ../../../cluster-config/openshift-oauth/overlays/prime
-
+  - ../../../cluster-config/openshift-oauth/overlays/dev
   # Update ingress (*.apps) with good wildcard cert.
-  - ../../../cluster-config/openshift-ingress/overlays/homelab
+  - ../../../cluster-config/openshift-ingress/overlays/dev
   # Configure the image registry (add PVC)
   - ../../../cluster-config/image-registry
   # Configure AlertManager.
   - ../../../cluster-config/alertmanager
-  # Object Storage - Multicloud Object Gateway
-  - ../../../cluster-config/openshift-storage/operator
-  - ../../../cluster-config/openshift-storage/mcg
   # Enable Cost Management.
   - ../../../cluster-config/cost-management/operator
-  - ../../../cluster-config/cost-management/instance/overlays/homelab
+  - ../../../cluster-config/cost-management/instance/overlays/dev
 #  - ../../../02-cluster-config/03-cluster-monitoring
-  # Etcd defrag cronjob only needed for SNO
+  # Etcd defrag cronjob only needed for dev
   - ../../../cluster-config/etcd
   # Give kubelet more resources.
   - ../../../cluster-config/kubeletconfig
-
-
-
-  # - ../../../cluster-config/keycloak/operator
-  # - ../../../cluster-config/keycloak/instance
-
-
 

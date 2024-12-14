@@ -1,2 +1,0 @@
-resources:
-  - ../../gitops/argocd/clusters/sno/bootstrap
