@@ -6,14 +6,14 @@ metadata:
   labels:
     gitops.ownedBy: openshift-gitops
     app.type: operator
-  name: cert-manager
+  name: cert-manager-operator
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: gitops/cluster-config/cert-manager
+    path: gitops/cluster-config/cert-manager/operator/overlays/stable-v1.14
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:

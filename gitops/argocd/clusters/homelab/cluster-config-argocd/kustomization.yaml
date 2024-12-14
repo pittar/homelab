@@ -11,7 +11,8 @@ resources:
   - ../../../cluster-config/external-secrets-operator
   - ../../../cluster-config/external-secrets-config
   # Cert-Manager for ingress/api/keycloak certs.
-  - ../../../cluster-config/cert-manager
+  - ../../../cluster-config/cert-manager-operator
+  - ../../../cluster-config/cert-manager-instance
   # Update auth with proper login options.
   - ../../../cluster-config/openshift-oauth/overlays/homelab
 
