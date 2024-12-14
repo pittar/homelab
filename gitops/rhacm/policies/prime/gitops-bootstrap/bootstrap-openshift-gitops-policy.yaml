@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: openshift-gitops-bootstrap-app-of-apps
+          name: openshift-gitops-bootstrap-prime-app-of-apps
         spec:
           remediationAction: inform
           severity: high

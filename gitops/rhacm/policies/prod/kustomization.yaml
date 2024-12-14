@@ -1,3 +1,4 @@
 namespace: acm-prod-policies
 
-resources: []
+resources:
+  - gitops-bootstrap

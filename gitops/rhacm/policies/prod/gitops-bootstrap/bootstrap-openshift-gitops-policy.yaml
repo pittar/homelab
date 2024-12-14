@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: bootstrap-gitops
+  name: bootstrap-openshift-gitops-prod
   annotations:
     policy.open-cluster-management.io/standards: DevOps
     policy.open-cluster-management.io/categories: GitOps
@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: rhacm-bootstrap-app-of-apps
+          name: openshift-gitops-bootstrap-prod-app-of-apps
         spec:
           remediationAction: inform
           severity: high
@@ -26,7 +26,7 @@ spec:
                 metadata:
                   annotations:
                     argocd.argoproj.io/sync-wave: "0"
-                  name: rhacm
+                  name: cluster-bootstrap
                   namespace: openshift-gitops
                 spec:
                   clusterResourceWhitelist:
@@ -47,15 +47,15 @@ spec:
                   labels:
                     gitops.ownedBy: openshift-gitops
                     app.type: bootstrap
-                  name: rhacm-boostrap
+                  name: cluster-bootstrap
                   namespace: openshift-gitops
                 spec:
                   destination:
                     namespace: openshift-gitops
                     server: https://kubernetes.default.svc
-                  project: rhacm
+                  project: cluster-bootstrap
                   source:
-                    path: gitops/argocd/rhacm/bootstrap
+                    path: gitops/argocd/clusters/prod/rhacm
                     repoURL: https://github.com/pittar/homelab.git
                     targetRevision: main
                   syncPolicy:
