@@ -8,7 +8,7 @@ patches:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
-      name: openshift-ingress-config
+      name: openshift-oauth-config
     spec:
       source:
-        path: gitops/cluster-config/openshift-ingress/overlays/sno
+        path: gitops/cluster-config/openshift-oauth/overlays/prime

@@ -7,11 +7,11 @@ metadata:
   namespace: openshift-ingress
 spec:
   isCA: false
-  commonName: "apps.lab.pitt.ca" 
+  commonName: "apps.prime.pitt.ca" 
   secretName: apps-wildcard-cert 
   dnsNames:
-  - "apps.lab.pitt.ca" 
-  - "*.apps.lab.pitt.ca" 
+  - "apps.prime.pitt.ca" 
+  - "*.apps.prime.pitt.ca" 
   issuerRef:
     name: letsencrypt-prod 
     kind: ClusterIssuer

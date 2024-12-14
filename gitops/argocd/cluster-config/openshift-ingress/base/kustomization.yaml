@@ -1,4 +1,4 @@
 namespace: openshift-gitops
 
 resources:
-  - image-registry-application.yaml
+  - openshift-ingress-application.yaml

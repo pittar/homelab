@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: apps-wildcard-cert
+  namespace: openshift-ingress
+spec:
+  isCA: false
+  commonName: "apps.dev.pitt.ca" 
+  secretName: apps-wildcard-cert 
+  dnsNames:
+  - "apps.dev.pitt.ca" 
+  - "*.apps.dev.pitt.ca" 
+  issuerRef:
+    name: letsencrypt-prod 
+    kind: ClusterIssuer

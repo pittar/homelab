@@ -15,9 +15,9 @@ resources:
   - ../../../cluster-config/openshift-oauth/overlays/homelab
 
 #   # Update ingress (*.apps) with good wildcard cert.
-#   - ../../../cluster-config/openshift-ingress/overlays/homelab
+  - ../../../cluster-config/openshift-ingress/overlays/prime
 #   # Configure the image registry (add PVC)
-#   - ../../../cluster-config/image-registry
+  - ../../../cluster-config/image-registry
 #   # Configure AlertManager.
 #   - ../../../cluster-config/alertmanager
 #   # Object Storage - Multicloud Object Gateway

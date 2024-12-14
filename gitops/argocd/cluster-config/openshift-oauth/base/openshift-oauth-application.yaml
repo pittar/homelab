@@ -2,7 +2,7 @@ kind: Application
 apiVersion: argoproj.io/v1alpha1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "104"
+    argocd.argoproj.io/sync-wave: "105"
   labels:
     gitops.ownedBy: openshift-gitops
     app.type: cluster-config
@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: gitops/cluster-config/openshift-oauth
+    path: gitops/cluster-config/openshift-oauth/patchme
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:
