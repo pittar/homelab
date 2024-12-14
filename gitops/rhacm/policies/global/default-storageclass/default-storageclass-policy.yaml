@@ -1,0 +1,39 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: default-storageclass
+  annotations:
+    policy.open-cluster-management.io/standards: CM Config Management
+    policy.open-cluster-management.io/categories: Storage
+    policy.open-cluster-management.io/controls: Default Storage Class
+spec:
+  remediationAction: enforce
+  disabled: false
+  hubTemplateOptions:
+    serviceAccountName: global
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: default-storageclass
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                kind: StorageClass
+                apiVersion: storage.k8s.io/v1
+                metadata:
+                  name: lvms-vg1
+                  annotations:
+                    description: Provides RWO and RWOP Filesystem & Block volumes
+                    storageclass.kubernetes.io/is-default-class: 'true'
+                provisioner: topolvm.io
+                parameters:
+                  csi.storage.k8s.io/fstype: xfs
+                  topolvm.io/device-class: vg1
+                reclaimPolicy: Delete
+                allowVolumeExpansion: true
+                volumeBindingMode: WaitForFirstConsumer
