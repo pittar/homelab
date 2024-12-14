@@ -1,0 +1,6 @@
+namespace: openshift-gitops
+
+resources:
+  - cluster-services-project.yaml
+  # - ../../../cluster-services/openshift-virt/operator
+  # - ../../../cluster-services/openshift-virt/instance

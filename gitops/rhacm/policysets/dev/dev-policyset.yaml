@@ -6,4 +6,5 @@ metadata:
   name: dev
 spec:
   description: dev policies.
-  policies: []
+  policies:
+    - bootstrap-openshift-gitops-dev

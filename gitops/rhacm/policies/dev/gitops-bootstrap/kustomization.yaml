@@ -1,3 +1,4 @@
 namespace: acm-dev-policies
 
-resources: []
+resources:
+  - bootstrap-openshift-gitops-policy.yaml
