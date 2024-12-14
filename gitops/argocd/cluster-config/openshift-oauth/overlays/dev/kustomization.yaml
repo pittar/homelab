@@ -11,4 +11,4 @@ patches:
       name: openshift-oauth-config
     spec:
       source:
-        path: gitops/cluster-config/openshift-oauth/overlays/sno
+        path: gitops/cluster-config/openshift-oauth/overlays/dev
