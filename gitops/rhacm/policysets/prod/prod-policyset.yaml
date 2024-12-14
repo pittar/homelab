@@ -6,4 +6,5 @@ metadata:
   name: prod
 spec:
   description: prod policies.
-  policies: []
+  policies:
+    - bootstrap-openshift-gitops-prod

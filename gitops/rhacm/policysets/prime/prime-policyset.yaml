@@ -10,4 +10,4 @@ spec:
     - global-policy-namespace-rbac
     - prime-policy-namespace-rbac
     - bootstrap-rhacm-gitops
-    - bootstrap-openshift-gitops
+    - bootstrap-openshift-gitops-prime
