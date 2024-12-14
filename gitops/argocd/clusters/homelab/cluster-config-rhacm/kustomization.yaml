@@ -12,7 +12,7 @@ resources:
 #   # Cert-Manager for ingress/api/keycloak certs.
   - ../../../cluster-config/cert-manager-instance
 #   # Update auth with proper login options.
-  - ../../../cluster-config/openshift-oauth/overlays/homelab
+  - ../../../cluster-config/openshift-oauth/overlays/prime
 
 #   # Update ingress (*.apps) with good wildcard cert.
   - ../../../cluster-config/openshift-ingress/overlays/prime
