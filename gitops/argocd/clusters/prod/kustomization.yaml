@@ -1,4 +1,4 @@
 resources:
-  - cluster-config
-  - cluster-services
+  - cluster-config-argocd
+  - cluster-services-argocd
   #- 03-tenants

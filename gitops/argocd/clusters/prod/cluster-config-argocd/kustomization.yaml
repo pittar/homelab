@@ -12,18 +12,18 @@ resources:
   # Cert-Manager for ingress/api/keycloak certs.
   - ../../../cluster-config/cert-manager
   # Update auth with proper login options.
-  - ../../../cluster-config/openshift-oauth/overlays/prod
+  - ../../../cluster-config/openshift-oauth/overlays/dev
   # Update ingress (*.apps) with good wildcard cert.
-  - ../../../cluster-config/openshift-ingress/overlays/prod
+  - ../../../cluster-config/openshift-ingress/overlays/dev
   # Configure the image registry (add PVC)
   - ../../../cluster-config/image-registry
   # Configure AlertManager.
   - ../../../cluster-config/alertmanager
   # Enable Cost Management.
   - ../../../cluster-config/cost-management/operator
-  - ../../../cluster-config/cost-management/instance/overlays/prod
+  - ../../../cluster-config/cost-management/instance/overlays/dev
 #  - ../../../02-cluster-config/03-cluster-monitoring
-  # Etcd defrag cronjob only needed for prod
+  # Etcd defrag cronjob only needed for dev
   - ../../../cluster-config/etcd
   # Give kubelet more resources.
   - ../../../cluster-config/kubeletconfig
