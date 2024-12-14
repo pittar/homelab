@@ -1,0 +1,7 @@
+namespace: acm-dev-policies
+
+resources:
+  - gitops-bootstrap
+
+
+
