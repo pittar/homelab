@@ -11,3 +11,4 @@ spec:
     - prime-policy-namespace-rbac
     - bootstrap-rhacm-gitops
     - bootstrap-openshift-gitops-prime
+    - developer-hub-operator
