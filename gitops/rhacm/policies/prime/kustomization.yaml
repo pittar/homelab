@@ -5,4 +5,4 @@ resources:
   - gitops-bootstrap
   - developer-hub
   - openshift-pipelines-operator
-  - rhbk-operator
+  - keycloak-operator
