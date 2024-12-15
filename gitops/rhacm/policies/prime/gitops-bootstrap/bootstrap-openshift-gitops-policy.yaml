@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: bootstrap-openshift-gitops
+  name: bootstrap-openshift-gitops-prime
   annotations:
     policy.open-cluster-management.io/standards: DevOps
     policy.open-cluster-management.io/categories: GitOps
