@@ -1,0 +1,4 @@
+namespace: acm-prime-policies
+
+resources:
+  - openshift-pipelines-operator-policy.yaml

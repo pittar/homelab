@@ -12,3 +12,4 @@ spec:
     - bootstrap-rhacm-gitops
     - bootstrap-openshift-gitops-prime
     - developer-hub-operator
+    - openshift-pipelines-operator

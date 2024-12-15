@@ -4,6 +4,4 @@ resources:
   - rbac
   - gitops-bootstrap
   - developer-hub
-
-
-
+  - openshift-pipelines-operator
