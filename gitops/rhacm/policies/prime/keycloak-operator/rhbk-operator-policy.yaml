@@ -1,0 +1,52 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: keycloak-operator
+  annotations:
+    policy.open-cluster-management.io/standards: Identity Management
+    policy.open-cluster-management.io/categories: Single Sign-On
+    policy.open-cluster-management.io/controls: Keycloak
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: keycloak-operator-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1                    
+                kind: Namespace
+                metadata:
+                  labels:
+                    openshift.io/cluster-monitoring: "true"
+                  name: keycloak
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: install-keycloak-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: rhbk-operator
+            namespace: keycloak
+            channel: stable-v26.0
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+          operatorGroup:
+            name: keycloak
+            namespace: keycloak
+            targetNamespaces:
+              - keycloak
+          versions:
+            - rhbk-operator.v26.0.7-opr.1
