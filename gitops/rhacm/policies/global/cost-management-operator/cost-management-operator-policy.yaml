@@ -38,16 +38,16 @@ spec:
           complianceType: musthave
           upgradeApproval: Automatic
           subscription:
-            name: openshift-cost-management-operator
+            name: costmanagement-metrics-operator
             namespace: costmanagement-metrics-operator
             channel: stable
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           operatorGroup:
-            name: openshift-cost-management-operator
+            name: costmanagement-metrics-operator
             namespace: costmanagement-metrics-operator
             targetNamespaces:
               - costmanagement-metrics-operator
           versions:
-            - openshift-cost-management-operator.v3.3.2
+            - costmanagement-metrics-operator.v3.3.2
 
