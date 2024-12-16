@@ -20,13 +20,13 @@ spec:
   http:
     tlsSecret: keycloak-cert
   hostname:
-    hostname: keycloak.apps.lab.pitt.ca
+    hostname: keycloak.apps.prime.pitt.ca
   proxy:
     headers: xforwarded # double check your reverse proxy sets and overwrites the X-Forwarded-* headers
   resources:
     requests:
       cpu: 500m
-      memory: 896Mi
+      memory: 1Gi
     limits:
       cpu: 2
-      memory: 2Gi
+      memory: 1Gi
