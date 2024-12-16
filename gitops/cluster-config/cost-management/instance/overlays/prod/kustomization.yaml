@@ -7,7 +7,7 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/source/name
-        value: 'HomeLab - Main'
+        value: 'HomeLab - PROD'
     target:
       group: costmanagement-metrics-cfg.openshift.io
       version: v1beta1

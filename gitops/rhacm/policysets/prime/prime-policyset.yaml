@@ -14,3 +14,4 @@ spec:
     - developer-hub-operator
     - openshift-pipelines-operator
     - keycloak-operator
+    - cost-management-operator

@@ -7,7 +7,7 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/source/name
-        value: 'SNO - i5'
+        value: 'HomeLab - DEV'
     target:
       group: costmanagement-metrics-cfg.openshift.io
       version: v1beta1
