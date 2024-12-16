@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: gitops/cluster-config/keycloak/instance
+    path: gitops/cluster-services/keycloak/instance
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:
