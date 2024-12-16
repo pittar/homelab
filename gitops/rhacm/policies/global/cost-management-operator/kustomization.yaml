@@ -1,2 +1,2 @@
 resources:
-  - cert-manager-operator-policy.yaml
+  - cost-management-operator-policy.yaml
