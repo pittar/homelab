@@ -1,4 +1,5 @@
 namespace: costmanagement-metrics-operator
 
 resources:
+  - creds-external-secret.yaml
   - costmanagementmetrics.yaml
