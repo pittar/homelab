@@ -15,7 +15,7 @@ spec:
       secrets:
         - name: rhdh-secrets
         - name: ado-secrets
-        - name: sso-secret
+        - name: sso-secrets
       envs:
         # Only needed because gitea uses a self-signed cert.
         # Can be removed once OCP API gets a good cert.
