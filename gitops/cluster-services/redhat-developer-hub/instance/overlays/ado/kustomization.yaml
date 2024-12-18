@@ -3,6 +3,7 @@ namespace: rhdh
 resources:
   - ../../base
   - ado-creds-external-secret.yaml
+  - keycloak-external-secret.yaml
   - read-only-clusterrolebinding.yaml
   - secret-job.yaml
   - app-config-rhdh.yaml

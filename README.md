@@ -70,3 +70,7 @@ oc create secret generic rhdh-secrets  \
 ```
 oc label node <node> cluster.ocs.openshift.io/openshift-storage=''
 ```
+
+```
+oc get packagemanifests -n openshift-marketplace  rhdh-operator -o yaml
+```
