@@ -7,7 +7,7 @@ metadata:
     policy.open-cluster-management.io/categories: Network Policy
     policy.open-cluster-management.io/controls: Deny All
 spec:
-  remediationAction: enforce
+  remediationAction: inform
   disabled: false
   policy-templates:
     - objectDefinition:
