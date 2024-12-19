@@ -1,0 +1,38 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: networkpolicy-deny-all
+  annotations:
+    policy.open-cluster-management.io/standards: Network Management
+    policy.open-cluster-management.io/categories: Network Policy
+    policy.open-cluster-management.io/controls: Deny All
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: deny-all
+        spec:
+          remediationAction: inform
+          severity: high
+          namespaceSelector:
+            exclude:
+              - default
+              - kube-*
+              - open-cluster-management*
+              - openshift-*
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: networking.k8s.io/v1
+                kind: NetworkPolicy
+                metadata:
+                  name: allow-from-same-namespace
+                spec:
+                  podSelector:
+                  ingress:
+                  - from:
+                    - podSelector: {}

@@ -6,3 +6,4 @@ resources:
   - external-secrets-operator
   - cert-manager-operator
   - cost-management-operator
+  - network-policies
