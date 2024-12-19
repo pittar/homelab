@@ -5,3 +5,4 @@ resources:
   - global-policyset.yaml
   - global-policyset-placement.yaml
   - global-policyset-placementbinding.yaml
+  - networkpolicy-deny-all
