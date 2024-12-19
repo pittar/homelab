@@ -25,6 +25,7 @@ spec:
               - "acm-*"
               - "default"
               - "kube-*"
+              - "multicluster-engine"
               - "open-cluster-management*"
               - "openshift-*"
           object-templates:
