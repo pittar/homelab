@@ -12,3 +12,4 @@ spec:
     - external-secrets-operator
     - cert-manager-operator
     - cost-management-operator
+    - networkpolicy-deny-all
