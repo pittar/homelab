@@ -7,7 +7,7 @@ metadata:
     policy.open-cluster-management.io/categories: Network Policy
     policy.open-cluster-management.io/controls: Deny All
 spec:
-  remediationAction: inform
+  remediationAction: enforce
   disabled: false
   policy-templates:
     - objectDefinition:
@@ -22,9 +22,9 @@ spec:
             include:
               - "*"
             exclude:
+              - "acm-*"
               - "default"
               - "kube-*"
-              - "local-cluster"
               - "open-cluster-management*"
               - "openshift-*"
           object-templates:
