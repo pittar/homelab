@@ -40,8 +40,8 @@ spec:
           subscription:
             name: rhdh
             namespace: rhdh-operator
-            channel: fast-1.3
+            channel: fast-1.4
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - rhdh-operator.v1.3.1
+            - rhdh-operator.v1.4.0
