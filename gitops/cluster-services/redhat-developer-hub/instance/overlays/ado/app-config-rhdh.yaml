@@ -109,7 +109,7 @@ data:
         policies-csv-file: ./rbac-policy.csv
         admin:
           superUsers:
-            - name: user:default/homeprime-admin
+            - name: user:default/admin
 
     backend:
       auth:
