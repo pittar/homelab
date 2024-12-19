@@ -19,8 +19,8 @@ spec:
           remediationAction: inform
           severity: high
           namespaceSelector:
-            # include:
-            #   - "*"
+            include:
+              - "*"
             exclude:
               - "acm-*"
               - "default"
