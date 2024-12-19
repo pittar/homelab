@@ -13,3 +13,4 @@ spec:
     - cert-manager-operator
     - cost-management-operator
     - networkpolicy-deny-all
+    - networkpolicy-allow-ingress

@@ -1,0 +1,48 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: networkpolicy-allow-ingress
+  annotations:
+    policy.open-cluster-management.io/standards: Network Management
+    policy.open-cluster-management.io/categories: Network Policy
+    policy.open-cluster-management.io/controls: Allow Ingress
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: allow-ingress
+        spec:
+          remediationAction: inform
+          severity: high
+          namespaceSelector:
+            # include:
+            #   - "*"
+            exclude:
+              - "acm-*"
+              - "default"
+              - "kube-*"
+              - "multicluster-engine"
+              - "open-cluster-management*"
+              - "openshift-*"
+            matchLabels:
+              networkpolicy: "allow-ingress"
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: networking.k8s.io/v1
+                kind: NetworkPolicy
+                metadata:
+                  name: allow-from-openshift-ingress
+                spec:
+                  ingress:
+                    - from:
+                      - namespaceSelector:
+                          matchLabels:
+                            network.openshift.io/policy-group: ingress
+                  podSelector: {}
+                  policyTypes:
+                    - Ingress

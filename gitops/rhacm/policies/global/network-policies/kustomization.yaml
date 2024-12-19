@@ -1,2 +1,3 @@
 resources:
   - deny-all-policy.yaml
+  - allow-ingress-policy.yaml
