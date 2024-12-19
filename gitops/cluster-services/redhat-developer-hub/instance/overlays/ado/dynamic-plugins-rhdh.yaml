@@ -9,9 +9,9 @@ data:
     includes:
       - dynamic-plugins.default.yaml
     plugins:
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-keycloak-backend-dynamic
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-catalog-backend-module-keycloak-dynamic
         disabled: false
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-rbac
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-rbac
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-redhat-argocd
         disabled: false
@@ -23,7 +23,7 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
         disabled: false
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-tekton
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-tekton
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-azure-devops 
         disabled: false
@@ -31,9 +31,9 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-azure-dynamic 
         disabled: false
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-topology 
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-topology 
         disabled: false      
-      # - package: ./dynamic-plugins/dist/parfuemerie-douglas-scaffolder-backend-module-azure-repositories
+      # - package: ./dynamic-plugins/dist/parfuemerie-douglas-scaffolder-backend-module-azure-repositories-dynamic
       #   disabled: false
       # - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
       #   disabled: false

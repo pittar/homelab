@@ -86,7 +86,7 @@ data:
 
     catalog:
       rules:
-        - allow: [Component, System,   Group, Resource, Location, Template, API]
+        - allow: [Component, System, Group, Resource, Location, Template, API]
       locations:
         - type: url
           target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/software-templates.yaml
@@ -123,7 +123,7 @@ data:
       argocd: true
       github: false
       githubOrg: false
-      gitprime: false
+      github: false
       jenkins: false
       keycloak: true
       kubernetes: true
