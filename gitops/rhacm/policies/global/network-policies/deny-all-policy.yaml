@@ -20,12 +20,12 @@ spec:
           severity: high
           namespaceSelector:
             include:
-              - *
+              - "*"
             exclude:
-              - default
-              - kube-*
-              - open-cluster-management*
-              - openshift-*
+              - "default"
+              - "kube-*"
+              - "open-cluster-management*"
+              - "openshift-*"
           object-templates:
             - complianceType: musthave
               objectDefinition:
