@@ -24,6 +24,7 @@ spec:
             exclude:
               - "default"
               - "kube-*"
+              - "local-cluster"
               - "open-cluster-management*"
               - "openshift-*"
           object-templates:
