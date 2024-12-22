@@ -16,6 +16,8 @@ spec:
         - name: rhdh-secrets
         - name: ado-secrets
         - name: sso-secrets
+        - name: gitops-dev-secrets
+        - name: gitops-prod-secrets
       envs:
         # Only needed because gitea uses a self-signed cert.
         # Can be removed once OCP API gets a good cert.
