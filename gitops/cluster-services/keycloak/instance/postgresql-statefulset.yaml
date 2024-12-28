@@ -39,8 +39,12 @@ spec:
             successThreshold: 1
             timeoutSeconds: 1
           resources:
+            requests:
+              memory: 512Mi
+              cpu: 0.1
             limits:
               memory: 512Mi
+              cpu: '1'
           volumeMounts:
             - mountPath: /data
               name: postgresql-data
