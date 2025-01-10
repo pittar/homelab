@@ -17,7 +17,7 @@ spec:
   backups:
     pgbackrest:
       repos:
-      - name: keycloak-db-repo
+      - name: repo1
         volume:
           volumeClaimSpec:
             accessModes:
