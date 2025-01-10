@@ -5,8 +5,8 @@ resources:
   - keycloak-db-externalsecret.yaml
   - keycloak-db-pguser-externalsecret.yaml
   - crunchy-postgres-instance.yaml
-  - postgresql-pvc.yaml
-  - postgresql-statefulset.yaml
-  - postgresql-svc.yaml
+  # - postgresql-pvc.yaml
+  # - postgresql-statefulset.yaml
+  # - postgresql-svc.yaml
   - keycloak.yaml
   - consolelink.yaml
