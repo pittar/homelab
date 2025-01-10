@@ -5,3 +5,4 @@ resources:
   - prime-policies-application.yaml
   - dev-policies-application.yaml
   - prod-policies-application.yaml
+  - services-policies-application.yaml

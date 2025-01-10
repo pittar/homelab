@@ -1,0 +1,2 @@
+resources:
+  - crunchy-postgres-operator-policy.yaml

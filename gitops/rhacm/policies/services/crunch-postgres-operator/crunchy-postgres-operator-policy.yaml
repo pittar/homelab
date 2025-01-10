@@ -1,0 +1,48 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: crunchy-postgres-operator-v5-7
+  annotations:
+    policy.open-cluster-management.io/standards: CM Config Management
+    policy.open-cluster-management.io/categories: Databases
+    policy.open-cluster-management.io/controls: Crunchy Postgres Operator
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: crunchy-postgres-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                  apiVersion: v1                    
+                  kind: Namespace
+                  metadata:
+                    labels:
+                      argocd.argoproj.io/managed-by: openshift-gitops
+                    name: crunchy-postgres-operator
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: install-crunchy-postgres-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: crunchy-postgres-operator
+            namespace: crunchy-postgres-operator
+            channel: v5
+            source: certified-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - postgresoperator.v5.7.2
+
