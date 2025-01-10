@@ -1,6 +1,8 @@
 apiVersion: postgres-operator.crunchydata.com/v1beta1
 kind: PostgresCluster
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
   name: keycloak-db
 spec:
   postgresVersion: 17
