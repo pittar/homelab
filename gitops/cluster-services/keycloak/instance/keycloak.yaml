@@ -8,7 +8,7 @@ spec:
   instances: 1
   db:
     vendor: postgres
-    host: keycloak-db-pods
+    host: keycloak-db-ha
     usernameSecret:
       name: keycloak-creds
       key: POSTGRESQL_USER
