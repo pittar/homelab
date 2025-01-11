@@ -25,7 +25,7 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-tekton
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devop
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops-backend-dynamic 
         disabled: false
