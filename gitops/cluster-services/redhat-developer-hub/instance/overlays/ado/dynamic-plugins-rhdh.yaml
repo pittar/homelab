@@ -25,9 +25,9 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-tekton
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-azure-devops 
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devop
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-azure-devops-backend-dynamic 
+      - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops-backend-dynamic 
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-azure-dynamic 
         disabled: false
