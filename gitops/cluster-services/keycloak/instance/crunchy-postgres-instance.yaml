@@ -8,17 +8,19 @@ spec:
   postgresVersion: 17
   instances:
     - name: keycloak-db
+      resources:
+        requests:
+          cpu: 200m
+          memory: 2Gi
+        limits:
+          cpu: 1.0
+          memory: 2Gi
       dataVolumeClaimSpec:
         accessModes:
         - "ReadWriteOnce"
         resources:
           requests:
-            cpu: 200m
-            memory: 2Gi
             storage: 1Gi
-          limits:
-            cpu: 1.0
-            memory: 2Gi
   backups:
     pgbackrest:
       repos:
