@@ -38,9 +38,3 @@ spec:
       databases:
         - keycloak
       options: 'SUPERUSER'
-
-
-      resources:
-        limits:
-          cpu: 2.0
-          memory: 4Gi
