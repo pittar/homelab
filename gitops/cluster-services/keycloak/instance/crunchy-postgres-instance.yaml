@@ -13,8 +13,8 @@ spec:
           cpu: 200m
           memory: 2Gi
         limits:
-          cpu: 1.0
-          memory: 2Gi
+          cpu: 2.0
+          memory: 4Gi
       dataVolumeClaimSpec:
         accessModes:
         - "ReadWriteOnce"
