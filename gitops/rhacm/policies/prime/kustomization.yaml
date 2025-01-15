@@ -7,3 +7,4 @@ resources:
   - openshift-pipelines-operator
   - keycloak-operator
   - devspaces
+  - openshift-virtualization
