@@ -1,0 +1,10 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: PolicySet
+metadata:
+  labels:
+    app.kubernetes.io/instance: acm-appservices-policies
+  name: appservices
+spec:
+  description: App Services / Middleware policies.
+  policies:
+    - kafka-streams-operator

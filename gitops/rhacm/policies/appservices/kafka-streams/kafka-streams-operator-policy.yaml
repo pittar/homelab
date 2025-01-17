@@ -1,0 +1,30 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: kafka-streams-operator
+  annotations:
+    policy.open-cluster-management.io/standards: Middleware
+    policy.open-cluster-management.io/categories: Event Streaming
+    policy.open-cluster-management.io/controls: Kafka
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: install-kafka-streams-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: amq-streams
+            namespace: openshift-operators
+            channel: amq-streams-2.8.x
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - amqstreams.v2.8.0-13

@@ -1,0 +1,24 @@
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  labels:
+    app.kubernetes.io/instance: acm-prime-policies
+  name: appservices
+spec:
+  clusterSets:
+    - prime
+    - dev
+    - prod
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: app-profile
+              operator: In
+              values:
+                - "ocp"
+  tolerations:
+    - key: cluster.open-cluster-management.io/unreachable
+      operator: Exists
+    - key: cluster.open-cluster-management.io/unavailable
+      operator: Exists

@@ -1,0 +1,4 @@
+namespace: acm-appservices-policies
+
+resources:
+  - kafka-streams

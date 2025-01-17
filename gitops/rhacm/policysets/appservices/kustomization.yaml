@@ -1,0 +1,7 @@
+namespace: acm-appservices-policies
+
+resources:
+  - namespace.yaml
+  - appservices-policyset.yaml
+  - appservices-policyset-placement.yaml
+  - appservices-policyset-placementbinding.yaml
