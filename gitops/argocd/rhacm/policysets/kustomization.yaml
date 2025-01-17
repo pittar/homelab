@@ -5,3 +5,4 @@ resources:
   - prime-policyset-application.yaml
   - dev-policyset-application.yaml
   - prod-policyset-application.yaml
+  - appservices-policyset-application.yaml
