@@ -6,9 +6,7 @@ metadata:
   name: appservices
 spec:
   clusterSets:
-    - prime
-    - dev
-    - prod
+    - appservices
   predicates:
     - requiredClusterSelector:
         labelSelector:
