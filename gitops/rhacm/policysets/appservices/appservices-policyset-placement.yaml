@@ -5,8 +5,8 @@ metadata:
     app.kubernetes.io/instance: acm-prime-policies
   name: appservices
 spec:
-  clusterSets:
-    - appservices
+  clusterSets: []
+    #- appservices
   predicates:
     - requiredClusterSelector:
         labelSelector:
