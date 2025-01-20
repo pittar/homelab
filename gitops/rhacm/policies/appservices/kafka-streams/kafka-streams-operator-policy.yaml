@@ -11,6 +11,23 @@ spec:
   disabled: false
   policy-templates:
     - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: kafka-streams-operator-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1                    
+                kind: Namespace
+                metadata:
+                  labels:
+                    openshift.io/cluster-monitoring: "true"
+                  name: kafka-streams-operator
+    - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1beta1
         kind: OperatorPolicy
         metadata:
@@ -22,9 +39,9 @@ spec:
           upgradeApproval: Automatic
           subscription:
             name: amq-streams
-            namespace: openshift-operators
+            namespace: kafka-streams
             channel: amq-streams-2.8.x
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - amqstreams.v2.8.0-13
+            - amqstreams.v2.8.0-0
