@@ -8,7 +8,7 @@ metadata:
     policy.open-cluster-management.io/controls: Allow Ingress
 spec:
   remediationAction: enforce
-  disabled: false
+  disabled: true
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
