@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "2"
   name: keycloak-db
 spec:
+  openshift: true
   postgresVersion: 17
   instances:
     - name: keycloak-db
