@@ -3,4 +3,4 @@ namespace: idle-resources-job
 resources:
   - namespace.yaml
   - idle-rbac.yaml
-  - idle-job.yaml
+  - idle-cronjob.yaml
