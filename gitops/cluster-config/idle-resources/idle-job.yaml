@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: idle-resources
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.17
+          command:
+            - /bin/bash
+            - -c
+            - |
+              echo "Idle services that have the idle label."
+
+              oc idle -A -l idle
+
+              echo "Done!"
+
+          imagePullPolicy: Always
+          name: idle-resources-job
+      dnsPolicy: ClusterFirst
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 30

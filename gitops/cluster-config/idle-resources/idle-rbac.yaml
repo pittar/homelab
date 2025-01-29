@@ -1,0 +1,33 @@
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: list-and-idle
+rules:
+- apiGroups: [""]
+  resources: ["endpoints","services","pods"]
+  verbs: ["list","get"]
+- apiGroups: [""]
+  resources: ["services"]
+  verbs: ["patch"]
+- apiGroups: ["apps"]
+  resources: ["replicasets","deployments/scale"]
+  verbs: ["list","get"]
+- apiGroups: ["apps"]
+  resources: ["deployments/scale"]
+  verbs: ["update"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: idle-job-clusterrolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: list-and-idle
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: idle-resources-job
