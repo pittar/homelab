@@ -8,3 +8,4 @@ resources:
   - keycloak-operator
   - devspaces
   - openshift-virtualization
+  - kubeletconfig
