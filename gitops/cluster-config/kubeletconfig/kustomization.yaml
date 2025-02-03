@@ -1,2 +1,3 @@
 resources:
   - set-allocatable.yaml
+  - set-max-pods.yaml
