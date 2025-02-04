@@ -14,3 +14,4 @@ spec:
     - cost-management-operator
     - networkpolicy-deny-all
     - networkpolicy-allow-ingress
+    - defrag-etcd

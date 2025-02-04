@@ -1,0 +1,90 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: defrag-etcd
+  annotations:
+    policy.open-cluster-management.io/standards: CM Config Management
+    policy.open-cluster-management.io/categories: Etcd
+    policy.open-cluster-management.io/controls: Defrag Etcd Job
+spec:
+  remediationAction: enforce
+  disabled: false
+  hubTemplateOptions:
+    serviceAccountName: global
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: defrag-etcd
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: ServiceAccount
+                metadata:
+                  name: defrag-etcd
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: Role
+                metadata:
+                  name: defrag-etcd
+                rules:
+                  - apiGroups:
+                      - ""
+                    resources:
+                      - pods
+                    verbs:
+                      - get
+                      - list
+                      - exec
+                  - apiGroups:
+                      - ""
+                    resources:
+                      - pods/exec
+                    verbs:
+                      - create
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: RoleBinding
+                metadata:
+                  name: defrag-etcd
+                roleRef:
+                  apiGroup: rbac.authorization.k8s.io
+                  kind: Role
+                  name: defrag-etcd
+                subjects:
+                  - kind: ServiceAccount
+                    name: defrag-etcd
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: batch/v1
+                kind: CronJob
+                metadata:
+                  name: defrag-etcd
+                spec:
+                  schedule: "0 11 * * *"
+                  jobTemplate:
+                    spec:
+                      template:
+                        spec:
+                          containers:
+                          - name: defrag-etcd
+                            image: registry.redhat.io/openshift4/ose-cli:latest
+                            imagePullPolicy: IfNotPresent
+                            command:
+                              - /bin/bash
+                              - -c
+                              - |
+                                #!/usr/bin/env bash
+
+                                oc get pods -l app=etcd -n openshift-etcd --no-headers -o custom-columns=":metadata.name" | while read -r pod ; do
+                                    oc exec -n openshift-etcd $pod --container etcdctl  -- sh -c "unset ETCDCTL_ENDPOINTS && etcdctl --command-timeout=30s --endpoints=https://localhost:2379 defrag"
+                                done
+                          serviceAccountName: defrag-etcd
+                          restartPolicy: OnFailure
