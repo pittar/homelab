@@ -45,5 +45,5 @@ spec:
                     matchLabels:
                       pools.operator.machineconfiguration.openshift.io/worker: "" 
                   kubeletConfig:
-                    podsPerCore: 15
+                    podsPerCore: 20
                     maxPods: 500
