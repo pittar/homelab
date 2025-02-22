@@ -5,7 +5,7 @@ metadata:
   namespace: costmanagement-metrics-operator
 spec:
   authentication:
-    type: basic
+    type: service-account
     secret_name: redhat-credentials
   packaging:
     max_reports_to_store: 30

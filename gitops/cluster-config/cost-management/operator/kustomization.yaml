@@ -2,6 +2,5 @@ namespace: costmanagement-metrics-operator
 
 resources:
   - namespace.yaml
-  - creds-external-secret.yaml
   - subscription.yaml
   - operatorgroup.yaml
