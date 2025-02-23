@@ -15,3 +15,4 @@ spec:
     - networkpolicy-deny-all
     - networkpolicy-allow-ingress
     - defrag-etcd
+    - user-workload-monitoring
