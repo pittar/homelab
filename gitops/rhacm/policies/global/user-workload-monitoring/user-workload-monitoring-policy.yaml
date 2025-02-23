@@ -1,0 +1,31 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: user-workload-monitoring
+  annotations:
+    policy.open-cluster-management.io/standards: Observability
+    policy.open-cluster-management.io/categories: Metrics
+    policy.open-cluster-management.io/controls: User Workload Monitoring
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: user-workload-monitoring-config
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: ConfigMap
+                metadata:
+                  name: cluster-monitoring-config
+                  namespace: openshift-monitoring
+                data:
+                  config.yaml: |
+                    enableUserWorkload: true
