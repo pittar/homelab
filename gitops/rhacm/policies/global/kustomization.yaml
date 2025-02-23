@@ -8,3 +8,4 @@ resources:
   - cost-management-operator
   - network-policies
   - etcd
+  - user-workload-monitoring
