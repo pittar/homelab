@@ -57,6 +57,5 @@ spec:
             channel: gitops-1.14
             source: redhat-operators
             sourceNamespace: openshift-marketplace
-            startingCSV: openshift-gitops-operator.v1.14.2
           versions:
-            - openshift-gitops-operator.v1.14.2
+            - openshift-gitops-operator.v1.14.2-0.1738140086.p
