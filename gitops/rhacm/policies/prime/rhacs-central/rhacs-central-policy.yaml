@@ -44,6 +44,7 @@ spec:
                   annotations:
                     argocd.argoproj.io/sync-wave: "1"
                   name: rhacs-central-cert
+                  namespace: stackrox
                 spec:
                   isCA: false
                   commonName: "central-stackrox.apps.prime.pitt.ca" 
