@@ -16,3 +16,4 @@ spec:
     - networkpolicy-allow-ingress
     - defrag-etcd
     - user-workload-monitoring
+    - rhacs-operator
