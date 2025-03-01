@@ -9,3 +9,4 @@ resources:
   - network-policies
   - etcd
   - user-workload-monitoring
+  - rhacs-operator
