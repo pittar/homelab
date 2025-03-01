@@ -40,7 +40,7 @@ spec:
           subscription:
             name: openshift-cert-manager-operator
             namespace: cert-manager-operator
-            channel: stable-v1.14
+            channel: stable-v1.15
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           operatorGroup:
@@ -49,5 +49,5 @@ spec:
             targetNamespaces:
               - cert-manager-operator
           versions:
-            - cert-manager-operator.v1.14.1
+            - cert-manager-operator.v1.15.0
 
