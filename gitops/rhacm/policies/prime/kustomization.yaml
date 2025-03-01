@@ -9,3 +9,4 @@ resources:
   - devspaces
   - openshift-virtualization
   - kubeletconfig
+  - rhacs-central
