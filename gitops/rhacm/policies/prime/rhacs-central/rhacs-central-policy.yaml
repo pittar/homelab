@@ -48,7 +48,7 @@ spec:
                 spec:
                   isCA: false
                   commonName: "central-stackrox.apps.prime.pitt.ca" 
-                  secretName: rhacs-central-cert 
+                  secretName: central-default-tls-cert 
                   dnsNames:
                   - "central-stackrox.apps.prime.pitt.ca" 
                   issuerRef:
