@@ -18,3 +18,4 @@ spec:
     - crunchy-postgres-operator-v5-7
     - openshift-virtualization-operator
     - kubeletconfig
+    - rhacs-central
