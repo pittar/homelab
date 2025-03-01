@@ -43,7 +43,7 @@ spec:
                 metadata:
                   annotations:
                     argocd.argoproj.io/sync-wave: "1"
-                  name: rhacs-central-cert
+                  name: central-default-tls-cert
                   namespace: stackrox
                 spec:
                   isCA: false
@@ -80,7 +80,6 @@ spec:
                         enabled: false
                       route:
                         enabled: true
-                    defaultTLSSecret: rhacs-central-cert
                     persistence:
                       persistentVolumeClaim:
                         claimName: stackrox-db
