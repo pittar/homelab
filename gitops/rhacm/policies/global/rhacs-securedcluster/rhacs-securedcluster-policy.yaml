@@ -23,6 +23,23 @@ spec:
     serviceAccountName: global
   policy-templates:
     - objectDefinition:
+      apiVersion: policy.open-cluster-management.io/v1
+      kind: ConfigurationPolicy
+      metadata:
+        name: rhacs-namespace
+      spec:
+        remediationAction: inform
+        severity: high
+        object-templates:
+          - complianceType: musthave
+            objectDefinition:
+              apiVersion: v1                    
+              kind: Namespace
+              metadata:
+                labels:
+                  openshift.io/cluster-monitoring: "true"
+                name: stackrox
+    - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
