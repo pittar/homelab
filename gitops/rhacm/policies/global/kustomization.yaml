@@ -10,3 +10,4 @@ resources:
   - etcd
   - user-workload-monitoring
   - rhacs-operator
+  - rhacs-securedcluster
