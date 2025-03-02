@@ -85,13 +85,19 @@ spec:
                         claimName: stackrox-db
                   egress:
                     connectivityPolicy: Online
-                  scanner:
-                    analyzer:
+                  scannerV4:
+                    indexer:
                       scaling:
-                        autoScaling: Enabled
-                        maxReplicas: 1
-                        minReplicas: 1
+                        autoScaling: Disabled
                         replicas: 1
+                    matcher:
+                      scaling:
+                        autoScaling: Disabled
+                        replicas: 1
+                    # analyzer:
+                    #   scaling:
+                    #     autoScaling: Disabled
+                    #     replicas: 1
                     scannerComponent: Enabled
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -181,7 +187,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: rhacs-central-init-bundle
+          name: acs-central-init-bundle
         spec:
           remediationAction: inform
           severity: high
