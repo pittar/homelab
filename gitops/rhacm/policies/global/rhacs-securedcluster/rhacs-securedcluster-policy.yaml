@@ -122,6 +122,20 @@ spec:
                     listenOnCreates: false
                     listenOnEvents: true
                     listenOnUpdates: false
+                  scannerV4:
+                    indexer:
+                      scaling:
+                        autoScaling: Disabled
+                        replicas: 1
+                    matcher:
+                      scaling:
+                        autoScaling: Disabled
+                        replicas: 1
+                    # analyzer:
+                    #   scaling:
+                    #     autoScaling: Disabled
+                    #     replicas: 1
+                    scannerComponent: Enabled
                   perNode:
                     collector:
                       collection: EBPF
