@@ -1,0 +1,38 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: kubeletconfig
+  annotations:
+    policy.open-cluster-management.io/standards: Configuration Management 
+    policy.open-cluster-management.io/categories: Kubernetes Resources
+    policy.open-cluster-management.io/controls: KubeletConfig
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: kubeletconfig-settings
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: machineconfiguration.openshift.io/v1
+                kind: KubeletConfig
+                metadata:
+                  name: custom-config
+                  namespace: openshift-config-operator
+                spec:
+                  machineConfigPoolSelector:
+                    matchLabels:
+                      pools.operator.machineconfiguration.openshift.io/master: ""  # change the label to find the nodes with heavy workload
+                  kubeletConfig:
+                    systemReserved:
+                      cpu: 500m        # change the CPU if needed
+                      memory: 2148Mi   # change the memory if needed
+                    podsPerCore: 20
+                    maxPods: 500

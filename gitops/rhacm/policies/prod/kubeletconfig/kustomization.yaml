@@ -1,5 +1,4 @@
 namespace: acm-prod-policies
 
 resources:
-  - gitops-bootstrap
-  - kubeletconfig
+  - kubeletconfig-policy.yaml
