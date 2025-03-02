@@ -34,16 +34,18 @@ spec:
                     systemReserved:
                       cpu: 500m        # change the CPU if needed
                       memory: 2148Mi   # change the memory if needed
-            - complianceType: musthave
-              objectDefinition:
-                apiVersion: machineconfiguration.openshift.io/v1
-                kind: KubeletConfig
-                metadata:
-                  name: set-max-pods 
-                spec:
-                  machineConfigPoolSelector:
-                    matchLabels:
-                      pools.operator.machineconfiguration.openshift.io/worker: "" 
-                  kubeletConfig:
                     podsPerCore: 20
                     maxPods: 500
+            # - complianceType: musthave
+            #   objectDefinition:
+            #     apiVersion: machineconfiguration.openshift.io/v1
+            #     kind: KubeletConfig
+            #     metadata:
+            #       name: set-max-pods 
+            #     spec:
+            #       machineConfigPoolSelector:
+            #         matchLabels:
+            #           pools.operator.machineconfiguration.openshift.io/worker: "" 
+            #       kubeletConfig:
+            #         podsPerCore: 20
+            #         maxPods: 500
