@@ -123,7 +123,7 @@ spec:
                     listenOnEvents: true
                     listenOnUpdates: false
                   scannerV4:
-                    scannerComponent: Default
+                    scannerComponent: AutoSense
                   perNode:
                     collector:
                       collection: EBPF
