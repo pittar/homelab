@@ -124,6 +124,8 @@ spec:
                     listenOnUpdates: false
                   scannerV4:
                     scannerComponent: AutoSense
+                  scanner:
+                    scannerComponent: Disabled                    
                   perNode:
                     collector:
                       collection: EBPF
