@@ -119,7 +119,7 @@ spec:
                         requests:
                           cpu: 250m
                           memory: 1500Mi
-                    scannerComponent: AutoSense
+                    scannerComponent: Enabled
                   scanner:
                     scannerComponent: Disabled
     - objectDefinition:
