@@ -83,6 +83,12 @@ spec:
                     persistence:
                       persistentVolumeClaim:
                         claimName: stackrox-db
+                    resources:
+                      limits:
+                        memory: 4Gi
+                      requests:
+                        cpu: 500m
+                        memory: 2Gi
                   egress:
                     connectivityPolicy: Online
                   scannerV4:
@@ -90,14 +96,20 @@ spec:
                       scaling:
                         autoScaling: Disabled
                         replicas: 1
+                      resources:
+                        limits:
+                          memory: 1Gi
+                        requests:
+                          cpu: 250m
+                          memory: 500Mi
                     matcher:
                       scaling:
                         autoScaling: Disabled
                         replicas: 1
-                    # analyzer:
-                    #   scaling:
-                    #     autoScaling: Disabled
-                    #     replicas: 1
+                      resources:
+                        requests:
+                          cpu: 250m
+                          memory: 1500Mi
                     scannerComponent: Enabled
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
