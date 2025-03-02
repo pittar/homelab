@@ -111,6 +111,8 @@ spec:
                           cpu: 250m
                           memory: 1500Mi
                     scannerComponent: Enabled
+                  scanner:
+                    scannerComponent: Disabled
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
