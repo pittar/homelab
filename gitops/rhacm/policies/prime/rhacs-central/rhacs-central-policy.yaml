@@ -72,6 +72,15 @@ spec:
                   namespace: stackrox
                 spec:
                   central:
+                    db:
+                      isEnabled: Default
+                      resources:
+                        limits:
+                          cpu: '4'
+                          memory: 8Gi
+                        requests:
+                          cpu: 250m
+                          memory: 4Gi
                     exposure:
                       loadBalancer:
                         enabled: false
@@ -80,14 +89,6 @@ spec:
                         enabled: false
                       route:
                         enabled: true
-                    db: 
-                      resources:
-                        limits:
-                          cpu: '4'
-                          memory: 8Gi
-                        requests:
-                          cpu: 250m
-                          memory: 4Gi
                     persistence:
                       persistentVolumeClaim:
                         claimName: stackrox-db
