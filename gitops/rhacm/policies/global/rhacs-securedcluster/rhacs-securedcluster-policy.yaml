@@ -133,6 +133,14 @@ spec:
                         requests:
                           cpu: 250m
                           memory: 500Mi
+                  sensor:
+                    resources:
+                      limits:
+                        cpu: '3'
+                        memory: 4Gi
+                      requests:
+                        cpu: 250m
+                        memory: 2Gi
                     monitoring: 
                       exposeEndpoint: Enabled
                     scannerComponent: AutoSense
