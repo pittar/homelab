@@ -8,3 +8,4 @@ spec:
   description: prod policies.
   policies:
     - bootstrap-openshift-gitops-prod
+    - kubeletconfig

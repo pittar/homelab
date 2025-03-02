@@ -8,3 +8,4 @@ spec:
   description: dev policies.
   policies:
     - bootstrap-openshift-gitops-dev
+    - kubeletconfig
