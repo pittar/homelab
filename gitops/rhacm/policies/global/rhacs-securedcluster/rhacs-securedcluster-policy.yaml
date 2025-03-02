@@ -133,6 +133,7 @@ spec:
                         requests:
                           cpu: 250m
                           memory: 500Mi
+                    scannerComponent: AutoSense
                   sensor:
                     resources:
                       limits:
@@ -141,7 +142,6 @@ spec:
                       requests:
                         cpu: 250m
                         memory: 2Gi
-                    scannerComponent: AutoSense
                   scanner:
                     scannerComponent: Disabled                    
                   perNode:
