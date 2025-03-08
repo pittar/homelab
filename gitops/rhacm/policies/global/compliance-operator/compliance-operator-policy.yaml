@@ -43,7 +43,7 @@ spec:
             sourceNamespace: openshift-marketplace
           operatorGroup:
             name: compliance-operator
-            namespace: compliance-operator
+            namespace: openshift-compliance
             targetNamespaces:
               - openshift-compliance
           versions:
