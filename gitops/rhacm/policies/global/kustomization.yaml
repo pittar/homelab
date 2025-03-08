@@ -11,3 +11,4 @@ resources:
   - user-workload-monitoring
   - rhacs-operator
   - rhacs-securedcluster
+  - compliance-operator
