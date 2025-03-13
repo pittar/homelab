@@ -42,5 +42,5 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - rhacs-operator.v4.6.2
+            - rhacs-operator.v4.6.3
 
