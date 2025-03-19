@@ -47,7 +47,7 @@ spec:
             targetNamespaces:
               - openshift-compliance
           versions:
-            - compliance-operator.v1.6.1
+            - compliance-operator.v1.6.2
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
