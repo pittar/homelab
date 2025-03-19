@@ -49,5 +49,5 @@ spec:
             targetNamespaces:
               - cert-manager-operator
           versions:
-            - cert-manager-operator.v1.15.0
+            - cert-manager-operator.v1.15.1
 
