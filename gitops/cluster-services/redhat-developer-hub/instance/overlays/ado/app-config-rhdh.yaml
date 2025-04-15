@@ -127,9 +127,9 @@ data:
             - name: user:default/admin
 
     backend:
-      auth:
-        keys:
-          - secret: abc123supers3cr3t
+      # auth:
+      #   keys:
+      #     - secret: abc123supers3cr3t
       baseUrl: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
       cors:
         origin: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
