@@ -8,7 +8,7 @@ data:
     p, role:default/developers, catalog.entity.read, read, allow
     p, role:default/developers, catalog.location.read, read, allow
     p, role:default/developers, topology.view.read, read, allow
-    # p, role:default/developers, adoption-insights.events.read, read, allow
+    p, role:default/developers, adoption-insights.events.read, read, allow
 
     # Team Lead 
     p, role:default/teamleads, catalog.entity.read, read, allow
@@ -22,7 +22,7 @@ data:
     p, role:default/teamleads, scaffolder.task.create, create, allow
     p, role:default/teamleads, scaffolder.task.cancel, use, allow
     p, role:default/teamleads, scaffolder.task.read, read, allow
-    # p, role:default/teamleads, adoption-insights.events.read, read, allow
+    p, role:default/teamleads, adoption-insights.events.read, read, allow
 
     # Role assignments (to group)
     g, group:default/developers, role:default/developers

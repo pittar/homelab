@@ -9,13 +9,13 @@ data:
     app:
       title: Homelab IDP
       baseUrl: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
-
-      # analytics:
-      #   adoptionInsights:
-      #     maxBufferSize: 20
-      #     flushInterval: 5000
-      #     debug: false
-      #     licensedUsers: 2000
+      # Adoption Insights
+      analytics:
+        adoptionInsights:
+          maxBufferSize: 20
+          flushInterval: 5000
+          debug: false
+          licensedUsers: 2000
 
     argocd:
       waitCycles: 25
