@@ -10,9 +10,9 @@ data:
       title: Homelab IDP
       baseUrl: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
 
-    analytics:
-      adoptionInsights:
-        debug: false 
+      analytics:
+        adoptionInsights:
+          debug: false 
 
     argocd:
       waitCycles: 25
