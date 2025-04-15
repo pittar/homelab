@@ -34,35 +34,35 @@ data:
       - package: ./dynamic-plugins/dist/backstage-community-plugin-topology 
         disabled: false
 
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-adoption-insights:bs_1.35.1__0.0.2!red-hat-developer-hub-backstage-plugin-adoption-insights
-        disabled: false
-        pluginConfig:
-          dynamicPlugins:
-            frontend:
-              red-hat-developer-hub.backstage-plugin-adoption-insights:
-                appIcons:
-                  - name: adoptionInsightsIcon
-                    importName: AdoptionInsightsIcon
-                dynamicRoutes:
-                  - path: /adoption-insights
-                    importName: AdoptionInsightsPage
-                    menuItem:
-                      icon: adoptionInsightsIcon
-                      text: Adoption Insights
-                menuItems:
-                  adoption-insights:
-                    parent: admin
-                    icon: adoptionInsightsIcon
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-adoption-insights-backend:bs_1.35.1__0.0.2!red-hat-developer-hub-backstage-plugin-adoption-insights-backend-dynamic
-        disabled: false
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-analytics-module-adoption-insights:bs_1.35.1__0.0.2!red-hat-developer-hub-backstage-plugin-analytics-module-adoption-insights
-        disabled: false
-        pluginConfig:
-          dynamicPlugins:
-            frontend:
-              red-hat-developer-hub.backstage-plugin-analytics-module-adoption-insights:
-                apiFactories:
-                  - importName: AdoptionInsightsAnalyticsApiFactory
+      # - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-adoption-insights:bs_1.35.1__0.0.2!red-hat-developer-hub-backstage-plugin-adoption-insights
+      #   disabled: false
+      #   pluginConfig:
+      #     dynamicPlugins:
+      #       frontend:
+      #         red-hat-developer-hub.backstage-plugin-adoption-insights:
+      #           appIcons:
+      #             - name: adoptionInsightsIcon
+      #               importName: AdoptionInsightsIcon
+      #           dynamicRoutes:
+      #             - path: /adoption-insights
+      #               importName: AdoptionInsightsPage
+      #               menuItem:
+      #                 icon: adoptionInsightsIcon
+      #                 text: Adoption Insights
+      #           menuItems:
+      #             adoption-insights:
+      #               parent: admin
+      #               icon: adoptionInsightsIcon
+      # - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-adoption-insights-backend:bs_1.35.1__0.0.2!red-hat-developer-hub-backstage-plugin-adoption-insights-backend-dynamic
+      #   disabled: false
+      # - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-analytics-module-adoption-insights:bs_1.35.1__0.0.2!red-hat-developer-hub-backstage-plugin-analytics-module-adoption-insights
+      #   disabled: false
+      #   pluginConfig:
+      #     dynamicPlugins:
+      #       frontend:
+      #         red-hat-developer-hub.backstage-plugin-analytics-module-adoption-insights:
+      #           apiFactories:
+      #             - importName: AdoptionInsightsAnalyticsApiFactory
 
       # - package: ./dynamic-plugins/dist/parfuemerie-douglas-scaffolder-backend-module-azure-repositories-dynamic
       #   disabled: false
