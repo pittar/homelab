@@ -58,4 +58,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - openshift-gitops-operator.v1.15.1
+            - openshift-gitops-operator.v1.15.2
