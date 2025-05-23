@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: stop-workspaces
+  namespace: openshift-devspaces
+spec:
+  schedule: "0 2 * * *"
+  timeZone: Etc/UTC
+  concurrencyPolicy: "Replace"
+  startingDeadlineSeconds: 200
+  suspend: false
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: che-dashboard
+          containers:
+            - image: registry.redhat.io/openshift4/ose-cli-artifacts-rhel9:v4.18
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  echo "Stopping Workspaces."
+
+                  SPACES=$(oc get devworkspaces -A -o custom-columns=NAME:.metadata.name,NAMESPACE:.metadata.namespace)
+                  SPACES=${SPACES#*$'\n'}
+
+                  while IFS= read -r line; do
+                    sanitized=$( echo $line | tr -s ' ' )
+                    workspace=$( echo "$sanitized" | cut -d$' ' -f1 )
+                    namespace=$( echo "$sanitized" | cut -d$' ' -f2 )
+                    
+                    echo "Stopping workspace $workspace in namespace $namespace"
+                    oc patch devworkspace $workspace -n $namespace -p '{"spec": {"started": false}}' --type=merge
+                  done <<< "$SPACES"
+
+                  echo "Done!"
+              imagePullPolicy: Always
+              name: stop-workspaces-job
+          dnsPolicy: ClusterFirst
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 30

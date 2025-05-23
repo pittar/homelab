@@ -1,0 +1,4 @@
+namespace: openshift-devspaces
+
+resources:
+  - stop-workspaces-cronjob.yaml
