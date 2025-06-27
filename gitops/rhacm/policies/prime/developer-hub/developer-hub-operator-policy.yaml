@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - rhdh-operator.v1.5.1
+            - rhdh-operator.v1.5.2
