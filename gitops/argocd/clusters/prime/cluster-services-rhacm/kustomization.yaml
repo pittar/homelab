@@ -6,3 +6,4 @@ resources:
   - ../../../cluster-services/redhat-developer-hub/instance
   - ../../../cluster-services/devspaces/instance
   - ../../../cluster-services/openshift-virt/instance
+  - ../../../cluster-services/openshift-lightspeed/instance
