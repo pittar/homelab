@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: lightspeed-operator
+  name: openshift-lightspeed-operator
   annotations:
     policy.open-cluster-management.io/standards: AI Assistant
     policy.open-cluster-management.io/categories: OpenShift
@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: lightspeed-operator-namespace
+          name: openshift-lightspeed-operator-namespace
         spec:
           remediationAction: inform
           severity: high
@@ -31,7 +31,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1beta1
         kind: OperatorPolicy
         metadata:
-          name: install-lightspeed-operator
+          name: install-openshift-lightspeed-operator
         spec:
           remediationAction: enforce
           severity: critical
