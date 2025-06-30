@@ -39,7 +39,7 @@ spec:
           upgradeApproval: Automatic
           subscription:
             name: devspaces
-            namespace: openshift-operators
+            namespace: openshift-devspaces
             channel: stable
             source: redhat-operators
             sourceNamespace: openshift-marketplace
