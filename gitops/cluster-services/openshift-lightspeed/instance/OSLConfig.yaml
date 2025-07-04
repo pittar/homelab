@@ -15,4 +15,5 @@ spec:
   ols:
     defaultModel: granite-3-3-8b-instruct
     defaultProvider: red_hat_openshift_ai
+    introspectionEnabled: true
     logLevel: INFO
