@@ -8,7 +8,7 @@ data:
   app-config-rhdh.yaml: |
     app:
       title: Homelab IDP
-      baseUrl: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
+      #baseUrl: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
       # Adoption Insights
       analytics:
         adoptionInsights:
@@ -126,13 +126,13 @@ data:
           superUsers:
             - name: user:default/admin
 
-    backend:
+    #backend:
       # auth:
       #   keys:
       #     - secret: abc123supers3cr3t
-      baseUrl: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
-      cors:
-        origin: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
+      #baseUrl: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
+      #cors:
+      #  origin: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
 
     enabled:
       argocd: true

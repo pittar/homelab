@@ -1,0 +1,4 @@
+namespace: acm-prime-policies
+
+resources:
+  - lightspeed-operator-policy.yaml

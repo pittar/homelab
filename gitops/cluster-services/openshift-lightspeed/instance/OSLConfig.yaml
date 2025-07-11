@@ -1,0 +1,19 @@
+apiVersion: ols.openshift.io/v1alpha1
+kind: OLSConfig
+metadata:
+  name: cluster
+spec:
+  llm:
+    providers:
+      - credentialsSecretRef:
+          name: credentials
+        models:
+          - name: mistral-small-24b-w8a8
+        name: red_hat_openshift_ai
+        type: rhoai_vllm
+        url: 'https://mistral-small-24b-w8a8-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com:443/v1'
+  ols:
+    defaultModel: mistral-small-24b-w8a8
+    defaultProvider: red_hat_openshift_ai
+    introspectionEnabled: true
+    logLevel: INFO

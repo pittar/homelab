@@ -7,6 +7,7 @@ resources:
   - openshift-pipelines-operator
   - keycloak-operator
   - devspaces
+  - openshift-lightspeed
   - openshift-virtualization
   - kubeletconfig
   - rhacs-central

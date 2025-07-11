@@ -1,11 +1,11 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: devspaces-operator
+  name: openshift-lightspeed-operator
   annotations:
-    policy.open-cluster-management.io/standards: DevOps
-    policy.open-cluster-management.io/categories: IDE
-    policy.open-cluster-management.io/controls: Standard IDE
+    policy.open-cluster-management.io/standards: AI Assistant
+    policy.open-cluster-management.io/categories: OpenShift
+    policy.open-cluster-management.io/controls: Lightspeed
 spec:
   remediationAction: enforce
   disabled: false
@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: devspaces-operator-namespace
+          name: openshift-lightspeed-operator-namespace
         spec:
           remediationAction: inform
           severity: high
@@ -26,22 +26,22 @@ spec:
                 metadata:
                   labels:
                     openshift.io/cluster-monitoring: "true"
-                  name: openshift-devspaces
+                  name: openshift-lightspeed
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1beta1
         kind: OperatorPolicy
         metadata:
-          name: install-devspaces-operator
+          name: install-openshift-lightspeed-operator
         spec:
           remediationAction: enforce
           severity: critical
           complianceType: musthave
           upgradeApproval: Automatic
           subscription:
-            name: devspaces
-            namespace: openshift-operators
+            name: lightspeed-operator
+            namespace: openshift-lightspeed
             channel: stable
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - devspacesoperator.v3.21.0
+            - lightspeed-operator.v1.0.0

@@ -1,0 +1,5 @@
+namespace: openshift-lightspeed
+
+resources:
+  - maas-creds-externalsecret.yaml
+  - OSLConfig.yaml
