@@ -1,0 +1,29 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: generate-sbom
+spec:
+  workspaces:
+    - name: sboms
+  params:
+    - name: rhacs-api
+      description: The RHACS API url.
+      type: string
+    - name: rhacs-api-key
+      description: The RHACS API key used to authenticate with RHACS.
+      type: string
+    - name: IMAGE
+      description: Location of image to generate an SBOM for
+      type: string
+  steps:
+    - name: sbom
+      workingDir: /workspace/sboms
+      image: registry.redhat.io/advanced-cluster-security/rhacs-roxctl-rhel8:4.7
+      command: ["/bin/bash", "-c"]
+      args:
+        - |-
+          export ROX_API_TOKEN=$(inputs.params.rhacs-api-key)
+          export ROX_ENDPOINT=$(inputs.params.rhacs-api)
+
+          roxctl central login
+          roxctl image sbom -i $(inputs.params.IMAGE) > $(inputs.params.IMAGE).sbom
