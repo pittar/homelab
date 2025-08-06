@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - amqstreams.v2.8.0-0
+            - amqstreams.v2.8.0-0-0.1738265624.p
