@@ -76,11 +76,11 @@ data:
       token: ${PERSONAL_ACCESS_TOKEN}
       organization: pittar-demos
 
-    # integrations:
-    #   azure:
-    #     - host: dev.azure.com
-    #       credentials:
-    #         - personalAccessToken: ${PERSONAL_ACCESS_TOKEN}
+    integrations:
+      azure:
+        - host: dev.azure.com
+          credentials:
+            - personalAccessToken: ${PERSONAL_ACCESS_TOKEN}
 
     signInPage: oidc
 
