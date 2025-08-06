@@ -40,8 +40,8 @@ spec:
           subscription:
             name: amq-streams
             namespace: kafka-streams
-            channel: amq-streams-2.8.x
+            channel: amq-streams-2.9.x
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - amqstreams.v2.8.0-0-0.1738265624.p
+            - amqstreams.v2.9.1-1
