@@ -71,10 +71,10 @@ data:
       serviceLocatorMethod:
           type: multiTenant
 
-    # azureDevOps:
-    #   host: dev.azure.com
-    #   token: ${PERSONAL_ACCESS_TOKEN}
-    #   organization: pittar-demos
+    azureDevOps:
+      host: dev.azure.com
+      token: ${PERSONAL_ACCESS_TOKEN}
+      organization: pittar-demos
 
     # integrations:
     #   azure:
