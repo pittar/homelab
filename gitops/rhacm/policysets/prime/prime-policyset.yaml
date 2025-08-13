@@ -16,7 +16,7 @@ spec:
     - openshift-pipelines-operator
     - keycloak-operator
     - devspaces-operator
-    - crunchy-postgres-operator-v5-7
+    - crunchy-postgres-operator-v5
     - openshift-lightspeed-operator
     - openshift-virtualization-operator
     - kubeletconfig

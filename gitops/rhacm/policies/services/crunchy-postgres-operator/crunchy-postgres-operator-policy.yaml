@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: crunchy-postgres-operator-v5-7
+  name: crunchy-postgres-operator-v5
   annotations:
     policy.open-cluster-management.io/standards: CM Config Management
     policy.open-cluster-management.io/categories: Databases
