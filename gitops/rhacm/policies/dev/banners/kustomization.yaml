@@ -1,4 +1,4 @@
 namespace: acm-dev-policies
 
 resources:
-  - kubeletconfig-policy.yaml
+  - banners-policy.yaml
