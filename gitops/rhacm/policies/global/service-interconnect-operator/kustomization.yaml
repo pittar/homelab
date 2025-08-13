@@ -1,2 +1,2 @@
 resources:
-  -rhsi-operator-policy.yaml
+  - rhsi-operator-policy.yaml
