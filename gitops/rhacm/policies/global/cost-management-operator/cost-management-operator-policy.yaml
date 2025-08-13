@@ -49,5 +49,5 @@ spec:
             targetNamespaces:
               - costmanagement-metrics-operator
           versions:
-            - costmanagement-metrics-operator.3.3.2
+            - costmanagement-metrics-operator.4.0.0
 
