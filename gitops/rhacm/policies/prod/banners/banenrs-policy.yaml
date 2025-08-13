@@ -1,0 +1,32 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: banners-prod
+  annotations:
+    policy.open-cluster-management.io/standards: Configuration Management 
+    policy.open-cluster-management.io/categories: Notifications
+    policy.open-cluster-management.io/controls: Visual Banners
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: banners-prod
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: console.openshift.io/v1
+                kind: ConsoleNotification
+                metadata:
+                  name: banner
+                spec:
+                  text: Home Lab --PROD--
+                  location: BannerTop 
+                  color: '#fff'
+                  backgroundColor: '#35ab3d'

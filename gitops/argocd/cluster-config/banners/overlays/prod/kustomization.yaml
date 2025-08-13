@@ -1,0 +1,14 @@
+namespace: openshift-gitops
+
+resources:
+  - ../../base
+
+patches:
+- patch: |-
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: banners-config
+    spec:
+      source:
+        path: gitops/cluster-config/banners/overlays/prod

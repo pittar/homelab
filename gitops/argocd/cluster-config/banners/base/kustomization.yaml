@@ -1,0 +1,4 @@
+namespace: openshift-gitops
+
+resources:
+  - banners-application.yaml

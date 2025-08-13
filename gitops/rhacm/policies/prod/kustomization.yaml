@@ -3,3 +3,4 @@ namespace: acm-prod-policies
 resources:
   - gitops-bootstrap
   - kubeletconfig
+  - banners

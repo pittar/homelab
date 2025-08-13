@@ -1,0 +1,4 @@
+namespace: acm-dev-policies
+
+resources:
+  - kubeletconfig-policy.yaml

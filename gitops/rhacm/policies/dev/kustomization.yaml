@@ -1,6 +1,7 @@
 namespace: acm-dev-policies
 
 resources:
+  - banners
   - gitops-bootstrap
   - kubeletconfig
 

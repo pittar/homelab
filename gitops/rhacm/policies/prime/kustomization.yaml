@@ -1,6 +1,7 @@
 namespace: acm-prime-policies
 
 resources:
+  - banners
   - rbac
   - gitops-bootstrap
   - developer-hub
