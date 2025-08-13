@@ -7,5 +7,6 @@ metadata:
 spec:
   description: prod policies.
   policies:
+    - banners-prod
     - bootstrap-openshift-gitops-prod
     - kubeletconfig

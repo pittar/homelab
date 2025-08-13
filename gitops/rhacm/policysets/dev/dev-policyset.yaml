@@ -9,3 +9,4 @@ spec:
   policies:
     - bootstrap-openshift-gitops-dev
     - kubeletconfig
+    - banners-dev
