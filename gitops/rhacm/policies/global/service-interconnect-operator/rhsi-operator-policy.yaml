@@ -1,0 +1,50 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: service-interconnect-operator
+  annotations:
+    policy.open-cluster-management.io/standards: Hybrid Cloud
+    policy.open-cluster-management.io/categories: Connectivity
+    policy.open-cluster-management.io/controls: Virtual Application Network
+spec:
+  remediationAction: enforce
+  disabled: false
+  hubTemplateOptions:
+    serviceAccountName: global
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: service-interconnect-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                  apiVersion: v1                    
+                  kind: Namespace
+                  metadata:
+                    labels:
+                      argocd.argoproj.io/managed-by: openshift-gitops
+                    name: rhsi-operator
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: install-rhsi-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: skupper-operator
+            namespace: rhsi-operator
+            channel: stable-2
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - skupper-operator.v2.0.1-rh-2
+
