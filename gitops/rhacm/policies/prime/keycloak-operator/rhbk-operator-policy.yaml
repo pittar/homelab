@@ -40,7 +40,7 @@ spec:
           subscription:
             name: rhbk-operator
             namespace: keycloak
-            channel: stable-v26.0
+            channel: stable-v26
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           operatorGroup:
@@ -49,4 +49,4 @@ spec:
             targetNamespaces:
               - keycloak
           versions:
-            - rhbk-operator.v26.0.13-opr.1
+            - rhbk-operator.v26.0.14-opr.1
