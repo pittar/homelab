@@ -46,5 +46,5 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - skupper-operator.v2.0.1-rh-2
+            - skupper-operator.v2.1.1-rh-3
 
