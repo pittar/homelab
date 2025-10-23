@@ -19,4 +19,4 @@ spec:
     - rhacs-operator
     - rhacs-securedcluster
     - service-interconnect-operator
-    #- compliance-operator
+    - compliance-operator
