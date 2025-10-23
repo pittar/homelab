@@ -18,5 +18,5 @@ spec:
     - user-workload-monitoring
     - rhacs-operator
     - rhacs-securedcluster
-    - compliance-operator
     - service-interconnect-operator
+    #- compliance-operator
