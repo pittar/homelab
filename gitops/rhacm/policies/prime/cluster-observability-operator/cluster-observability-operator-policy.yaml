@@ -1,11 +1,11 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: openshift-virtualization-operator
+  name: cluster-observability-operator
   annotations:
-    policy.open-cluster-management.io/standards: Virtualization
-    policy.open-cluster-management.io/categories: Provider
-    policy.open-cluster-management.io/controls: KubeVirt
+    policy.open-cluster-management.io/standards: Observability
+    policy.open-cluster-management.io/categories: Observability
+    policy.open-cluster-management.io/controls: Metrics
 spec:
   remediationAction: enforce
   disabled: false
@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: openshift-virtualization-operator-namespace
+          name: cluster-observability-operator-namespace
         spec:
           remediationAction: inform
           severity: high
@@ -26,27 +26,22 @@ spec:
                 metadata:
                   labels:
                     openshift.io/cluster-monitoring: "true"
-                  name: openshift-cnv
+                  name: openshift-cluster-observability-operator
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1beta1
         kind: OperatorPolicy
         metadata:
-          name: openshift-virtualization-operator
+          name: install-cluster-observability-operator
         spec:
           remediationAction: enforce
           severity: critical
           complianceType: musthave
           upgradeApproval: Automatic
           subscription:
-            name: kubevirt-hyperconverged
-            namespace: openshift-cnv
+            name: cluster-observability-operator
+            namespace: openshift-cluster-observability-operator
             channel: stable
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - kubevirt-hyperconverged-operator.v4.20.0
-          operatorGroup:
-            name: openshift-cnv
-            namespace: openshift-cnv
-            targetNamespaces:
-              - openshift-cnv
+            - cluster-observability-operator.v1.2.2
