@@ -1,11 +1,11 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: developer-hub-operator
+  name: node-feature-discovery-operator
   annotations:
-    policy.open-cluster-management.io/standards: DevOps
-    policy.open-cluster-management.io/categories: GitOps
-    policy.open-cluster-management.io/controls: Self Service
+    policy.open-cluster-management.io/standards: Configuration
+    policy.open-cluster-management.io/categories: Discovery
+    policy.open-cluster-management.io/controls: Hardware
 spec:
   remediationAction: enforce
   disabled: false
@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: developer-hub-operator-namespace
+          name: node-feature-discovery-operator-namespace
         spec:
           remediationAction: inform
           severity: high
@@ -26,22 +26,39 @@ spec:
                 metadata:
                   labels:
                     openshift.io/cluster-monitoring: "true"
-                  name: rhdh-operator
+                  name: openshift-nfd
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1beta1
         kind: OperatorPolicy
         metadata:
-          name: install-developer-hub-operator
+          name: install-node-feature-discovery-operator
         spec:
           remediationAction: enforce
           severity: critical
           complianceType: musthave
           upgradeApproval: Automatic
           subscription:
-            name: rhdh
-            namespace: rhdh-operator
-            channel: fast-1.7
+            name: nfd
+            namespace: openshift-nfd
+            channel: stable
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - rhdh-operator.v1.7.2
+            - nfd.4.20.0-202510221121
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: ndf-instance
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1                    
+                kind: Namespace
+                metadata:
+                  labels:
+                    openshift.io/cluster-monitoring: "true"
+                  name: openshift-nfd
