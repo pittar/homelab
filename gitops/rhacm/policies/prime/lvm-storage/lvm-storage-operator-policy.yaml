@@ -1,11 +1,11 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: developer-hub-operator
+  name: lvm-storage-operator
   annotations:
-    policy.open-cluster-management.io/standards: DevOps
-    policy.open-cluster-management.io/categories: GitOps
-    policy.open-cluster-management.io/controls: Self Service
+    policy.open-cluster-management.io/standards: Cluster Config
+    policy.open-cluster-management.io/categories: Storage
+    policy.open-cluster-management.io/controls: Block Storage
 spec:
   remediationAction: enforce
   disabled: false
