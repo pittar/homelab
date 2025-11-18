@@ -7,6 +7,7 @@ resources:
   - developer-hub
   - openshift-pipelines-operator
   - keycloak-operator
+  - lvm-storage
   - devspaces
   - openshift-lightspeed
   - openshift-virtualization

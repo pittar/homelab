@@ -1,0 +1,4 @@
+namespace: acm-prime-policies
+
+resources:
+  - lvm-storage-operator-policy.yaml
