@@ -1,0 +1,3 @@
+resources:
+  - openshift-gitops-policy-admin-cr.yaml
+  - openshift-gitops-policy-admin-crb.yaml

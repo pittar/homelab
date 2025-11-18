@@ -1,5 +1,0 @@
-resources:
-  #- managedclustersetbinding.yaml
-  - custom-policies-namespace.yaml
-  - openshift-gitops-operator
-  - hub-bootstrap

@@ -1,4 +1,0 @@
-resources:
-  - ../init-policies
-  - openshift-pipelines-operator
-  - external-secrets-operator

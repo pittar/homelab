@@ -1,4 +1,0 @@
-namespace: acm-prime-policies
-
-resources:
-  - pipelines-operator-policy.yaml

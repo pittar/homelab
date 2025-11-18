@@ -1,6 +1,6 @@
 # Homelab Setup
 
-This repo contains the setup and configuration for my current homelab, as well as OpenShift Local.
+This repo contains the setup and configuration for my current homelab.
 
 There is minimal manual configuration required - mostly to seed secret values as well as the initial OpenShift GitOps install.
 
@@ -9,7 +9,7 @@ There is minimal manual configuration required - mostly to seed secret values as
 Once a cluster is up, there are only three things to do to get the cluster fully configured:
 
 1. Create the credentials secret for External Secrets to use.
-2. Deploy OpenShift GitOps Operator.
+2. Deploy OpenShift GitOps Operator and Advanced Cluster Management Operator/Instance.
 3. Create the bootstrap Application.
 
 ### Doppler Creds Secret for External Secrets and Argo CD

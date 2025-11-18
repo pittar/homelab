@@ -1,4 +1,0 @@
-namespace: acm-custom-policies
-
-resources:
-  - operator-policy.yaml
