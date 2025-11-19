@@ -45,3 +45,8 @@ spec:
             sourceNamespace: openshift-marketplace
           versions:
             - lightspeed-operator.v1.0.7
+          operatorGroup:
+            name: lightspeed-operator
+            namespace: lopenshift-lightspeed
+            targetNamespaces:
+              - lightspeed-operator
