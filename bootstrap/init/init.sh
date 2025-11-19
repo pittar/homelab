@@ -10,9 +10,9 @@ echo "Starting bootstrap process".
 
 oc apply -k ./bootstrap/init
 
-echo "Waiting 60 seconds for OpenShift GitOps and RHACM operators to install."
+echo "Waiting 120 seconds for OpenShift GitOps and RHACM operators to install."
 
-sleep 60
+sleep 120
 
 echo "Deploying a basic RHACM instance."
 

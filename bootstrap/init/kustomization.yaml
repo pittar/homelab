@@ -1,4 +1,4 @@
 resources:
   - external-secrets-operator
   - rhacm-operator/operator
-  - https://github.com/pittar/gitops-catalog/openshift-gitops-operator/operator/overlays/gitops-1.18?ref=main
+  - openshift-gitops

@@ -1,3 +1,4 @@
 resources:
   - openshift-gitops-policy-admin-cr.yaml
   - openshift-gitops-policy-admin-crb.yaml
+  - https://github.com/pittar/gitops-catalog/openshift-gitops-operator/operator/overlays/gitops-1.18?ref=main
