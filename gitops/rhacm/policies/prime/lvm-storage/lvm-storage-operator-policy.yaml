@@ -45,6 +45,11 @@ spec:
             sourceNamespace: openshift-marketplace
           versions:
             - lvms-operator.v4.20.0
+          operatorGroup:
+            name: lvms-og
+            namespace: openshift-lvm-storage
+            targetNamespaces:
+              - openshift-lvm-storage
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
