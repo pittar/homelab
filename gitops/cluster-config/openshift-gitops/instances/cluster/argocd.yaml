@@ -44,3 +44,13 @@ spec:
       g, openshift-gitops-admins, role:admin
       g, system:cluster-admins, role:admin
     scopes: "[groups]"
+  controller:
+    processors: {}
+    resources:
+      limits:
+        cpu: '2'
+        memory: 4Gi
+      requests:
+        cpu: 250m
+        memory: 2Gi
+    sharding: {}
