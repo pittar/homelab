@@ -1,4 +1,4 @@
 namespace: acm-prime-policies
 
-resources:
-  - crunchy-postgres-operator
+resources: []
+  #- crunchy-postgres-operator
