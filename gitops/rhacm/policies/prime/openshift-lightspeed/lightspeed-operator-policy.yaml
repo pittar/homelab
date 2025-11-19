@@ -46,7 +46,7 @@ spec:
           versions:
             - lightspeed-operator.v1.0.7
           operatorGroup:
-            name: lightspeed-operator
-            namespace: lopenshift-lightspeed
+            name: lightspeed-og
+            namespace: openshift-lightspeed
             targetNamespaces:
-              - lightspeed-operator
+              - openshift-lightspeed
