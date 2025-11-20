@@ -13,4 +13,4 @@ resources:
   - openshift-virtualization
   - kubeletconfig
   - rhacs-central
-  - node-feature-discovery-operator
+  # - node-feature-discovery-operator
