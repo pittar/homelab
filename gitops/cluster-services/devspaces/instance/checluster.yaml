@@ -20,11 +20,8 @@ spec:
     maxNumberOfWorkspacesPerUser: -1
     containerBuildConfiguration:
       openShiftSecurityContextConstraint: container-build
-    workspacesPodAnnotations:
-      andrew/is: "awesome"
-    serviceAccount: devspaces-sa
     defaultNamespace:
-      autoProvision: false
+      autoProvision: true
       template: <username>-devspaces
     secondsOfInactivityBeforeIdling: 1800
     storage:
