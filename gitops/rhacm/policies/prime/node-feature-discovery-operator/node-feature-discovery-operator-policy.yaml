@@ -45,6 +45,11 @@ spec:
             sourceNamespace: openshift-marketplace
           versions:
             - nfd.4.20.0-202511102026
+          operatorGroup:
+            name: nfd-og
+            namespace: openshift-nfd
+            targetNamespaces:
+              - openshift-nfd
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
