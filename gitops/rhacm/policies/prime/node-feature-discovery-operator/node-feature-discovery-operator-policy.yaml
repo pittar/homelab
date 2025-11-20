@@ -44,7 +44,7 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - nfd.4.20.0-202510221121
+            - nfd.4.20.0-202511102026
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
