@@ -12,6 +12,7 @@ spec:
     - prime-policy-namespace-rbac
     - bootstrap-rhacm-gitops
     - bootstrap-openshift-gitops-prime
+    - cluster-observability-operator
     - developer-hub-operator
     - openshift-pipelines-operator
     - keycloak-operator

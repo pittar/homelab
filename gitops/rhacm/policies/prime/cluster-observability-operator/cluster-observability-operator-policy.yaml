@@ -4,8 +4,8 @@ metadata:
   name: cluster-observability-operator
   annotations:
     policy.open-cluster-management.io/standards: Observability
-    policy.open-cluster-management.io/categories: Observability
-    policy.open-cluster-management.io/controls: Metrics
+    policy.open-cluster-management.io/categories: Metrics
+    policy.open-cluster-management.io/controls: Prometheus
 spec:
   remediationAction: enforce
   disabled: false
@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - cluster-observability-operator.v1.2.2
+            - cluster-observability-operator.v1.3.0

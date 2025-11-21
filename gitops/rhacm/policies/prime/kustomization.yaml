@@ -2,6 +2,7 @@ namespace: acm-prime-policies
 
 resources:
   - banners
+  - cluster-observability-operator
   - rbac
   - gitops-bootstrap
   - developer-hub
