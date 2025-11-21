@@ -14,3 +14,4 @@ resources:
   - kubeletconfig
   - rhacs-central
   - node-feature-discovery-operator
+  - nvidia-gpu-operator

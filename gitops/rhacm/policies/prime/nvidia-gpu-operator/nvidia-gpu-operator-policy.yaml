@@ -1,0 +1,162 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: nvidia-gpu-operator
+  annotations:
+    policy.open-cluster-management.io/standards: Configuration
+    policy.open-cluster-management.io/categories: Discovery
+    policy.open-cluster-management.io/controls: Hardware
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: nvidia-gpu-operator-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1                    
+                kind: Namespace
+                metadata:
+                  labels:
+                    openshift.io/cluster-monitoring: "true"
+                  name: nvidia-gpu-operator
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: install-nvidia-gpu-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: gpu-operator-certifie
+            namespace: nvidia-gpu-operator
+            channel: v25.3
+            source: certified-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - gpu-operator-certified.v25.3.4
+          operatorGroup:
+            name: nvidia-gpu-operator
+            namespace: nvidia-gpu-operator
+            targetNamespaces:
+              - nvidia-gpu-operator
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: nvidia-gpu-instance
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: nvidia.com/v1
+                kind: ClusterPolicy
+                metadata:
+                  name: gpu-cluster-policy
+                spec:
+                  vgpuDeviceManager:
+                    config:
+                      default: default
+                    enabled: true
+                  migManager:
+                    config:
+                      default: all-disabled
+                      name: default-mig-parted-config
+                    enabled: true
+                  operator:
+                    defaultRuntime: crio
+                    initContainer: {}
+                    runtimeClass: nvidia
+                    use_ocp_driver_toolkit: true
+                  dcgm:
+                    enabled: true
+                  gfd:
+                    enabled: true
+                  dcgmExporter:
+                    config:
+                      name: ''
+                    enabled: true
+                    serviceMonitor:
+                      enabled: true
+                  cdi:
+                    default: false
+                    enabled: false
+                  driver:
+                    licensingConfig:
+                      configMapName: ''
+                      nlsEnabled: true
+                    enabled: true
+                    kernelModuleType: auto
+                    certConfig:
+                      name: ''
+                    useNvidiaDriverCRD: false
+                    kernelModuleConfig:
+                      name: ''
+                    upgradePolicy:
+                      autoUpgrade: true
+                      drain:
+                        deleteEmptyDir: false
+                        enable: false
+                        force: false
+                        timeoutSeconds: 300
+                      maxParallelUpgrades: 1
+                      maxUnavailable: 25%
+                      podDeletion:
+                        deleteEmptyDir: false
+                        force: false
+                        timeoutSeconds: 300
+                      waitForCompletion:
+                        timeoutSeconds: 0
+                    repoConfig:
+                      configMapName: ''
+                    virtualTopology:
+                      config: ''
+                  devicePlugin:
+                    config:
+                      default: ''
+                      name: ''
+                    enabled: true
+                    mps:
+                      root: /run/nvidia/mps
+                  gdrcopy:
+                    enabled: false
+                  kataManager:
+                    config:
+                      artifactsDir: /opt/nvidia-gpu-operator/artifacts/runtimeclasses
+                  mig:
+                    strategy: single
+                  sandboxDevicePlugin:
+                    enabled: true
+                  validator:
+                    plugin:
+                      env: []
+                  nodeStatusExporter:
+                    enabled: true
+                  daemonsets:
+                    rollingUpdate:
+                      maxUnavailable: '1'
+                    updateStrategy: RollingUpdate
+                  sandboxWorkloads:
+                    defaultWorkload: container
+                    enabled: false
+                  gds:
+                    enabled: false
+                  vgpuManager:
+                    enabled: false
+                  vfioManager:
+                    enabled: true
+                  toolkit:
+                    enabled: true
+                    installDir: /usr/local/nvidia
