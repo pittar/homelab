@@ -38,7 +38,7 @@ spec:
           complianceType: musthave
           upgradeApproval: Automatic
           subscription:
-            name: gpu-operator-certifie
+            name: gpu-operator-certified
             namespace: nvidia-gpu-operator
             channel: v25.3
             source: certified-operators
