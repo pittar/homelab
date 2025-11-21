@@ -13,6 +13,8 @@ spec:
       logLevel: ERROR
     metrics:
       enable: true
+    pluginRegistry:
+      openVSXURL: https://open-vsx.org
   containerRegistry: {}
   devEnvironments:
     startTimeoutSeconds: 300
