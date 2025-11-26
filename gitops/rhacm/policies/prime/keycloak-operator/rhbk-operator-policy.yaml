@@ -49,4 +49,4 @@ spec:
             targetNamespaces:
               - keycloak
           versions:
-            - rhbk-operator.v26.4.5-opr.1
+            - rhbk-operator.v26.4.6-opr.1
