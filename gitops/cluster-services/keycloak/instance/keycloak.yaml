@@ -10,11 +10,17 @@ spec:
     vendor: postgres
     host: keycloak-db-primary.keycloak.svc
     usernameSecret:
-      name: keycloak-db-pguser-keycloakuser
-      key: user
+      name: keycloak-creds
+      key: POSTGRES_USER
     passwordSecret:
-      name: keycloak-db-pguser-keycloakuser
-      key: password
+      name: keycloak-creds
+      key: POSTGRES_PASSWORD
+    # usernameSecret:
+    #   name: keycloak-db-pguser-keycloakuser
+    #   key: user
+    # passwordSecret:
+    #   name: keycloak-db-pguser-keycloakuser
+    #   key: password
   ingress:
     className: openshift-default
   http:
@@ -25,7 +31,7 @@ spec:
     headers: xforwarded # double check your reverse proxy sets and overwrites the X-Forwarded-* headers
   resources:
     requests:
-      cpu: 500m
+      cpu: 200m
       memory: 1Gi
     limits:
       cpu: 2
