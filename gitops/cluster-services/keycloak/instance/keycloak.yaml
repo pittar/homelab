@@ -11,10 +11,10 @@ spec:
     host: keycloak-db-primary.keycloak.svc
     usernameSecret:
       name: keycloak-creds
-      key: POSTGRES_USER
+      key: POSTGRESQL_USER
     passwordSecret:
       name: keycloak-creds
-      key: POSTGRES_PASSWORD
+      key: POSTGRESQL_PASSWORD
     # usernameSecret:
     #   name: keycloak-db-pguser-keycloakuser
     #   key: user

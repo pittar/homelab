@@ -26,7 +26,7 @@ spec:
             #   value: testpassword
             - name: PGDATA
               value: /data/pgdata
-            - name: POSTGRES_DB
+            - name: POSTGRESQL_DATABASE
               value: keycloak
           envFrom:
             - secretRef:

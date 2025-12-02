@@ -3,7 +3,7 @@ namespace: keycloak
 resources:
   - postgres-pvc.yaml
   - keycloak-certificate.yaml
-  - keycloak-db-externalsecret.yaml
+  # - keycloak-db-externalsecret.yaml
   # - keycloak-db-pguser-externalsecret.yaml
 
   # Crunchy not yet available in 4.20... remove for a standard container for now.
