@@ -8,8 +8,6 @@ resources:
 
   # Crunchy not yet available in 4.20... remove for a standard container for now.
   #- crunchy-postgres-instance.yaml
-
-  - postgres-pvc.yaml
   - postgres-ss.yaml
   # - postgresql-svc.yaml
   - keycloak.yaml
