@@ -4,7 +4,7 @@ resources:
   - cluster-services-project.yaml
   # Remove Keycloak and Dev Hub until Cruchy is in 4.20
   - ../../../cluster-services/keycloak/instance
-  # - ../../../cluster-services/redhat-developer-hub/instance
+  - ../../../cluster-services/redhat-developer-hub/instance
   - ../../../cluster-services/devspaces/instance
   - ../../../cluster-services/openshift-virt/instance
   - ../../../cluster-services/openshift-lightspeed/instance
