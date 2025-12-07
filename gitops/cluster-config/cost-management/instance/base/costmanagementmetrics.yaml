@@ -12,7 +12,7 @@ spec:
     max_size_MB: 100
   prometheus_config: {}
   source:
-    check_cycle: 1440
+    check_cycle: 15
     create_source: true
     name: Replace Me With Unique Name Per Cluster
   upload:
