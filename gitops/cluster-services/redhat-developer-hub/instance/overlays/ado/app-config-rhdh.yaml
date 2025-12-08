@@ -68,6 +68,12 @@ data:
         - group: 'route.openshift.io'
           apiVersion: 'v1'
           plural: 'routes'
+        - group: 'kubevirt.io'
+          apiVersion: 'v1'
+          plural: 'virtualmachines'
+        - group: 'kubevirt.io'
+          apiVersion: 'v1'
+          plural: 'virtualmachineinstances'
       serviceLocatorMethod:
           type: multiTenant
 
