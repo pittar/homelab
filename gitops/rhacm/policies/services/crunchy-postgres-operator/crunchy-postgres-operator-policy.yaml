@@ -44,5 +44,5 @@ spec:
             source: certified-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - postgresoperator.v5.8.3
+            - postgresoperator.v5.8.6
 
