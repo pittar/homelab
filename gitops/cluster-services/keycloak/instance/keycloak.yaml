@@ -9,18 +9,18 @@ spec:
   db:
     vendor: postgres
     host: postgres-db.keycloak.svc
-    usernameSecret:
-      name: keycloak-creds
-      key: POSTGRESQL_USER
-    passwordSecret:
-      name: keycloak-creds
-      key: POSTGRESQL_PASSWORD
     # usernameSecret:
-    #   name: keycloak-db-pguser-keycloakuser
-    #   key: user
+    #   name: keycloak-creds
+    #   key: POSTGRESQL_USER
     # passwordSecret:
-    #   name: keycloak-db-pguser-keycloakuser
-    #   key: password
+    #   name: keycloak-creds
+    #   key: POSTGRESQL_PASSWORD
+    usernameSecret:
+      name: keycloak-db-pguser-keycloakuser
+      key: user
+    passwordSecret:
+      name: keycloak-db-pguser-keycloakuser
+      key: password
   ingress:
     className: openshift-default
   http:
