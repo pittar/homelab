@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - cluster-observability-operator.v1.3.0
+            - cluster-observability-operator.v1.3.1
