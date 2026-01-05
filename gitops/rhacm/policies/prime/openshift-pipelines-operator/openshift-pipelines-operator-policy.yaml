@@ -40,8 +40,8 @@ spec:
           subscription:
             name: openshift-pipelines-operator-rh
             namespace: openshift-pipelines-operator
-            channel: pipelines-1.18
+            channel: pipelines-1.20
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - openshift-pipelines-operator-rh.v1.18.1
+            - openshift-pipelines-operator-rh.v1.20.2
