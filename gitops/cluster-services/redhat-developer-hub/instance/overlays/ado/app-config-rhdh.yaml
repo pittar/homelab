@@ -87,6 +87,15 @@ data:
         - host: dev.azure.com
           credentials:
             - personalAccessToken: ${PERSONAL_ACCESS_TOKEN}
+      github:
+        - host: github.com
+          apps:
+            - appId: ${RHDH_GITHUB_APP_ID}
+              clientId: ${RHDH_GITHUB_APP_CLIENT_ID}
+              clientSecret: ${RHDH_GITHUB_APP_CLIENT_SECRET}
+              webhookUrl: none
+              webhookSecret: none
+              privateKey: ${RHDH_GITHUB_APP_PRIVATE_KEY}
 
     signInPage: oidc
 
@@ -112,6 +121,20 @@ data:
         - type: url
           target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/software-templates.yaml
       providers:
+        github:
+          # the provider ID can be any camelCase string
+          providerId:
+            organization: ${RHDH_GITHUB_ORGANIZATION} # the name of the GitHub organization
+            catalogPath: '/catalog-info.yaml' # the path where your catalog info file will be placed within projects than need to be scanned
+            filters:
+              branch: 'main' # string
+              repository: '.*' # Regex
+            schedule: # optional; same options as in TaskScheduleDefinition
+              # supports cron, ISO duration, "human duration" as used in code
+              frequency: { minutes: 1 }
+              # supports ISO duration, "human duration" as used in code
+              timeout: { minutes: 1 }
+              initialDelay: { seconds: 15 }
         keycloakOrg:
           default:
             baseUrl: ${KEYCLOAK_BASE_URL}
@@ -140,15 +163,15 @@ data:
       #cors:
       #  origin: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
 
-    enabled:
-      argocd: true
-      github: false
-      githubOrg: false
-      gitlab: false
-      jenkins: false
-      keycloak: true
-      kubernetes: true
-      ocm: false
-      permission: false
-      sonarqube: false
-      techdocs: true
+    # enabled:
+    #   argocd: true
+    #   github: false
+    #   githubOrg: false
+    #   gitlab: false
+    #   jenkins: false
+    #   keycloak: true
+    #   kubernetes: true
+    #   ocm: false
+    #   permission: false
+    #   sonarqube: false
+    #   techdocs: true
