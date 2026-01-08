@@ -120,6 +120,8 @@ data:
       locations:
         - type: url
           target: https://dev.azure.com/pittar-demos/rhdh-demo/_git/software-templates?path=/software-templates.yaml
+        - type: url
+          target: https://github.com/pittar-rhdh/software-templates/blob/main/software-templates.yaml
       providers:
         github:
           # the provider ID can be any camelCase string
