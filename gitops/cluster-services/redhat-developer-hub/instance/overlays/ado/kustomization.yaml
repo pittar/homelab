@@ -3,6 +3,7 @@ namespace: rhdh
 resources:
   - ../../base
   - ado-creds-external-secret.yaml
+  - github-creds-external-secret.yaml
   - gitops-dev-external-secret.yaml
   - gitops-prod-external-secret.yaml
   - keycloak-external-secret.yaml
