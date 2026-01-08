@@ -35,6 +35,11 @@ data:
         disabled: false
       - package: './dynamic-plugins/dist/backstage-community-plugin-analytics-provider-segment'
         disabled: true
+      - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic
+        disabled: false
+      # enables GitHub actions for the software templates (e.g., publish:github)
+      - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github-dynamic
+        disabled: false
       # Adoption Analytics
       # - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-adoption-insights:bs_1.35.1__0.0.2!red-hat-developer-hub-backstage-plugin-adoption-insights
       #   disabled: false
