@@ -7,11 +7,11 @@ metadata:
     argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true
 spec:
-  endpointPublishingStrategy:
-      type: HostNetwork
-      hostNetwork:
-        protocol: PROXY
-        httpPort: 80
-        httpsPort: 443
   defaultCertificate:
     name: apps-wildcard-cert
+  # endpointPublishingStrategy:
+  #     type: HostNetwork
+  #     hostNetwork:
+  #       protocol: PROXY
+  #       httpPort: 80
+  #       httpsPort: 443
