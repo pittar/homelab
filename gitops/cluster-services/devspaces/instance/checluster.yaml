@@ -17,6 +17,7 @@ spec:
       openVSXURL: 'https://open-vsx.org'
   containerRegistry: {}
   devEnvironments:
+    disableContainerRunCapabilities: false
     startTimeoutSeconds: 300
     secondsOfRunBeforeIdling: -1
     maxNumberOfWorkspacesPerUser: -1
