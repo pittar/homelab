@@ -45,7 +45,7 @@ spec:
             source: certified-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - gpu-operator-certified.v25.10.1
+            - gpu-operator-certified.v25.10.0
             # - gpu-operator-certified.v25.3.4
           operatorGroup:
             name: nvidia-gpu-operator
