@@ -250,3 +250,24 @@ spec:
                       serviceAccount: create-cluster-init
                       serviceAccountName: create-cluster-init
                       terminationGracePeriodSeconds: 30
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: acs-central-console-link
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: console.openshift.io/v1
+                kind: ConsoleLink
+                metadata:
+                  name: acs-central
+                spec:
+                  applicationMenu:
+                    section: Applications
+                  location: ApplicationMenu
+                  text: Central - Advanced Cluster Security
+                  href: https://central-stackrox.apps.prime.pitt.ca/
