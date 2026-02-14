@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - devspacesoperator.v3.25.0
+            - devspacesoperator.v3.26.0
