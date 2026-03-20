@@ -34,6 +34,18 @@ oc apply -k bootstrap/homelab
 
 Go get a coffee and wait for the cluster configuration to complete :)
 
+## Operator Upgrades
+
+Operators are deployed in "Manual" mode and managed by RHACM "OperatorPolicy" policies.  This allows for a simplified "GitOps" management of operators and opertor upgrades in "Manual" mode.
+
+When there are upgrades available, you can find the requested upgrade CSVs by running the following command:
+
+```bash
+oc get installplan -A -o jsonpath='{range .items[?(@.spec.approved==false)]}{.metadata.namespace}{"\t"}{.spec.clusterServiceVersionNames[0]}{"\n"}{end}'
+```
+
+Then, update the appropriate RHACM OperatorPolicy with the new version, push to git, and wait for OpenShift GitOps and RHACM to update your operators.
+
 ## Cluster Components and Configuration
 
 Components and configuration for each lab environment.
