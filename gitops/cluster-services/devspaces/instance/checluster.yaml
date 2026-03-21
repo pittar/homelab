@@ -20,7 +20,8 @@ spec:
     # disableContainerRunCapabilities: false
     startTimeoutSeconds: 300
     secondsOfRunBeforeIdling: 3600
-    maxNumberOfWorkspacesPerUser: 3
+    maxNumberOfWorkspacesPerUser: -1
+    maxNumberOfRunningWorkspacesPerUser: 3
     containerBuildConfiguration:
       openShiftSecurityContextConstraint: container-build
     defaultNamespace:
