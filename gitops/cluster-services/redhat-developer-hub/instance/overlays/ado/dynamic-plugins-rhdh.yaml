@@ -27,10 +27,10 @@ data:
         disabled: false
       # - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops
       #   disabled: false
-      # - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops-backend
-      #   disabled: false
-      # - package: ./dynamic-plugins/dist/bcp-scaffolder-backend-mod-azure-devops
-      #   disabled: false
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-azure-devops-backend:bs_1.45.3__0.23.0
+        disabled: false
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-scaffolder-backend-module-azure-devops:bs_1.45.3__0.18.0
+        disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-topology 
         disabled: false
       - package: './dynamic-plugins/dist/backstage-community-plugin-analytics-provider-segment'
