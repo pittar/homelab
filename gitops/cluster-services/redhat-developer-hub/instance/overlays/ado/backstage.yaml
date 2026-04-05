@@ -43,5 +43,6 @@ spec:
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: dynamic-plugins-root
+    replicas: 1
   database:
     enableLocalDb: true
