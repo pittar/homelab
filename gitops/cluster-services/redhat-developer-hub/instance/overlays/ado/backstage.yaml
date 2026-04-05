@@ -30,7 +30,6 @@ spec:
       mountPath: /opt/app-root/src
       configMaps:
         - name: rbac-policy
-    replicas: 1
     route:
       enabled: true
   deployment:
@@ -43,6 +42,5 @@ spec:
                 name: dynamic-plugins-root
                 persistentVolumeClaim:
                   claimName: dynamic-plugins-root
-    replicas: 1
   database:
     enableLocalDb: true
