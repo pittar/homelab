@@ -13,11 +13,11 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-rbac
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-community-plugin-redhat-argocd
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-argocd-backend:bs_1.45.3__1.0.2
         disabled: false
-      - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-argocd:bs_1.45.3__1.8.1
         disabled: false
-      - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-backstage-plugin-argo-cd-backend:bs_1.45.3__4.6.0
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
         disabled: false
@@ -25,12 +25,12 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-tekton
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops
-        disabled: false
-      - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops-backend-dynamic 
-        disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-azure-dynamic 
-        disabled: false
+      # - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops
+      #   disabled: false
+      # - package: ./dynamic-plugins/dist/backstage-community-plugin-azure-devops-backend
+      #   disabled: false
+      # - package: ./dynamic-plugins/dist/bcp-scaffolder-backend-mod-azure-devops
+      #   disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-topology 
         disabled: false
       - package: './dynamic-plugins/dist/backstage-community-plugin-analytics-provider-segment'
