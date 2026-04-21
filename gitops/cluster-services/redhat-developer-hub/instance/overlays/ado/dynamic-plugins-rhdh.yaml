@@ -13,8 +13,6 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-rbac
         disabled: false
-      - package: @backstage/plugin-scaffolder-backend-module-azure
-        disabled: false
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-argocd:bs_1.45.3__1.8.1
         disabled: false
       - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-backstage-plugin-argo-cd-backend:bs_1.45.3__4.6.0
