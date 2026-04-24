@@ -14,6 +14,7 @@ spec:
     extraEnvs:
       secrets:
         - name: rhdh-secrets
+        - name: acs-secrets
         - name: ado-secrets
         - name: sso-secrets
         - name: gitops-dev-secrets
