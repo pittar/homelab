@@ -46,7 +46,7 @@ data:
       # enables GitHub actions for the software templates (e.g., publish:github)
       - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github-dynamic
         disabled: false
-      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-acsbs_1.45.3__0.1.1
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-acs:bs_1.45.3__0.1.1
         disabled: false
         pluginConfig:
           dynamicPlugins:
