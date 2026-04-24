@@ -77,6 +77,15 @@ data:
       serviceLocatorMethod:
           type: multiTenant
 
+    proxy:
+      endpoints:
+        /acs:
+          target: ${ACS_API_URL}
+          headers:
+            authorization: Bearer ${ACS_API_KEY}
+    acs:
+      acsUrl: ${ACS_API_URL}
+
     azureDevOps:
       host: dev.azure.com
       token: ${PERSONAL_ACCESS_TOKEN}
@@ -156,24 +165,3 @@ data:
         admin:
           superUsers:
             - name: user:default/admin
-
-    #backend:
-      # auth:
-      #   keys:
-      #     - secret: abc123supers3cr3t
-      #baseUrl: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
-      #cors:
-      #  origin: https://backstage-developer-hub-rhdh.apps.prime.pitt.ca
-
-    # enabled:
-    #   argocd: true
-    #   github: false
-    #   githubOrg: false
-    #   gitlab: false
-    #   jenkins: false
-    #   keycloak: true
-    #   kubernetes: true
-    #   ocm: false
-    #   permission: false
-    #   sonarqube: false
-    #   techdocs: true
