@@ -46,3 +46,22 @@ data:
       # enables GitHub actions for the software templates (e.g., publish:github)
       - package: ./dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github-dynamic
         disabled: false
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-acsbs_1.45.3__0.1.1
+        disabled: false
+        pluginConfig:
+          dynamicPlugins:
+            frontend:
+              backstage-community.plugin-acs:
+                entityTabs:
+                  - path: /acs
+                    title: Security
+                    mountPoint: entity.page.acs
+                mountPoints:
+                  - mountPoint: entity.page.acs/cards
+                    importName: EntityACSContent
+                    config:
+                      layout:
+                        gridColumnEnd:
+                          lg: span 12
+                          md: span 12
+                          xs: span 12
