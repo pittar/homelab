@@ -30,6 +30,15 @@ spec:
     secondsOfInactivityBeforeIdling: 1800
     storage:
       pvcStrategy: per-user
+    defaultComponents:
+      - name: tools
+        container:
+          image: quay.io/pittar/custom-udi-demo:latest
+          memoryLimit: 4Gi
+          memoryRequest: 1Gi
+          cpuLimit: "1"
+          cpuRequest: 100m
+          mountSources: true
   gitServices: {}
   networking:
     auth:
