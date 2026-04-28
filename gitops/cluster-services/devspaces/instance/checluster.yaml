@@ -30,6 +30,12 @@ spec:
     secondsOfInactivityBeforeIdling: 1800
     storage:
       pvcStrategy: per-user
+    samples:
+      - displayName: "Skupper Demo"
+        description: "Skupper frontend and backend components."
+        tags: ["java", "skupper", "yaml"]
+        icon: "https://github.com/pittar-demos/devspaces-custom-udi/blob/5f5c484f02ec1eb23d42b8c4ec510ab153903654/samples/devfiles/skupper-demo/skupper.png"
+        url: "https://github.com/pittar-demos/devspaces-custom-udi/blob/5f5c484f02ec1eb23d42b8c4ec510ab153903654/samples/devfiles/skupper-demo/.devfile.yaml"
     defaultComponents:
       - name: tools
         container:
