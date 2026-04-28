@@ -34,7 +34,7 @@ commands:
   - id: configure-opencode
     exec:
       component: tools
-      commandLine: "mkdir -p /home/user/.config/opencode && cp /data/opencode/*.* /home/user/.config/opencode"
-events:
-  postStart:
-    - configure-opencode
+      commandLine: "mkdir -p /home/user/.config/opencode && cp /data/opencode/*.* /home/user/.config/opencode/"
+# events:
+#   postStart:
+#     - configure-opencode
