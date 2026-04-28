@@ -1,0 +1,39 @@
+schemaVersion: 2.2.2
+attributes:
+  controller.devfile.io/storage-type: per-workspace
+metadata:
+  name: "homelab"
+  provider: Andrew Pitt
+  displayName: Homelab Repo
+  description: Homelab IAC repository.
+  tags:
+    - YAML
+    - AI
+    - Homelab
+  projectType: IAC
+  language: YAML
+projects:
+  - name: "homelab"
+    git:
+      remotes:
+        origin: "https://github.com/pittar/homelab"
+      checkoutFrom:
+        revision: "main"
+        remote: origin
+components:
+  - name: tools
+    container:
+      image: quay.io/pittar/custom-udi-demo:latest
+      args: ['tail', '-f', '/dev/null']
+      mountSources: true
+      cpuLimit: '2'
+      cpuRequest: '100m'
+      memoryLimit: '2G'
+      memoryRequest: '1G'
+commands:
+  - id: configure-opencode
+    exec:
+      commandLine: "mkdir -p /home/user/.config/opencode && cp /data/opencode/*.* /home/user/.config/opencode"
+events:
+  postStart:
+    - configure-opencode
