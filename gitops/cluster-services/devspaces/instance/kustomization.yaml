@@ -2,5 +2,5 @@ namespace: openshift-devspaces
 
 resources:
   - namespace.yaml
-  #- opencode-externalsecret.yaml
+  - opencode-externalsecret.yaml
   - checluster.yaml
