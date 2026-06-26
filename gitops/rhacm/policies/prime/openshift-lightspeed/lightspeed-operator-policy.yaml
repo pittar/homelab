@@ -44,7 +44,7 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - lightspeed-operator.v1.1.0
+            - lightspeed-operator.v1.1.1
           operatorGroup:
             name: lightspeed-og
             namespace: openshift-lightspeed
