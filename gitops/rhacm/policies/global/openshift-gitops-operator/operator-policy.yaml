@@ -54,7 +54,7 @@ spec:
           subscription:
             name: openshift-gitops-operator
             namespace: openshift-gitops-operator
-            channel: gitops-1.19
+            channel: gitops-1.20
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
