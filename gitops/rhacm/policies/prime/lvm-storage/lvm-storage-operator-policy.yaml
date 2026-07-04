@@ -40,7 +40,7 @@ spec:
           subscription:
             name: lvms-operator
             namespace: openshift-lvm-storage
-            channel: stable-4.20
+            channel: stable-4.22
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
