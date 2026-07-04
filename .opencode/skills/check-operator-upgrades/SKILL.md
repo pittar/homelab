@@ -19,9 +19,10 @@ This skill connects to the OpenShift cluster and:
 1. Scans all namespaces (or specified namespace) for InstallPlan resources
 2. Identifies unapproved InstallPlans (pending operator upgrades)
 3. Retrieves current and pending CSV versions for each operator
-4. Generates a formatted markdown table with comparison
-5. Finally, update the appropriate "OperatorPolicy" in the various yaml Policy files found in the "gitops/rhacm" subdirectories with the new versions.
-6. Do not commit any changes to git.
+4. Update the appropriate "OperatorPolicy" in the various yaml Policy files found in the "gitops/rhacm" subdirectories with the new versions.
+5. Do not commit any changes to git.
+6. Generates a formatted markdown table with comparison of old and new versions.
+
 
 ## Output Format
 The skill returns a markdown table with the following columns:
