@@ -44,7 +44,7 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - lvms-operator.v4.20.0
+            - lvms-operator.v4.22.0
           operatorGroup:
             name: lvms-og
             namespace: openshift-lvm-storage
