@@ -10,6 +10,10 @@ spec:
   extraConfig:
     accounts.rhdh: apiKey, login
   applicationInstanceLabelKey: argocd.argoproj.io/instance
+  sso:
+    provider: dex
+    dex:
+      openShiftOAuth: true
   server:
     insecure: true
     route:
