@@ -20,6 +20,8 @@ This skill connects to the OpenShift cluster and:
 2. Identifies unapproved InstallPlans (pending operator upgrades)
 3. Retrieves current and pending CSV versions for each operator
 4. Generates a formatted markdown table with comparison
+5. Finally, update the appropriate "OperatorPolicy" in the various yaml Policy files found in the "gitops/rhacm" subdirectories with the new versions.
+6. Do not commit any changes to git.
 
 ## Output Format
 The skill returns a markdown table with the following columns:
