@@ -1,0 +1,14 @@
+apiVersion: tempo.grafana.com/v1alpha1
+kind: TempoMonolithic
+metadata:
+  name: tempo-sno
+spec:
+  storage:
+    traces:
+      backend: pv
+      pv:
+        size: 5Gi
+  jaegerui:
+    enabled: true
+    route:
+      enabled: true
