@@ -1,4 +1,4 @@
-namespace: openshift-devspaces
+namespace: tempo-observability
 
 resources:
   - namespace.yaml
