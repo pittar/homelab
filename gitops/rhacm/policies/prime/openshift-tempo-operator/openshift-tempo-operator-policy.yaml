@@ -1,0 +1,47 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: openshift-tempo-operator
+  annotations:
+    policy.open-cluster-management.io/standards: Distributed Tracing
+    policy.open-cluster-management.io/categories: Storage
+    policy.open-cluster-management.io/controls: Tempo
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: openshift-tempo-operator-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1                    
+                kind: Namespace
+                metadata:
+                  labels:
+                    openshift.io/cluster-monitoring: "true"
+                  name: openshift-tempo-operator
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: openshift-tempo-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: tempo-product
+            namespace:  openshift-tempo-operator
+            channel: stable
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - tempo-operator.v0.21.0-2
