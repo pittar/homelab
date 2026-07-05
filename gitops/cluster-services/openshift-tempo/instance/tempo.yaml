@@ -6,8 +6,6 @@ spec:
   storage:
     traces:
       backend: pv
-      pv:
-        size: 5Gi
   jaegerui:
     enabled: true
     route:

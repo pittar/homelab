@@ -1,0 +1,47 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: openshift-opentelemetry-operator
+  annotations:
+    policy.open-cluster-management.io/standards: Tracing
+    policy.open-cluster-management.io/categories: Collection
+    policy.open-cluster-management.io/controls: OTEL
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: openshift-opentelemetry-operator-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1                    
+                kind: Namespace
+                metadata:
+                  labels:
+                    openshift.io/cluster-monitoring: "true"
+                  name: openshift-opentelemetry-operator
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: openshift-opentelemetry-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: opentelemetry-product
+            namespace:  openshift-opentelemetry-operator
+            channel: stable
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - opentelemetry-operator.v0.21.0-2
