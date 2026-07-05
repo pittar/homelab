@@ -1,7 +1,6 @@
 namespace: acm-global-policies
 
 resources:
-  - default-storageclass
   - openshift-gitops-operator
   - external-secrets-operator
   - cert-manager-operator
