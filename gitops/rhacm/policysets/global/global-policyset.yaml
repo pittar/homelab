@@ -7,7 +7,6 @@ metadata:
 spec:
   description: Global policies.
   policies:
-    - default-storageclass
     - openshift-gitops-operator
     - external-secrets-operator
     - cert-manager-operator
