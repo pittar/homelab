@@ -3,7 +3,7 @@ kind: Policy
 metadata:
   name: openshift-tempo-operator
   annotations:
-    policy.open-cluster-management.io/standards: Distributed Tracing
+    policy.open-cluster-management.io/standards: Tracing
     policy.open-cluster-management.io/categories: Storage
     policy.open-cluster-management.io/controls: Tempo
 spec:
