@@ -15,4 +15,4 @@ spec:
     mode: openshift
     authentication:
       - tenantName: prime
-        tenantId: "prime"
+        tenantId: prime
