@@ -1,36 +1,43 @@
 apiVersion: opentelemetry.io/v1beta1
 kind: OpenTelemetryCollector
 metadata:
-  name: cluster-collector
-  namespace: tracing-system
+  name: otel-sno
 spec:
   mode: deployment
-  observability:
-    metrics:
-      enableMetrics: true
+  replicas: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 250m
+      memory: 256Mi
   config:
     receivers:
       otlp:
         protocols:
           grpc: {}
           http: {}
-    processors: {}
+    
+    processors:
+      memory_limiter:
+        check_interval: 1s
+        limit_percentage: 75
+        spike_limit_percentage: 15
+      
+      batch:
+        send_batch_size: 256
+        timeout: 5s
+
     exporters:
-      otlp_grpc:
-        endpoint: otel-collector-headless.tracing-system.svc:4317
+      otlp/tempo:
+        endpoint: "tempo-sno:4317"
         tls:
-          ca_file: "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt"
-      prometheus:
-        endpoint: 0.0.0.0:8889
-        resource_to_telemetry_conversion:
-          enabled: true # by default resource attributes are dropped
+          insecure: true
+
     service:
       pipelines:
         traces:
           receivers: [otlp]
-          processors: []
-          exporters: [otlp_grpc]
-        metrics:
-          receivers: [otlp]
-          processors: []
-          exporters: [prometheus]
+          processors: [memory_limiter, batch]
+          exporters: [otlp/tempo]
