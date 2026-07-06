@@ -9,3 +9,4 @@ resources:
   - ../../../cluster-services/openshift-virt/instance
   - ../../../cluster-services/openshift-lightspeed/instance
   - ../../../cluster-services/openshift-tempo/instance
+  - ../../../cluster-services/openshift-opentelemetry/instance
