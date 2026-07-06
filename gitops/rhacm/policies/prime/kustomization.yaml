@@ -17,3 +17,4 @@ resources:
   - node-feature-discovery-operator
   - nvidia-gpu-operator
   - openshift-tempo-operator
+  - openshift-opentelemetry-operator
