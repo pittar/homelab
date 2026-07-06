@@ -3,3 +3,4 @@ namespace: tempo-observability
 resources:
   - namespace.yaml
   - tempo.yaml
+  - uiplugin.yaml
