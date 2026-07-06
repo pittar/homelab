@@ -1,0 +1,4 @@
+namespace: tempo-observability
+
+resources:
+  - otel.yaml
