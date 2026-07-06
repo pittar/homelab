@@ -30,14 +30,14 @@ spec:
         timeout: 5s
 
     exporters:
-      otlp/tempo:
-        endpoint: "tempo-sno:4317"
-        tls:
-          insecure: true
+      otlp_grpc/traces:
+        endpoint: tempo-sno:4317
+        headers:
+          X-Scope-OrgID: "prime"
 
     service:
       pipelines:
         traces:
           receivers: [otlp]
           processors: [memory_limiter, batch]
-          exporters: [otlp/tempo]
+          exporters: [ootlp_grpc/traces]
