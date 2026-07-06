@@ -10,3 +10,9 @@ spec:
     enabled: true
     route:
       enabled: true
+  multitenancy:
+    enabled: true
+    mode: openshift
+    authentication:
+      - tenantName: prime
+        tenantId: "prime"
