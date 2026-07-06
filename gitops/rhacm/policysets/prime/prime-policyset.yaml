@@ -27,3 +27,4 @@ spec:
     - nvidia-gpu-operator
     - openshift-tempo-operator
     - openshift-opentelemerty-operator
+  
