@@ -26,5 +26,5 @@ spec:
     - node-feature-discovery-operator
     - nvidia-gpu-operator
     - openshift-tempo-operator
-    - oopenshift-opentelemetry-operator
+    - openshift-opentelemetry-operator
   
