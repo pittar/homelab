@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - opentelemetry-operator.v0.21.0-2
+            - opentelemetry-operator.v0.127.0-2
