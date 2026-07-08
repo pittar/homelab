@@ -30,6 +30,8 @@ spec:
         timeout: 5s
 
     exporters:
+      debug:
+        verbosity: normal
       otlp/tempo:
         endpoint: "tempo-sno-gateway:4317"
         tls:
@@ -42,4 +44,4 @@ spec:
         traces:
           receivers: [otlp]
           processors: [memory_limiter, batch]
-          exporters: [otlp/tempo]
+          exporters: [otlp/tempo,debug]
