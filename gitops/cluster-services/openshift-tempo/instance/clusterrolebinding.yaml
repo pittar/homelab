@@ -10,3 +10,16 @@ subjects:
   - kind: Group
     apiGroup: rbac.authorization.k8s.io
     name: system:authenticated
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: otel-collector-tempo-prime-binding
+subjects:
+  - kind: ServiceAccount
+    name: otel-sno-collector      # The ServiceAccount your collector runs under
+    namespace: tempo-observability # The namespace where your collector lives
+roleRef:
+  kind: ClusterRole
+  name: tempo-prime-tenant-write
+  apiGroup: rbac.authorization.k8s.io
