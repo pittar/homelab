@@ -37,7 +37,7 @@ spec:
       debug:
         verbosity: normal
       otlp/tempo:
-        endpoint: "tempo-sno-gateway:4317"
+        endpoint: "tempo-sno-gateway.tempo-observability.svc.cluster.local:4317"
         auth:
           authenticator: bearertokenauth
         tls:
