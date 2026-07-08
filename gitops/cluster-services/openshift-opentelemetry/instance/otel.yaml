@@ -47,6 +47,7 @@ spec:
           X-Scope-OrgID: "prime"
 
     service:
+      extensions: [bearertokenauth]
       pipelines:
         traces:
           receivers: [otlp]
