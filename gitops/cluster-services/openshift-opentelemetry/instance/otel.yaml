@@ -31,7 +31,7 @@ spec:
 
     exporters:
       otlp/tempo:
-        endpoint: "tempo-sno:4317"
+        endpoint: "tempo-sno-gateway:4317"
         tls:
           insecure: true
         headers:
