@@ -13,6 +13,10 @@ spec:
       cpu: 250m
       memory: 256Mi
   config:
+    extensions:
+      bearertokenauth:
+        filename: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+
     receivers:
       otlp:
         protocols:
