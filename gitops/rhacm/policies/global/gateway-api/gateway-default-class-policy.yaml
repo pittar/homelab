@@ -1,0 +1,31 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: gateway-default-class
+  annotations:
+    policy.open-cluster-management.io/standards: Networking
+    policy.open-cluster-management.io/categories: Ingress
+    policy.open-cluster-management.io/controls: Default Gateway Class
+spec:
+  remediationAction: enforce
+  disabled: false
+  hubTemplateOptions:
+    serviceAccountName: global
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: gateway-default-class
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: gateway.networking.k8s.io/v1
+                kind: GatewayClass
+                metadata:
+                  name: openshift-default
+                spec:
+                  controllerName: openshift.io/gateway-controller/v1
