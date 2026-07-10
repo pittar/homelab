@@ -12,3 +12,4 @@ resources:
   - rhacs-securedcluster
   - compliance-operator
   - service-interconnect-operator
+  - gateway-api
