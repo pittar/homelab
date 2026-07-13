@@ -1,6 +1,6 @@
 {
   "recommendations": [
     "redhat.vscode-yaml",
-    "Postman.postman-for-vscode"
+    "EchoAPI.echoapi-for-vscode"
   ]
 }
