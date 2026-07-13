@@ -1,0 +1,2 @@
+resources:
+  - openshift-servicemesh-operator-policy.yaml

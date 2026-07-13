@@ -1,0 +1,49 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: openshift-servicemesh-operator
+  annotations:
+    policy.open-cluster-management.io/standards: Connectivity Management
+    policy.open-cluster-management.io/categories: Service Mesh
+    policy.open-cluster-management.io/controls: Istio
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: openshift-servicemesh-operator-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                  apiVersion: v1                    
+                  kind: Namespace
+                  metadata:
+                    labels:
+                      openshift.io/cluster-monitoring: "true"
+                      argocd.argoproj.io/managed-by: openshift-gitops
+                    name: openshift-servicemesh-operator
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: install-openshift-servicemesh-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: servicemeshoperator3
+            namespace: openshift-servicemesh-operator
+            channel: stable
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - servicemeshoperator3.v3.4.0
+

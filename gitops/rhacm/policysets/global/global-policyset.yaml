@@ -19,4 +19,5 @@ spec:
     - rhacs-securedcluster
     - service-interconnect-operator
     - compliance-operator
+    - openshift-servicemesh-operator
     - gateway-default-class

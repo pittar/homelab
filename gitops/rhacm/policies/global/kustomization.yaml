@@ -12,4 +12,5 @@ resources:
   - rhacs-securedcluster
   - compliance-operator
   - service-interconnect-operator
+  - openshift-servicemesh-operator
   - gateway-api
