@@ -14,3 +14,4 @@ resources:
   - service-interconnect-operator
   - openshift-servicemesh-operator
   - gateway-api
+  - connectivitylink-operator

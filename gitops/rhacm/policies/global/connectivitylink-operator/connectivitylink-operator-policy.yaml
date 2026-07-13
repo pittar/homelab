@@ -1,0 +1,48 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: connectivitylink-operator
+  annotations:
+    policy.open-cluster-management.io/standards: Connectivity Management
+    policy.open-cluster-management.io/categories: API Management
+    policy.open-cluster-management.io/controls: Kuadrant
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: connectivitylink-operator-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                  apiVersion: v1                    
+                  kind: Namespace
+                  metadata:
+                    labels:
+                      openshift.io/cluster-monitoring: "true"
+                      argocd.argoproj.io/managed-by: openshift-gitops
+                    name: kuadrant-system
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: install-connectivitylink-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: rhcl-operator
+            namespace: kuadrant-system
+            channel: stable
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - rhcl-operator.v1.4.1

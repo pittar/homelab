@@ -21,3 +21,4 @@ spec:
     - compliance-operator
     - openshift-servicemesh-operator
     - gateway-default-class
+    - connectivitylink-operator
