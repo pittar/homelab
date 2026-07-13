@@ -1,0 +1,4 @@
+namespace: kuadrant-gateway
+
+resources:
+  - default-gateway.yaml

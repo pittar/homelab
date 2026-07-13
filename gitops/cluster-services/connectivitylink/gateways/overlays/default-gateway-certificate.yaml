@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kuadrant-gateway-api
+  labels:
+    app: kuadrant
+    app.kubernetes.io/component: kuadrant
+    app.kubernetes.io/instance: kuadrant
+    app.kubernetes.io/managed-by: kuadrant-operator
+    app.kubernetes.io/name: kuadrant
+    app.kubernetes.io/part-of: kuadrant
+spec:
+  dnsNames:
+    - api.rhcl.prime.pitt.ca
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  secretName: api-kuadrant-gateway-tls

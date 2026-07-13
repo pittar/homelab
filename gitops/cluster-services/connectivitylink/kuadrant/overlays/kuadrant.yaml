@@ -1,0 +1,9 @@
+apiVersion: kuadrant.io/v1beta1
+kind: Kuadrant
+metadata:
+  name: kuadrant-prime
+spec:
+  observability:
+    enable: true
+    tracing:
+      defaultEndpoint: http://otel-sno-collector.tempo-observability.svc.cluster.local:4317

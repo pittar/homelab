@@ -1,0 +1,25 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  annotations:
+    networking.istio.io/service-type: ClusterIP
+  labels:
+    istio.io/rev: openshift-gateway
+    kuadrant.io/gateway: "true"
+  name: kuadrant-gateway
+spec:
+  gatewayClassName: openshift-default
+  listeners:
+  - allowedRoutes:
+      namespaces:
+        from: All
+    hostname: api.rhcl.prime.pitt.ca
+    name: api
+    port: 443
+    protocol: HTTPS
+    tls:
+      certificateRefs:
+      - group: ""
+        kind: Secret
+        name: api-kuadrant-gateway-tls
+      mode: Terminate
