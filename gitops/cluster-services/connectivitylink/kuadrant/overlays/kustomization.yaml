@@ -2,3 +2,4 @@ namespace: kuadrant-system
 
 resources:
   - kuadrant.yaml
+  - consoleplugin.yaml

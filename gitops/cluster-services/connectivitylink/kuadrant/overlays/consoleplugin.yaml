@@ -1,0 +1,24 @@
+apiVersion: console.openshift.io/v1
+kind: ConsolePlugin
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+  labels:
+    app: kuadrant-console-plugin
+    app.kubernetes.io/component: kuadrant-console-plugin
+    app.kubernetes.io/instance: kuadrant-console-plugin
+    app.kubernetes.io/managed-by: kuadrant-operator
+    app.kubernetes.io/name: kuadrant-console-plugin
+    app.kubernetes.io/part-of: kuadrant-console-plugin
+  name: kuadrant-console-plugin
+spec:
+  backend:
+    service:
+      basePath: /
+      name: kuadrant-console-plugin
+      namespace: kuadrant-system
+      port: 9443
+    type: Service
+  displayName: Kuadrant Console Plugin
+  i18n:
+    loadType: Preload
