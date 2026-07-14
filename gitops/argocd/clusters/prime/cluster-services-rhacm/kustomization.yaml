@@ -10,3 +10,4 @@ resources:
   - ../../../cluster-services/openshift-lightspeed/instance
   - ../../../cluster-services/openshift-tempo/instance
   - ../../../cluster-services/openshift-opentelemetry/instance
+  - ../../../cluster-services/connectivitylink/instance/overlays/prime
