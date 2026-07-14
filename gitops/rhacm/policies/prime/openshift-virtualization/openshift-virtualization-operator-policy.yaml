@@ -44,7 +44,7 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - kubevirt-hyperconverged-operator.v4.22.0
+            - kubevirt-hyperconverged-operator.v4.22.2
           operatorGroup:
             name: openshift-cnv
             namespace: openshift-cnv
