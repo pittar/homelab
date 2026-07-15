@@ -21,6 +21,10 @@ spec:
         PILOT_FILTER_GATEWAY_CLUSTER_CONFIG: "true"
 
     meshConfig:
+      enableTracing: true
+      defaultProviders:
+        tracing:
+          - otel-tracing
       # 3. Restrict Istiod to watching only labeled namespaces
       discoverySelectors:
         - matchLabels:
