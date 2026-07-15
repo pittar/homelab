@@ -1,0 +1,3 @@
+resources:
+  - istio-cni.yaml
+  - istio-cni.yaml
