@@ -1,6 +1,8 @@
 apiVersion: sailoperator.io/v1
 kind: IstioCNI
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   name: default
 spec:
   namespace: istio-cni

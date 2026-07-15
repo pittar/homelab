@@ -1,6 +1,27 @@
 apiVersion: sailoperator.io/v1
 kind: Istio
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   name: default
 spec:
   namespace: istio-system
+  values:
+    # 1. CPU Limits for Control Plane
+    pilot:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 512Mi
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+      env:
+        # 2. Prevent Envoy from getting bloated routing configs
+        PILOT_FILTER_GATEWAY_CLUSTER_CONFIG: "true"
+
+    meshConfig:
+      # 3. Restrict Istiod to watching only labeled namespaces
+      discoverySelectors:
+        - matchLabels:
+            istio-discovery: enabled
