@@ -4,11 +4,10 @@ metadata:
   annotations:
     networking.istio.io/service-type: ClusterIP
   labels:
-    istio.io/rev: istio
     kuadrant.io/gateway: "true"
   name: kuadrant-gateway
 spec:
-  gatewayClassName: openshift-default
+  gatewayClassName: istio
   listeners:
   - allowedRoutes:
       namespaces:

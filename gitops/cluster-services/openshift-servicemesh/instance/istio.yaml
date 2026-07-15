@@ -25,3 +25,8 @@ spec:
       discoverySelectors:
         - matchLabels:
             istio-discovery: enabled
+      extensionProviders:
+        - name: otel-tracing
+          opentelemetry:
+            service: otel-sno-collector.tempo-observability.svc.cluster.local
+            port: 4317
