@@ -8,7 +8,7 @@ spec:
   observability:
     enable: true
     tracing:
-      defaultEndpoint: http://otel-sno-collector.tempo-observability.svc.cluster.local:4317
+      defaultEndpoint: rpc://otel-sno-collector.tempo-observability.svc.cluster.local:4317
     dataPlane:
       defaultLevels:
         - info: "true"
