@@ -25,6 +25,7 @@ spec:
                   kind: Namespace
                   metadata:
                     labels:
+                      istio-discovery: enabled
                       openshift.io/cluster-monitoring: "true"
                       argocd.argoproj.io/managed-by: openshift-gitops
                     name: kuadrant-system
