@@ -1,3 +1,4 @@
 resources:
   - istio-cni.yaml
   - istio.yaml
+  - telemetry.yaml
