@@ -13,4 +13,4 @@ spec:
     dataPlane:
       defaultLevels:
         - info: "true"
-      httpHeaderIdentifier: "traceparent" # W3C Trace Context standard
+      httpHeaderIdentifier: x-request-id
