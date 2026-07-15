@@ -9,3 +9,7 @@ spec:
     enable: true
     tracing:
       defaultEndpoint: http://otel-sno-collector.tempo-observability.svc.cluster.local:4317
+    dataPlane:
+      defaultLevels:
+        - info: "true"
+      httpHeaderIdentifier: "traceparent" # W3C Trace Context standard
