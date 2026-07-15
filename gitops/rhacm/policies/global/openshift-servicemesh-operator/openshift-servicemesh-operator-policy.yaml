@@ -28,6 +28,24 @@ spec:
                       openshift.io/cluster-monitoring: "true"
                       argocd.argoproj.io/managed-by: openshift-gitops
                     name: openshift-servicemesh-operator
+            - complianceType: musthave
+              objectDefinition:
+                  apiVersion: v1                    
+                  kind: Namespace
+                  metadata:
+                    labels:
+                      openshift.io/cluster-monitoring: "true"
+                      argocd.argoproj.io/managed-by: openshift-gitops
+                    name: istio-cni
+            - complianceType: musthave
+              objectDefinition:
+                  apiVersion: v1                    
+                  kind: Namespace
+                  metadata:
+                    labels:
+                      openshift.io/cluster-monitoring: "true"
+                      argocd.argoproj.io/managed-by: openshift-gitops
+                    name: istio-system
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1beta1
         kind: OperatorPolicy
