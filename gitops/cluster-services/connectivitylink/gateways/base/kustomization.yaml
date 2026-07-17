@@ -1,0 +1,7 @@
+namespace: kuadrant-gateway
+
+resources:
+  - default-gateway-namespace.yaml
+  - default-gateway-certificate.yaml
+  - default-gateway.yaml
+  - default-gateway-telemetry.yaml

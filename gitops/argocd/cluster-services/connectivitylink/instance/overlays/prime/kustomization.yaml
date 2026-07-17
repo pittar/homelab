@@ -11,4 +11,4 @@ patches:
       name: connectivitylink
     spec:
       source:
-        path: gitops/cluster-services/connectivitylink/kuadrant/prime
+        path: gitops/cluster-services/connectivitylink/kuadrant/overlays/prime
