@@ -1,2 +1,4 @@
+namespace: kuadrant-gateway
+
 resources:
   - ../../base

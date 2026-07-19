@@ -1,3 +1,5 @@
+namespace: kuadrant-gateway
+
 resources:
   - ../../base
   - ../../../authpolicies/overlays/default
