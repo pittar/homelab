@@ -1,2 +1,4 @@
 resources:
   - ../../base
+  - ../../../authpolicies/overlays/default
+  - ../../../ratelimitpolicies/overlays/default

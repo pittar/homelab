@@ -2,6 +2,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   annotations:
+    argocd.argoproj.io/sync-wave: "3"
     networking.istio.io/service-type: ClusterIP
   labels:
     kuadrant.io/gateway: "true"

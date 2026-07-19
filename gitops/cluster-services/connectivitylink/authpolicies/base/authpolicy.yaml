@@ -1,6 +1,8 @@
 apiVersion: kuadrant.io/v1
 kind: AuthPolicy
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
   name: kuadrant-gateway-auth
 spec:
   defaults:

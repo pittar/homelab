@@ -1,7 +1,8 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: kuadrant-gateway-api
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
   labels:
     app: kuadrant
     app.kubernetes.io/component: kuadrant
@@ -9,6 +10,7 @@ metadata:
     app.kubernetes.io/managed-by: kuadrant-operator
     app.kubernetes.io/name: kuadrant
     app.kubernetes.io/part-of: kuadrant
+  name: kuadrant-gateway-api
 spec:
   dnsNames:
     - api.rhcl.prime.pitt.ca

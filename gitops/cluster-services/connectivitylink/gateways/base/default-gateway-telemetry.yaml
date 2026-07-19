@@ -1,6 +1,8 @@
 apiVersion: telemetry.istio.io/v1
 kind: Telemetry
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
   name: kuadrant-gateway-telemetry
 spec:
   targetRefs:

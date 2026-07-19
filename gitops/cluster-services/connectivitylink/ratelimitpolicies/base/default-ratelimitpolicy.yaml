@@ -1,0 +1,18 @@
+apiVersion: kuadrant.io/v1
+kind: RateLimitPolicy
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+  name: kuadrant-gateway-rlp
+spec:
+  defaults:
+    limits:
+      low-limit:
+        rates:
+        - limit: 1
+          window: 10s
+    strategy: atomic
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: kuadrant-gateway
