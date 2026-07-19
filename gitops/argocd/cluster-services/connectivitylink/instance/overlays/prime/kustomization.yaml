@@ -8,7 +8,7 @@ patches:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
-      name: rhcl-default-gateway
+      name: connectivitylink
     spec:
       source:
         path: gitops/cluster-services/connectivitylink/kuadrant/overlays/prime
