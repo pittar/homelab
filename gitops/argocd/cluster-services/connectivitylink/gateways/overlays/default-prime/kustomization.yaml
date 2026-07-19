@@ -6,7 +6,7 @@ patches:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
-      name: default
+      name: rhcl-default-gateway
     spec:
       source:
         path: gitops/cluster-services/connectivitylink/gateways/overlays/default-prime
