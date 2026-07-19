@@ -9,4 +9,4 @@ patches:
       name: default
     spec:
       source:
-        path: gitops/cluster-services/connectivitylink/gateways/overlays/prime-default
+        path: gitops/cluster-services/connectivitylink/gateways/overlays/default-prime
