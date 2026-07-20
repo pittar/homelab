@@ -1,15 +1,15 @@
 apiVersion: monitoring.rhobs/v1
-kind: ServiceMonitor
+kind: PodMonitor
 metadata:
-  name: kuadrant-gateway-monitor
+  name: kuadrant-gateway-podmonitor
   labels:
     metrics: workload-monitor
 spec:
   selector:
     matchLabels:
       gateway.networking.k8s.io/gateway-name: kuadrant-gateway
-  endpoints:
-    - port: status-port
+  podMetricsEndpoints:
+    - port: http-monitoring
       path: /stats/prometheus
       interval: 30s
       scheme: http

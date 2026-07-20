@@ -5,4 +5,4 @@ resources:
   - default-gateway-certificate.yaml
   - default-gateway.yaml
   - default-gateway-telemetry.yaml
-  - default-gateway-servicemonitor.yaml
+  - default-gateway-podmonitor.yaml
