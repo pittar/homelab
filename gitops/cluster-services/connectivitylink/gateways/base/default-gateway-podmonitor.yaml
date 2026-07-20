@@ -7,9 +7,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      gateway.networking.k8s.io/gateway-name: kuadrant-gateway
+      kuadrant.io/gateway: "true"
   podMetricsEndpoints:
-    - port: http-monitoring
+    - port: http-envoy-prom
       path: /stats/prometheus
       interval: 30s
-      scheme: http
