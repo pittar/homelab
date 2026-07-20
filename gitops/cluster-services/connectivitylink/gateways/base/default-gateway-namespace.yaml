@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
   labels:
     istio-discovery: enabled
+    monitoring.rhobs/stack: workload-monitoring
     openshift.io/cluster-monitoring: "true"
     argocd.argoproj.io/managed-by: openshift-gitops
   name: kuadrant-gateway
