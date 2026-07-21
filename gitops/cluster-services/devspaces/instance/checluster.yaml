@@ -19,7 +19,7 @@ spec:
   devEnvironments:
     #disableContainerRunCapabilities: false
     startTimeoutSeconds: 300
-    secondsOfRunBeforeIdling: 3600
+    secondsOfRunBeforeIdling: -1
     maxNumberOfWorkspacesPerUser: -1
     maxNumberOfRunningWorkspacesPerUser: 3
     containerBuildConfiguration:
@@ -27,7 +27,7 @@ spec:
     defaultNamespace:
       autoProvision: true
       template: <username>-devspaces
-    secondsOfInactivityBeforeIdling: 1800
+    secondsOfInactivityBeforeIdling: 2400
     storage:
       pvcStrategy: per-user
     defaultComponents:
