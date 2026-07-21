@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    control-plane: controller-manager
+    kuadrant.io/observability: "true"
+  name: kuadrant-operator-monitor
+  namespace: kuadrant-system
+spec:
+  endpoints:
+  - path: /metrics
+    port: metrics
+    scheme: http
+  namespaceSelector:
+    matchNames:
+    - kuadrant-system
+  selector:
+    matchLabels:
+      app: kuadrant
+      control-plane: controller-manager

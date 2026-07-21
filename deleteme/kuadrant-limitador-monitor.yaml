@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    app: limitador
+    kuadrant.io/observability: "true"
+  name: kuadrant-limitador-monitor
+  namespace: kuadrant-system
+spec:
+  namespaceSelector:
+    matchNames:
+    - kuadrant-system
+  podMetricsEndpoints:
+  - bearerTokenSecret:
+      key: ""
+      name: ""
+    path: /metrics
+    port: http
+    scheme: http
+  selector:
+    matchLabels:
+      app: limitador
+      limitador-resource: limitador
