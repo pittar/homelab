@@ -1,0 +1,15 @@
+apiVersion: monitoring.rhobs/v1
+kind: ServiceMonitor
+metadata:
+  name: kuadrant-dns-opeartor-monitor
+  labels:
+    metrics: workload-monitor 
+spec:
+  endpoints:
+  - path: /metrics
+    port: metrics
+    scheme: http
+  namespaceSelector: {}
+  selector:
+    matchLabels:
+      control-plane: dns-operator-controller-manager

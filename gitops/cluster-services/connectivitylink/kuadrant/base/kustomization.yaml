@@ -3,5 +3,9 @@ namespace: kuadrant-system
 resources:
   - kuadrant.yaml
   - consoleplugin.yaml
-  - authorino-servicemonitor.yaml
-  - limitador-servicemonitor.yaml
+  - authorino-monitor.yaml
+  - authorino-operator-monitor.yaml
+  - dns-operator-monitor.yaml
+  - kuadrant-operator-monitor.yaml
+  - limitador-monitor.yaml
+  - limitador-operator-monitor.yaml

@@ -1,0 +1,20 @@
+apiVersion: monitoring.rhobs/v1
+kind: ServiceMonitor
+metadata:
+  name: kuadrant-authorino-monitor
+  labels:
+    metrics: workload-monitor 
+spec:
+  endpoints:
+  - path: /metrics
+    port: http
+    scheme: http
+  - path: /server-metrics
+    port: http
+    scheme: http
+  namespaceSelector: {}
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: metrics
+      app.kubernetes.io/part-of: authorino
+      control-plane: controller-manager
