@@ -1,5 +1,5 @@
 apiVersion: monitoring.rhobs/v1
-kind: ServiceMonitor
+kind: PodMonitor
 metadata:
   name: kuadrant-limitador-monitor
   labels:
