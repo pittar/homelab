@@ -1,0 +1,344 @@
+apiVersion: perses.dev/v1alpha2
+kind: PersesDashboard
+metadata:
+  name: connectivity-link-overview
+  annotations:
+    perses.dev/tags: "connectivity-link,kuadrant,gateway-api"
+spec:
+  config:
+    display:
+      name: "Connectivity Link Overview"
+      description: "Request traffic, policy decisions, rate limiting, and gateway status for Red Hat Connectivity Link"
+    variables:
+      - kind: ListVariable
+        spec:
+          name: interval
+          display:
+            name: Rate Interval
+          allowAllValue: false
+          allowMultiple: false
+          plugin:
+            kind: StaticListVariable
+            spec:
+              values:
+                - label: 1m
+                  value: 1m
+                - label: 5m
+                  value: 5m
+                - label: 15m
+                  value: 15m
+          defaultValue: 5m
+    panels:
+      totalHits:
+        kind: Panel
+        spec:
+          display:
+            name: "Total Requests (rate)"
+            description: "Rate of requests processed by the Kuadrant policy engine"
+          plugin:
+            kind: TimeSeriesChart
+            spec: {}
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(rate(kuadrant_hits[$interval]))"
+      allowedVsDenied:
+        kind: Panel
+        spec:
+          display:
+            name: "Allowed vs Denied (rate)"
+            description: "Rate of allowed and denied requests by the policy engine"
+          plugin:
+            kind: TimeSeriesChart
+            spec: {}
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(rate(kuadrant_allowed[$interval]))"
+                    seriesNameFormat: "Allowed"
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(rate(kuadrant_denied[$interval]))"
+                    seriesNameFormat: "Denied"
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(rate(kuadrant_errors[$interval]))"
+                    seriesNameFormat: "Errors"
+      rateLimitDecisions:
+        kind: Panel
+        spec:
+          display:
+            name: "Rate Limit Decisions (rate)"
+            description: "Limitador authorized vs rate-limited calls"
+          plugin:
+            kind: TimeSeriesChart
+            spec: {}
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(rate(authorized_calls[$interval]))"
+                    seriesNameFormat: "Authorized"
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(rate(limited_calls[$interval]))"
+                    seriesNameFormat: "Rate Limited"
+      totalHitsStat:
+        kind: Panel
+        spec:
+          display:
+            name: "Total Hits"
+            description: "Total requests processed by the policy engine"
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(kuadrant_hits)"
+      allowedStat:
+        kind: Panel
+        spec:
+          display:
+            name: "Allowed"
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(kuadrant_allowed)"
+      deniedStat:
+        kind: Panel
+        spec:
+          display:
+            name: "Denied"
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(kuadrant_denied)"
+      errorsStat:
+        kind: Panel
+        spec:
+          display:
+            name: "Errors"
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(kuadrant_errors)"
+      policiesEnforced:
+        kind: Panel
+        spec:
+          display:
+            name: "Policies Enforced"
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "sum(kuadrant_policies_enforced)"
+      gatewayInfo:
+        kind: Panel
+        spec:
+          display:
+            name: "Gateway Resources"
+            description: "Gateway API resources tracked by Connectivity Link"
+          plugin:
+            kind: Table
+            spec: {}
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "kube_customresource_gateway_info"
+      componentReadiness:
+        kind: Panel
+        spec:
+          display:
+            name: "Component Readiness"
+            description: "Readiness state of Connectivity Link components"
+          plugin:
+            kind: TimeSeriesChart
+            spec: {}
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: "kuadrant_component_ready"
+    layouts:
+      - kind: Grid
+        spec:
+          display:
+            title: "Summary"
+            collapse:
+              open: true
+          items:
+            - x: 0
+              y: 0
+              width: 6
+              height: 4
+              content:
+                $ref: "#/spec/panels/totalHitsStat"
+            - x: 6
+              y: 0
+              width: 6
+              height: 4
+              content:
+                $ref: "#/spec/panels/allowedStat"
+            - x: 12
+              y: 0
+              width: 6
+              height: 4
+              content:
+                $ref: "#/spec/panels/deniedStat"
+            - x: 18
+              y: 0
+              width: 6
+              height: 4
+              content:
+                $ref: "#/spec/panels/errorsStat"
+      - kind: Grid
+        spec:
+          display:
+            title: "Request Traffic"
+            collapse:
+              open: true
+          items:
+            - x: 0
+              y: 0
+              width: 12
+              height: 8
+              content:
+                $ref: "#/spec/panels/totalHits"
+            - x: 12
+              y: 0
+              width: 12
+              height: 8
+              content:
+                $ref: "#/spec/panels/allowedVsDenied"
+      - kind: Grid
+        spec:
+          display:
+            title: "Rate Limiting"
+            collapse:
+              open: true
+          items:
+            - x: 0
+              y: 0
+              width: 18
+              height: 8
+              content:
+                $ref: "#/spec/panels/rateLimitDecisions"
+            - x: 18
+              y: 0
+              width: 6
+              height: 8
+              content:
+                $ref: "#/spec/panels/policiesEnforced"
+      - kind: Grid
+        spec:
+          display:
+            title: "Gateway & Components"
+            collapse:
+              open: true
+          items:
+            - x: 0
+              y: 0
+              width: 12
+              height: 8
+              content:
+                $ref: "#/spec/panels/gatewayInfo"
+            - x: 12
+              y: 0
+              width: 12
+              height: 8
+              content:
+                $ref: "#/spec/panels/componentReadiness"
+    duration: 1h
