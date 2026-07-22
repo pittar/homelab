@@ -9,8 +9,10 @@ spec:
     limits:
       low-limit:
         rates:
-        - limit: 1
-          window: 10s
+          - limit: 1
+            window: 10s
+        when:
+          - predicate: "request.path.startsWith('/v1') == false"
     strategy: atomic
   targetRef:
     group: gateway.networking.k8s.io
