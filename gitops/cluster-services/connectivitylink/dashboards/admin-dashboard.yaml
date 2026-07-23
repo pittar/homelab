@@ -1,0 +1,136 @@
+apiVersion: perses.dev/v1alpha2
+kind: PersesDashboard
+metadata:
+  name: connectivity-link-overview
+  labels:
+    app.kubernetes.io/part-of: connectivity-link
+spec:
+  config:
+    duration: 24h
+    display:
+      name: Connectivity Link - Overview
+    panels:
+      num_gateways:
+        kind: Panel
+        spec:
+          display:
+            name: Gateways
+            description: Total count of active Gateway API gateways
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+              format:
+                unit: decimal
+                decimalPlaces: 0
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: count(gatewayapi_gateway_status{status="True"})
+      num_httproutes:
+        kind: Panel
+        spec:
+          display:
+            name: HTTPRoutes
+            description: Total count of active HTTPRoutes
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+              format:
+                unit: decimal
+                decimalPlaces: 0
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: count(gatewayapi_httproute_status{status="True"})
+      total_api_calls:
+        kind: Panel
+        spec:
+          display:
+            name: Total API Calls
+            description: Total authorized requests processed in the selected time range
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+              format:
+                unit: decimal
+                decimalPlaces: 0
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: round(sum(increase(authorized_calls[$__range])))
+      total_tokens:
+        kind: Panel
+        spec:
+          display:
+            name: Total Tokens
+            description: Total LLM tokens consumed in the selected time range
+          plugin:
+            kind: StatChart
+            spec:
+              calculation: last
+              format:
+                unit: decimal
+                decimalPlaces: 0
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: round(sum(increase(authorized_hits{limitador_namespace="inference-demo/rhaiis"}[$__range])))
+    layouts:
+      - kind: Grid
+        spec:
+          display:
+            title: Key Metrics
+            collapse:
+              open: true
+          items:
+            - x: 0
+              y: 0
+              width: 6
+              height: 4
+              content:
+                $ref: "#/spec/panels/num_gateways"
+            - x: 6
+              y: 0
+              width: 6
+              height: 4
+              content:
+                $ref: "#/spec/panels/num_httproutes"
+            - x: 12
+              y: 0
+              width: 6
+              height: 4
+              content:
+                $ref: "#/spec/panels/total_api_calls"
+            - x: 18
+              y: 0
+              width: 6
+              height: 4
+              content:
+                $ref: "#/spec/panels/total_tokens"
