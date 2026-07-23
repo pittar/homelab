@@ -4,5 +4,6 @@ resources:
   - default-gateway-namespace.yaml
   - default-gateway-certificate.yaml
   - default-gateway.yaml
-  - default-gateway-telemetry.yaml
+  - default-gateway-istio-telemetry.yaml
+  - default-gateway-kuadrant-telemetry.yaml
   - default-gateway-podmonitor.yaml
