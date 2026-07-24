@@ -102,6 +102,69 @@ spec:
                       kind: PrometheusDatasource
                       name: coo-prometheus
                     query: round(sum(increase(authorized_hits{limitador_namespace="inference-demo/rhaiis"}[$__range])))
+      tokens_per_user:
+        kind: Panel
+        spec:
+          display:
+            name: Tokens Consumed per User
+            description: Token consumption breakdown grouped by user ID over time
+          plugin:
+            kind: TimeSeriesChart
+            spec:
+              legend:
+                position: bottom
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: round(sum by (user) (increase(authorized_hits{limitador_namespace="inference-demo/rhaiis"}[$__interval])))
+      api_calls_per_user:
+        kind: Panel
+        spec:
+          display:
+            name: API Calls per User
+            description: Total authorized API request count grouped by user ID over time
+          plugin:
+            kind: TimeSeriesChart
+            spec:
+              legend:
+                position: bottom
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: round(sum by (user) (increase(authorized_calls{limitador_namespace="inference-demo/rhaiis"}[$__interval])))
+      tokens_by_group:
+        kind: Panel
+        spec:
+          display:
+            name: Tokens per Tier (Group)
+            description: Token consumption breakdown by subscription group tier (pro vs free)
+          plugin:
+            kind: TimeSeriesChart
+            spec:
+              legend:
+                position: bottom
+          queries:
+            - kind: TimeSeriesQuery
+              spec:
+                plugin:
+                  kind: PrometheusTimeSeriesQuery
+                  spec:
+                    datasource:
+                      kind: PrometheusDatasource
+                      name: coo-prometheus
+                    query: round(sum by (group) (increase(authorized_hits{limitador_namespace="inference-demo/rhaiis"}[$__interval])))
     layouts:
       - kind: Grid
         spec:
@@ -134,3 +197,35 @@ spec:
               height: 4
               content:
                 $ref: "#/spec/panels/total_tokens"
+      - kind: Grid
+        spec:
+          display:
+            title: Per-User Usage Analytics
+            collapse:
+              open: true
+          items:
+            - x: 0
+              y: 0
+              width: 12
+              height: 6
+              content:
+                $ref: "#/spec/panels/tokens_per_user"
+            - x: 12
+              y: 0
+              width: 12
+              height: 6
+              content:
+                $ref: "#/spec/panels/api_calls_per_user"
+      - kind: Grid
+        spec:
+          display:
+            title: Group & Tier Analytics
+            collapse:
+              open: true
+          items:
+            - x: 0
+              y: 0
+              width: 24
+              height: 6
+              content:
+                $ref: "#/spec/panels/tokens_by_group"

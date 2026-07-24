@@ -47,4 +47,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - rhcl-operator.v1.4.1
+            - rhcl-operator.v1.4.2
