@@ -5,5 +5,5 @@ resources:
   - default-gateway-certificate.yaml
   - default-gateway.yaml
   - default-gateway-istio-telemetry.yaml
-  - default-gateway-kuadrant-telemetry.yaml
+  # - default-gateway-kuadrant-telemetry.yaml
   - default-gateway-podmonitor.yaml

@@ -12,5 +12,5 @@ spec:
   metrics:
     default:
       labels:
-        user: auth.identity.userid
-        group: auth.identity.groups
+        user: 'has(auth.identity) && has(auth.identity.userid) ? auth.identity.userid : ""'
+        group: 'has(auth.identity) && has(auth.identity.groups) ? string(auth.identity.groups) : ""'
