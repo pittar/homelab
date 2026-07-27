@@ -17,7 +17,7 @@ spec:
         route.openshift.io/termination: edge
     env:
       - name: REGISTRY_API_URL
-        value: "https://apicurio-registry-app-apicurio-registry.apps.prime.pitt.ca/apis/registry/v3"
+        value: "https://apicurio-registry.apps.prime.pitt.ca/apis/registry/v3"
 
 
 
