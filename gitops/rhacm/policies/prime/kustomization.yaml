@@ -18,3 +18,4 @@ resources:
   - nvidia-gpu-operator
   - openshift-tempo-operator
   - openshift-opentelemetry-operator
+  - apicurio-registry-operator

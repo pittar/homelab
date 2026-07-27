@@ -7,10 +7,10 @@ metadata:
 spec:
   observability:
     enable: false
-    # tracing:
-    #   defaultEndpoint: rpc://otel-sno-collector.tempo-observability.svc.cluster.local:4317
-    #   insecure: true
-    # dataPlane:
-    #   defaultLevels:
-    #     - info: "true"
-    #   httpHeaderIdentifier: x-request-id
+    tracing:
+      defaultEndpoint: rpc://otel-sno-collector.tempo-observability.svc.cluster.local:4317
+      insecure: true
+    dataPlane:
+      defaultLevels:
+        - info: "true"
+      httpHeaderIdentifier: x-request-id
