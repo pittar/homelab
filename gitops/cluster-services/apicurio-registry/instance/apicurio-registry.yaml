@@ -15,3 +15,9 @@ spec:
       host: apicurio-registry-ui.apps.prime.pitt.ca
       annotations:
         route.openshift.io/termination: edge
+    env:
+      - name: REGISTRY_API_URL
+        value: "https://apicurio-registry-app-apicurio-registry.apps.prime.pitt.ca/apis/registry/v3"
+
+
+
