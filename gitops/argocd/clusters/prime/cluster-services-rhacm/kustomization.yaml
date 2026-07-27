@@ -13,3 +13,4 @@ resources:
   - ../../../cluster-services/openshift-servicemesh/instance
   - ../../../cluster-services/connectivitylink/instance/overlays/prime
   - ../../../cluster-services/connectivitylink/gateways/overlays/default-prime
+  - ../../../cluster-services/apicurio-registry/instance

@@ -1,0 +1,5 @@
+namespace: apicurio-registry
+
+resources:
+  - namespace.yaml
+  - apicurio-registry.yaml

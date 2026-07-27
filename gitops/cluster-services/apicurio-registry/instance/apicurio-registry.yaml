@@ -1,0 +1,13 @@
+apiVersion: registry.apicur.io/v1
+kind: ApicurioRegistry3
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: apicurio-registry
+spec:
+  app:
+    ingress:
+      host: apicurio-registry.apps.prime.pitt.ca
+  ui:
+    ingress:
+      host: apicurio-registry-ui.apps.prime.pitt.ca
