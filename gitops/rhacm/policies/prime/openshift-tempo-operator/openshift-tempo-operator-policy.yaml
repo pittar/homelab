@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - tempo-operator.v0.21.0-2
+            - tempo-operator.v0.21.0-3
