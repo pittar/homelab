@@ -8,6 +8,10 @@ spec:
   app:
     ingress:
       host: apicurio-registry.apps.prime.pitt.ca
+      annotations:
+        route.openshift.io/termination: edge
   ui:
     ingress:
       host: apicurio-registry-ui.apps.prime.pitt.ca
+      annotations:
+        route.openshift.io/termination: edge
