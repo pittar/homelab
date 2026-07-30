@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - apicurio-registry-3.v3.2.6-r1
+            - apicurio-registry-3.v3.2.6-r2

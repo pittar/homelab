@@ -1,16 +1,14 @@
-# Check OpenShift Operator Upgrades
+# Check OpenShift Operator Upgrades Skill
 
 ## Overview
 This skill checks for pending OpenShift operator upgrades and displays a markdown-formatted table showing current vs pending CSV versions.
 
 ## Usage
 ```opencode
-Use the check-operator-upgrades skill to check for pending operator upgrades
-
-# Check all namespaces
+# Check all namespaces for pending upgrades
 Check for pending operator upgrades
 
-# Check specific namespace
+# Check specific namespace for pending upgrades
 Check for pending operator upgrades in namespace: openshift-cnv
 ```
 
@@ -19,9 +17,9 @@ This skill connects to the OpenShift cluster and:
 1. Scans all namespaces (or specified namespace) for InstallPlan resources
 2. Identifies unapproved InstallPlans (pending operator upgrades)
 3. Retrieves current and pending CSV versions for each operator
-4. Update the appropriate "OperatorPolicy" in the various yaml Policy files found in the "gitops/rhacm" subdirectories with the new versions.
-5. Do NOT commit any changes to git.
-6. Finally, generate a formatted markdown table with comparison of old and new versions.
+4. Generates a formatted markdown table with comparison of old and new versions
+
+After reviewing the upgrade table, manually update the appropriate "OperatorPolicy" in the various YAML Policy files found in the "gitops/rhacm" subdirectories with the new versions. Do NOT commit any changes to git.
 
 
 ## Output Format
