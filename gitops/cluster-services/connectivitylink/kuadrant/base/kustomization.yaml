@@ -2,6 +2,7 @@ namespace: kuadrant-system
 
 resources:
   - kuadrant.yaml
+  - limitador-instance.yaml
   - consoleplugin.yaml
   - authorino-monitor.yaml
   - authorino-operator-monitor.yaml

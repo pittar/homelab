@@ -1,0 +1,8 @@
+apiVersion: limitador.kuadrant.io/v1alpha1
+kind: Limitador
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: limitador
+spec:
+  telemetry: exhaustive
