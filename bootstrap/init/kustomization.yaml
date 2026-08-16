@@ -1,4 +1,4 @@
 resources:
   - external-secrets-operator
-  - rhacm-operator/operator
-  - openshift-gitops
+  # - rhacm-operator/operator
+  # - openshift-gitops

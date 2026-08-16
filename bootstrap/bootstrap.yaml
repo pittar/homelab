@@ -1,0 +1,159 @@
+---
+- name: Bootstrap Single Node OpenShift Cluster
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    kubeconfig_path: "~/.kube/prime-kubeconfig"
+    repo_root: "{{ playbook_dir }}/.."
+
+  tasks:
+    - name: Apply Doppler external secret resources (Item 1)
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition: "{{ lookup('kubernetes.core.kustomize', dir=repo_root + '/bootstrap/init/external-secrets-operator') }}"
+        state: present
+
+    # --- GitOps Operator (Item 2) ---
+    - name: Ensure GitOps operator namespace exists
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: v1
+        kind: Namespace
+        name: openshift-gitops-operator
+        state: present
+
+    - name: Create GitOps OperatorGroup
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1
+          kind: OperatorGroup
+          metadata:
+            name: openshift-gitops-operator-group
+            namespace: openshift-gitops-operator
+          spec:
+            upgradeStrategy: Default
+
+    - name: Create GitOps Subscription (Manual Approval)
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1alpha1
+          kind: Subscription
+          metadata:
+            name: openshift-gitops-operator
+            namespace: openshift-gitops-operator
+          spec:
+            channel: gitops-1.21
+            name: openshift-gitops-operator
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+            installPlanApproval: Manual
+
+    - name: Wait for GitOps InstallPlan to be generated
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: operators.coreos.com/v1alpha1
+        kind: InstallPlan
+        namespace: openshift-gitops-operator
+      register: gitops_install_plans
+      until: gitops_install_plans.resources | length > 0
+      retries: 30
+      delay: 10
+
+    - name: Approve GitOps InstallPlan
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1alpha1
+          kind: InstallPlan
+          metadata:
+            name: "{{ item.metadata.name }}"
+            namespace: openshift-gitops-operator
+          spec:
+            approved: true
+      loop: "{{ gitops_install_plans.resources }}"
+      when: not (item.spec.approved | default(false))
+
+    # --- RHACM Operator (Item 3) ---
+    - name: Ensure RHACM namespace exists
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: v1
+        kind: Namespace
+        name: open-cluster-management
+        state: present
+
+    - name: Create RHACM OperatorGroup
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1
+          kind: OperatorGroup
+          metadata:
+            name: open-cluster-management-operator-group
+            namespace: open-cluster-management
+          spec:
+            targetNamespaces:
+              - open-cluster-management
+
+    - name: Create RHACM Subscription (Manual Approval)
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1alpha1
+          kind: Subscription
+          metadata:
+            name: advanced-cluster-management
+            namespace: open-cluster-management
+          spec:
+            channel: release-2.17
+            name: advanced-cluster-management
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+            installPlanApproval: Manual
+
+    - name: Wait for RHACM InstallPlan to be generated
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: operators.coreos.com/v1alpha1
+        kind: InstallPlan
+        namespace: open-cluster-management
+      register: rhacm_install_plans
+      until: rhacm_install_plans.resources | length > 0
+      retries: 30
+      delay: 10
+
+    - name: Approve RHACM InstallPlan
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1alpha1
+          kind: InstallPlan
+          metadata:
+            name: "{{ item.metadata.name }}"
+            namespace: open-cluster-management
+          spec:
+            approved: true
+      loop: "{{ rhacm_install_plans.resources }}"
+      when: not (item.spec.approved | default(false))
+
+    # --- Post-Install Configuration (Item 4) ---
+    - name: Wait for default ArgoCD instance in openshift-gitops namespace
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: argoproj.io/v1alpha1
+        kind: ArgoCD
+        namespace: openshift-gitops
+        name: openshift-gitops
+      register: argocd_instance
+      until: argocd_instance.resources | length > 0
+      retries: 40
+      delay: 10
+
+    - name: Apply GitOps ClusterRoleBinding via Kustomize (Item 4)
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition: "{{ lookup('kubernetes.core.kustomize', dir=repo_root + '/bootstrap/init/openshift-gitops') }}"
+        state: present
