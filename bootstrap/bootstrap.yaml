@@ -8,13 +8,14 @@
     repo_root: "{{ playbook_dir }}/.."
 
   tasks:
-    - name: Apply Doppler external secret resources (Item 1)
+    # --- Item 1: Doppler Secret Setup ---
+    - name: Apply Doppler external secret resources
       kubernetes.core.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
         definition: "{{ lookup('kubernetes.core.kustomize', dir=repo_root + '/bootstrap/init/external-secrets-operator') }}"
         state: present
 
-    # --- GitOps Operator (Item 2) ---
+    # --- Item 2: OpenShift GitOps Operator ---
     - name: Ensure GitOps operator namespace exists
       kubernetes.core.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
@@ -58,7 +59,8 @@
         kind: InstallPlan
         namespace: openshift-gitops-operator
       register: gitops_install_plans
-      until: gitops_install_plans.resources | length > 0
+      failed_when: false
+      until: (gitops_install_plans.resources | default([])) | length > 0
       retries: 30
       delay: 10
 
@@ -73,10 +75,35 @@
             namespace: openshift-gitops-operator
           spec:
             approved: true
-      loop: "{{ gitops_install_plans.resources }}"
+      loop: "{{ gitops_install_plans.resources | default([]) }}"
       when: not (item.spec.approved | default(false))
 
-    # --- RHACM Operator (Item 3) ---
+    - name: Wait for ArgoCD CRD to be established
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: apiextensions.k8s.io/v1
+        kind: CustomResourceDefinition
+        name: argocds.argoproj.io
+      register: argocd_crd
+      failed_when: false
+      until: (argocd_crd.resources | default([])) | length > 0
+      retries: 30
+      delay: 10
+
+    - name: Wait for default ArgoCD instance in openshift-gitops namespace
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: argoproj.io/v1alpha1
+        kind: ArgoCD
+        namespace: openshift-gitops
+        name: openshift-gitops
+      register: argocd_instance
+      failed_when: false
+      until: (argocd_instance.resources | default([])) | length > 0
+      retries: 40
+      delay: 10
+
+    # --- Item 3: RHACM Operator ---
     - name: Ensure RHACM namespace exists
       kubernetes.core.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
@@ -121,7 +148,8 @@
         kind: InstallPlan
         namespace: open-cluster-management
       register: rhacm_install_plans
-      until: rhacm_install_plans.resources | length > 0
+      failed_when: false
+      until: (rhacm_install_plans.resources | default([])) | length > 0
       retries: 30
       delay: 10
 
@@ -136,23 +164,23 @@
             namespace: open-cluster-management
           spec:
             approved: true
-      loop: "{{ rhacm_install_plans.resources }}"
+      loop: "{{ rhacm_install_plans.resources | default([]) }}"
       when: not (item.spec.approved | default(false))
 
-    # --- Post-Install Configuration (Item 4) ---
-    - name: Wait for default ArgoCD instance in openshift-gitops namespace
+    - name: Wait for RHACM MultiClusterHub CRD to be established
       kubernetes.core.k8s_info:
         kubeconfig: "{{ kubeconfig_path }}"
-        api_version: argoproj.io/v1alpha1
-        kind: ArgoCD
-        namespace: openshift-gitops
-        name: openshift-gitops
-      register: argocd_instance
-      until: argocd_instance.resources | length > 0
-      retries: 40
+        api_version: apiextensions.k8s.io/v1
+        kind: CustomResourceDefinition
+        name: multiclusterhubs.operator.open-cluster-management.io
+      register: rhacm_crd
+      failed_when: false
+      until: (rhacm_crd.resources | default([])) | length > 0
+      retries: 30
       delay: 10
 
-    - name: Apply GitOps ClusterRoleBinding via Kustomize (Item 4)
+    # --- Item 4: Post-Install Configuration ---
+    - name: Apply GitOps ClusterRoleBinding via Kustomize
       kubernetes.core.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
         definition: "{{ lookup('kubernetes.core.kustomize', dir=repo_root + '/bootstrap/init/openshift-gitops') }}"
