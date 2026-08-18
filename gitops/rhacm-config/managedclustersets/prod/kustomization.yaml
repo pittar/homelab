@@ -1,0 +1,3 @@
+resources:
+  - acm-prod-policies-namespace.yaml
+  - prod-mcs.yaml

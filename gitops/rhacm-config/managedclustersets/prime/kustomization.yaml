@@ -1,0 +1,3 @@
+resources:
+  - acm-prime-policies-namespace.yaml
+  - prime-mcs.yaml

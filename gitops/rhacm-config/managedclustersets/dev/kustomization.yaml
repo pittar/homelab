@@ -1,0 +1,3 @@
+resources:
+  - acm-dev-policies-namespace.yaml
+  - dev-mcs.yaml
