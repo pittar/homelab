@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: rhacm-config
   source:
-    path: gitops/rhacm/policysets/prod
+    path: gitops/rhacm-config/policysets/prod
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:

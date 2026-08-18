@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: rhacm-config
   source:
-    path: gitops/rhacm/policies/prime
+    path: gitops/rhacm-config/policies/prime
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   # syncPolicy:
