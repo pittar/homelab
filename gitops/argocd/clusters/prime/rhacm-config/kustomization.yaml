@@ -1,0 +1,9 @@
+namespace: openshift-gitops
+
+resources:
+  - rhacm-config-project.yaml
+  - ../../../rhacm-config/hub
+  - ../../../rhacm-config/managedclustersets
+  - ../../../rhacm-config/managedclustersetbindings
+  - ../../../rhacm-config/policies
+  - ../../../rhacm-config/policysets

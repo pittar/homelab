@@ -1,4 +1,0 @@
-resources:
-  - ../cluster-config-rhacm
-  - ../cluster-services-rhacm
-  #- 03-tenants
