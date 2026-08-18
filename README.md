@@ -6,6 +6,31 @@ There is minimal manual configuration required - mostly to seed secret values as
 
 ## Cluster Init
 
+I use Ansible for the initial bootstrap and so should you!  Here's how I set up my venv:
+
+```
+# 1. Create the virtual environment
+python3 -m venv .venv
+
+# 2. Activate it
+source .venv/bin/activate
+
+# 3. Upgrade pip and install required Python packages
+pip install --upgrade pip
+pip install kubernetes jsonpatch PyYAML ansible-core
+
+# 4. Install the Ansible collection inside the activated venv
+ansible-galaxy collection install kubernetes.core
+```
+
+Don't forget to re-initialize your venv on subsequent terminal sessions:
+
+```
+source .venv/bin/activate
+ansible-playbook bootstrap/bootstrap.yaml
+```
+
+
 Once a cluster is up, there are only three things to do to get the cluster fully configured:
 
 1. Create the credentials secret for External Secrets to use.
@@ -18,11 +43,16 @@ Sensitive data is kept in an external secret manager.  In this case, [Doppler](h
 
 Of course you should never have a Kubernetes `Secret` in Git (for obvious reasons), so my Doppler creds secret is on my local machine.  I've created an `init` folder to distil this process down to one command in case I need to add other items to the seeding process.
 
-This also includes deploying OpenShift GitOps.
+This also includes deploying OpenShift GitOps and Red Hat Advanced Cluster Management for Kubernetes.
 
 ```
 oc apply -k bootstrap/init
 ```
+
+### Why Install OpenShift GitOps and RHACM?
+
+I've experimented with other ways of making this a 
+
 
 ## Cluster Config
 

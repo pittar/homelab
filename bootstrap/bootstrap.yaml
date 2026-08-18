@@ -185,3 +185,40 @@
         kubeconfig: "{{ kubeconfig_path }}"
         definition: "{{ lookup('kubernetes.core.kustomize', dir=repo_root + '/bootstrap/init/openshift-gitops') }}"
         state: present
+
+    # --- Item 5: GitOps Readiness & Root App Deployment ---
+    - name: Wait for OpenShift GitOps Server deployment to be ready
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: apps/v1
+        kind: Deployment
+        namespace: openshift-gitops
+        name: openshift-gitops-server
+      register: gitops_server_deployment
+      failed_when: false
+      until:
+        - (gitops_server_deployment.resources | default([])) | length > 0
+        - (gitops_server_deployment.resources[0].status.readyReplicas | default(0)) > 0
+      retries: 30
+      delay: 10
+
+    - name: Wait for ArgoCD instance status to be Available
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: argoproj.io/v1alpha1
+        kind: ArgoCD
+        namespace: openshift-gitops
+        name: openshift-gitops
+      register: argocd_instance_health
+      failed_when: false
+      until:
+        - (argocd_instance_health.resources | default([])) | length > 0
+        - argocd_instance_health.resources[0].status.phase | default('') == 'Available'
+      retries: 30
+      delay: 10
+
+    - name: Apply Root ArgoCD Application via Kustomize
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition: "{{ lookup('kubernetes.core.kustomize', dir=repo_root + '/gitops/argocd/clusters/prime/bootstrap-rhacm') }}"
+        state: present
