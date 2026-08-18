@@ -1,4 +1,5 @@
 resources:
-  - prime-mcs.yaml
-  - dev-mcs.yaml
-  - prod-mcs.yaml
+  - global
+  - prime
+  - dev
+  - prod

@@ -2,7 +2,7 @@ kind: Application
 apiVersion: argoproj.io/v1alpha1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "103"
+    argocd.argoproj.io/sync-wave: "104"
   labels:
     gitops.ownedBy: openshift-gitops
     app.type: rhacm-policies
@@ -11,7 +11,7 @@ spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
-  project: rhacm
+  project: rhacm-config
   source:
     path: gitops/rhacm/policies/dev
     repoURL: https://github.com/pittar/homelab.git

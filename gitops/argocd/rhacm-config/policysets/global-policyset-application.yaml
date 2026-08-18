@@ -11,7 +11,7 @@ spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
-  project: rhacm
+  project: rhacm-config
   source:
     path: gitops/rhacm/policysets/global
     repoURL: https://github.com/pittar/homelab.git
