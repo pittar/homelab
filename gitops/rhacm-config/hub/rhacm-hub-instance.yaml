@@ -5,3 +5,9 @@ metadata:
 spec:
   availabilityConfig: "Basic"
   disableHubSelfManagement: false
+  overrides:
+    components:
+      - name: hypershift
+        enabled: false
+      - name: hypershift-local-hosting
+        enabled: false

@@ -103,7 +103,186 @@
       retries: 40
       delay: 10
 
-    # --- Item 3: RHACM Operator ---
+    # --- Item 3: LVM Storage Operator ---
+    - name: Ensure LVM Storage operator namespace exists
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: v1
+          kind: Namespace
+          metadata:
+            name: openshift-lvm-storage
+            labels:
+              openshift.io/cluster-monitoring: "true"
+        state: present
+
+    - name: Create LVM Storage OperatorGroup
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1
+          kind: OperatorGroup
+          metadata:
+            name: openshift-lvm-storage-operator-group
+            namespace: openshift-lvm-storage
+          spec:
+            targetNamespaces:
+              - openshift-lvm-storage
+
+    - name: Create LVM Storage Subscription (Manual Approval)
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1alpha1
+          kind: Subscription
+          metadata:
+            name: lvms-operator
+            namespace: openshift-lvm-storage
+          spec:
+            channel: stable-4.22
+            name: lvms-operator
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+            installPlanApproval: Manual
+
+    - name: Wait for LVM Storage InstallPlan to be generated
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: operators.coreos.com/v1alpha1
+        kind: InstallPlan
+        namespace: openshift-lvm-storage
+      register: lvm_install_plans
+      failed_when: false
+      until: (lvm_install_plans.resources | default([])) | length > 0
+      retries: 30
+      delay: 10
+
+    - name: Approve LVM Storage InstallPlan
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1alpha1
+          kind: InstallPlan
+          metadata:
+            name: "{{ item.metadata.name }}"
+            namespace: openshift-lvm-storage
+          spec:
+            approved: true
+      loop: "{{ lvm_install_plans.resources | default([]) }}"
+      when: not (item.spec.approved | default(false))
+
+    - name: Wait for LVMCluster CRD to be established
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: apiextensions.k8s.io/v1
+        kind: CustomResourceDefinition
+        name: lvmclusters.lvm.topolvm.io
+      register: lvmcluster_crd
+      failed_when: false
+      until: (lvmcluster_crd.resources | default([])) | length > 0
+      retries: 30
+      delay: 10
+
+    - name: Create default LVMCluster instance
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: lvm.topolvm.io/v1alpha1
+          kind: LVMCluster
+          metadata:
+            name: default-lvmcluster
+            namespace: openshift-lvm-storage
+          spec:
+            storage:
+              deviceClasses:
+                - fstype: xfs
+                  default: true
+                  thinPoolConfig:
+                    chunkSizeCalculationPolicy: Static
+                    metadataSizeCalculationPolicy: Host
+                    sizePercent: 90
+                    name: thin-pool-1
+                    overprovisionRatio: 10
+                  name: vg1
+        state: present
+
+    # --- Item 4: Multi-Cluster Engine Operator ---
+    - name: Ensure MCE namespace exists
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: v1
+        kind: Namespace
+        name: multicluster-engine
+        state: present
+
+    - name: Create MCE OperatorGroup
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1
+          kind: OperatorGroup
+          metadata:
+            name: multicluster-engine-operator-group
+            namespace: multicluster-engine
+          spec:
+            targetNamespaces:
+              - multicluster-engine
+
+    - name: Create MCE Subscription (Manual Approval)
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1alpha1
+          kind: Subscription
+          metadata:
+            name: multicluster-engine
+            namespace: multicluster-engine
+          spec:
+            channel: stable-2.17
+            name: multicluster-engine
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+            installPlanApproval: Manual
+
+    - name: Wait for MCE InstallPlan to be generated
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: operators.coreos.com/v1alpha1
+        kind: InstallPlan
+        namespace: multicluster-engine
+      register: mce_install_plans
+      failed_when: false
+      until: (mce_install_plans.resources | default([])) | length > 0
+      retries: 30
+      delay: 10
+
+    - name: Approve MCE InstallPlan
+      kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
+        definition:
+          apiVersion: operators.coreos.com/v1alpha1
+          kind: InstallPlan
+          metadata:
+            name: "{{ item.metadata.name }}"
+            namespace: multicluster-engine
+          spec:
+            approved: true
+      loop: "{{ mce_install_plans.resources | default([]) }}"
+      when: not (item.spec.approved | default(false))
+
+    - name: Wait for MCE CRD to be established
+      kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
+        api_version: apiextensions.k8s.io/v1
+        kind: CustomResourceDefinition
+        name: multiclusterengines.multicluster.openshift.io
+      register: mce_crd
+      failed_when: false
+      until: (mce_crd.resources | default([])) | length > 0
+      retries: 30
+      delay: 10
+
+    # --- Item 5: RHACM Operator ---
     - name: Ensure RHACM namespace exists
       kubernetes.core.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
@@ -179,14 +358,14 @@
       retries: 30
       delay: 10
 
-    # --- Item 4: Post-Install Configuration ---
+    # --- Item 6: Post-Install Configuration ---
     - name: Apply GitOps ClusterRoleBinding via Kustomize
       kubernetes.core.k8s:
         kubeconfig: "{{ kubeconfig_path }}"
         definition: "{{ lookup('kubernetes.core.kustomize', dir=repo_root + '/bootstrap/init/openshift-gitops') }}"
         state: present
 
-    # --- Item 5: GitOps Readiness & Root App Deployment ---
+    # --- Item 7: GitOps Readiness & Root App Deployment ---
     - name: Wait for OpenShift GitOps Server deployment to be ready
       kubernetes.core.k8s_info:
         kubeconfig: "{{ kubeconfig_path }}"
