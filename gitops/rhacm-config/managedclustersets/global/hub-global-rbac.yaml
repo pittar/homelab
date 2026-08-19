@@ -1,0 +1,21 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hub-template-reader
+rules:
+  - apiGroups: [""]
+    resources: ["secrets", "configmaps"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hub-template-reader-binding
+subjects:
+  - kind: ServiceAccount
+    name: global
+    namespace: acm-global-policies
+roleRef:
+  kind: ClusterRole
+  name: hub-template-reader
+  apiGroup: rbac.authorization.k8s.io

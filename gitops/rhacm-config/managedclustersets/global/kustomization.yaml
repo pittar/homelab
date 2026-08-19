@@ -1,2 +1,4 @@
 resources:
   - acm-global-policies-namespace.yaml
+  - serviceaccount.yaml
+  - hub-global-rbac.yaml
