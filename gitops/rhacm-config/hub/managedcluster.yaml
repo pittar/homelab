@@ -1,0 +1,8 @@
+apiVersion: cluster.open-cluster-management.io/v1
+kind: ManagedCluster
+metadata:
+  name: prime
+  annotations:
+    argocd.argoproj.io/sync-options: ServerSideApply=true
+  labels:
+    role: hub

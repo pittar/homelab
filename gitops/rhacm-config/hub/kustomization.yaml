@@ -2,3 +2,4 @@ namespace: open-cluster-management
 
 resources:
   - rhacm-hub-instance.yaml
+  - managedcluster.yaml
