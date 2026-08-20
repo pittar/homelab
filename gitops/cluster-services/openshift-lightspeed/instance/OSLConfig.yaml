@@ -8,12 +8,12 @@ spec:
       - credentialsSecretRef:
           name: credentials
         models:
-          - name: mistral-small-24b-w8a8
+          - name: minimax-m2
         name: red_hat_openshift_ai
         type: rhoai_vllm
-        url: 'https://mistral-small-24b-w8a8-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com:443/v1'
+        url: 'https://maas-rhdp.apps.maas.redhatworkshops.io/v1'
   ols:
-    defaultModel: mistral-small-24b-w8a8
+    defaultModel: minimax-m2
     defaultProvider: red_hat_openshift_ai
     introspectionEnabled: true
     logLevel: INFO
