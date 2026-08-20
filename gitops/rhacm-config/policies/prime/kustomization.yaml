@@ -4,7 +4,7 @@ resources:
   - banners
   - cluster-observability-operator
   - rbac
-  - gitops-bootstrap
+  # - gitops-bootstrap
   - developer-hub
   - openshift-pipelines-operator
   - keycloak-operator
