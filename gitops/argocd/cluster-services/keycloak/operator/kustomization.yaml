@@ -1,4 +1,0 @@
-namespace: openshift-gitops
-
-resources:
-  - keycloak-operator-application.yaml

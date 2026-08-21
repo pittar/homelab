@@ -30,40 +30,6 @@ source .venv/bin/activate
 ansible-playbook bootstrap/bootstrap.yaml
 ```
 
-
-Once a cluster is up, there are only three things to do to get the cluster fully configured:
-
-1. Create the credentials secret for External Secrets to use.
-2. Deploy OpenShift GitOps Operator and Advanced Cluster Management Operator/Instance.
-3. Create the bootstrap Application.
-
-### Doppler Creds Secret for External Secrets and Argo CD
-
-Sensitive data is kept in an external secret manager.  In this case, [Doppler](https://www.doppler.com/).  I'm using the External Secrets Operator to automate the creation of Kubernetes Secrets from data stored in Doppler.  To do this, we need Doppler credentials in the cluster.
-
-Of course you should never have a Kubernetes `Secret` in Git (for obvious reasons), so my Doppler creds secret is on my local machine.  I've created an `init` folder to distil this process down to one command in case I need to add other items to the seeding process.
-
-This also includes deploying OpenShift GitOps and Red Hat Advanced Cluster Management for Kubernetes.
-
-```
-oc apply -k bootstrap/init
-```
-
-### Why Install OpenShift GitOps and RHACM?
-
-I've experimented with other ways of making this a 
-
-
-## Cluster Config
-
-Once OpenShift GitOps has finished deploying, create the Bootstrap app to do the rest of the configuration.
-
-```
-oc apply -k bootstrap/homelab
-```
-
-Go get a coffee and wait for the cluster configuration to complete :)
-
 ## Operator Upgrades
 
 Operators are deployed in "Manual" mode and managed by RHACM "OperatorPolicy" policies.  This allows for a simplified "GitOps" management of operators and opertor upgrades in "Manual" mode.
@@ -89,30 +55,14 @@ Components and configuration for each lab environment.
 * OpenShift GitOps configuration
 * OpenShift OAuth (htpasswd)
 * Groups and Membership
-
-### OpenShift Local
-
-* External Secrets Operator
-* OpenShift GitOps configuration
-* OpenShift OAuth (htpasswd)
-* Groups and Membership
-
-
-```
-oc create secret generic rhdh-secrets  \
-    --from-literal=BACKEND_AUTH_SECRET=abc123 \
-    --from-literal=ARGOCD_ADMIN_USER=admin \
-    --from-literal=ARGOCD_ADMIN_PASSWORD=$(oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-) \
-    --from-literal=K8S_CLUSTER_NAME=openshiftlocal \
-    --from-literal=K8S_CLUSTER_URL=https://api.crc.testing:6443 \
-    --from-literal=K8S_CLUSTER_TOKEN=$(oc get secret rhdh-token -n rhdh -o jsonpath="{.data['token']}" | base64 -d) \
-    -n rhdh
-```
-
-```
-oc label node <node> cluster.ocs.openshift.io/openshift-storage=''
-```
-
-```
-oc get packagemanifests -n openshift-marketplace  rhdh-operator -o yaml
-```
+* Connectivity Link
+* NVidia Operator
+* OpenTelemetry/Tempo
+* Cluster Observability Operator / Prometheus
+* Service Mesh 3
+* Keycloak
+* Dev Spaces
+* Lightspeed
+* Developer Hub
+* OpenShift Pipelines
+* OpenShift Virtualization

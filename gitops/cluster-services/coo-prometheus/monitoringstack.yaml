@@ -1,0 +1,24 @@
+apiVersion: monitoring.rhobs/v1alpha1
+kind: MonitoringStack
+metadata:
+  name: workload-monitoring-stack
+spec:
+  alertmanagerConfig:
+    disabled: true
+  logLevel: debug
+  namespaceSelector:
+    matchLabels:
+      monitoring.rhobs/stack: workload-monitoring
+  prometheusConfig:
+    replicas: 1
+  resourceSelector:
+    matchLabels:
+      metrics: workload-monitor
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  retention: 5d

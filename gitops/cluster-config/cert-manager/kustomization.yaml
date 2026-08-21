@@ -1,6 +1,0 @@
-commonAnnotations:
-  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-
-resources:
-  - operator/overlays/stable-v1.14
-  - instances/route53

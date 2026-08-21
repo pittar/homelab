@@ -1,6 +1,0 @@
-namespace: costmanagement-metrics-operator
-
-resources:
-  - namespace.yaml
-  - subscription.yaml
-  - operatorgroup.yaml

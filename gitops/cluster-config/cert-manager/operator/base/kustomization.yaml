@@ -1,5 +1,0 @@
-resources:
-  - operator-namespace.yaml
-  - instance-namespace.yaml
-  - operator-group.yaml
-  - subscription.yaml

@@ -2,18 +2,18 @@ kind: Application
 apiVersion: argoproj.io/v1alpha1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "25"
+    argocd.argoproj.io/sync-wave: "399"
   labels:
     gitops.ownedBy: openshift-gitops
-    app.type: operator
-  name: keycloak-operator
+    app.type: observability
+  name: coo-prometheus
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
-  project: cluster-config
+  project: cluster-services
   source:
-    path: gitops/cluster-config/keycloak/operator/overlays/stable-v24
+    path: gitops/cluster-services/coo-prometheus/instance
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:

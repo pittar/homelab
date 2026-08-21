@@ -1,6 +1,0 @@
-namespace: sso
-
-resources:
-  - namespace.yaml
-  - operator-group.yaml
-  - subscription.yaml

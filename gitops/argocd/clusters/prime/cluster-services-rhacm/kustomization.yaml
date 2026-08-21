@@ -8,6 +8,7 @@ resources:
   - ../../../cluster-services/devspaces/instance
   - ../../../cluster-services/openshift-virt/instance
   - ../../../cluster-services/openshift-lightspeed/instance
+  - ../../../cluster-services/coo-prometheus/instance
   - ../../../cluster-services/openshift-tempo/instance
   - ../../../cluster-services/openshift-opentelemetry/instance
   - ../../../cluster-services/openshift-servicemesh/instance
