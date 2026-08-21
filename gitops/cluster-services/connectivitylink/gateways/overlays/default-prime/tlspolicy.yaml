@@ -2,9 +2,6 @@ apiVersion: kuadrant.io/v1
 kind: TLSPolicy
 metadata:
   name: kuadrant-gateway-tls
-  namespace: kuadrant-gateway
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
 spec:
   targetRef:
     group: gateway.networking.k8s.io

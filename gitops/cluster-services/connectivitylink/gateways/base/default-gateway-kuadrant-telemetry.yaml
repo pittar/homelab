@@ -2,8 +2,6 @@ apiVersion: extensions.kuadrant.io/v1alpha1
 kind: TelemetryPolicy
 metadata:
   name: kuadrant-gateway-user-metrics
-  annotations:
-    argocd.argoproj.io/sync-wave: "4"
 spec:
   targetRef:
     group: gateway.networking.k8s.io
