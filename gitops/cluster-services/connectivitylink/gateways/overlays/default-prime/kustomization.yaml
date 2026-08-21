@@ -2,5 +2,6 @@ namespace: kuadrant-gateway
 
 resources:
   - ../../base
+  - tlspolicy.yaml
   - ../../../authpolicies/overlays/default
   - ../../../ratelimitpolicies/overlays/default
