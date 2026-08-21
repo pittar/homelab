@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-services
   source:
-    path: gitops/cluster-services/coo-prometheus/instance
+    path: gitops/cluster-services/coo-prometheus
     repoURL: https://github.com/pittar/homelab.git
     targetRevision: main
   syncPolicy:
