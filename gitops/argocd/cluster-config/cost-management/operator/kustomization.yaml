@@ -1,4 +1,0 @@
-namespace: openshift-gitops
-
-resources:
-  - cost-management-operator-application.yaml

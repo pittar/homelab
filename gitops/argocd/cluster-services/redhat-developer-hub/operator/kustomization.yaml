@@ -1,4 +1,0 @@
-namespace: openshift-gitops
-
-resources:
-  - rhdh-operator-application.yaml

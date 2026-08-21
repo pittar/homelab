@@ -1,4 +1,0 @@
-namespace: openshift-gitops
-
-resources:
-  - openshift-pipelines-operator-application.yaml
