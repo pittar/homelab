@@ -1,0 +1,47 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: builds-operator
+  annotations:
+    policy.open-cluster-management.io/standards: DevOps
+    policy.open-cluster-management.io/categories: CICD
+    policy.open-cluster-management.io/controls: Pipelines
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: builds-operator-namespace
+        spec:
+          remediationAction: inform
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1                    
+                kind: Namespace
+                metadata:
+                  labels:
+                    openshift.io/cluster-monitoring: "true"
+                  name: openshift-builds
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: install-builds-operator
+        spec:
+          remediationAction: enforce
+          severity: critical
+          complianceType: musthave
+          upgradeApproval: Automatic
+          subscription:
+            name: openshift-builds-operator
+            namespace: builds-operator
+            channel: builds-1.9
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+          versions:
+            - openshift-builds-operator.v1.9.0

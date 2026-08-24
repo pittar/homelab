@@ -1,0 +1,4 @@
+namespace: acm-prime-policies
+
+resources:
+  - builds-operator-policy.yaml
