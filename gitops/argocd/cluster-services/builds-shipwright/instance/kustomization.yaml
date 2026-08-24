@@ -1,0 +1,4 @@
+namespace: openshift-gitops
+
+resources:
+  - builds-shipwright-application.yaml

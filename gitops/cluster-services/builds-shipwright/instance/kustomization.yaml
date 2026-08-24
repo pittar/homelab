@@ -1,0 +1,4 @@
+namespace: openshift-builds
+
+resources:
+  - shipwright.yaml
