@@ -39,7 +39,7 @@ spec:
           upgradeApproval: Automatic
           subscription:
             name: openshift-builds-operator
-            namespace: builds-operator
+            namespace: openshift-builds
             channel: builds-1.9
             source: redhat-operators
             sourceNamespace: openshift-marketplace
