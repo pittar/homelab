@@ -2,11 +2,11 @@ kind: Application
 apiVersion: argoproj.io/v1alpha1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "104"
+    argocd.argoproj.io/sync-wave: "399"
   labels:
     gitops.ownedBy: openshift-gitops
-    app.type: operator
-  name: cert-manager-instance
+    app.type: console-config
+  name: console-plugins
 spec:
   destination:
     namespace: openshift-gitops
