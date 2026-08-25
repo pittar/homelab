@@ -45,21 +45,3 @@ spec:
             sourceNamespace: openshift-marketplace
           versions:
             - openshift-pipelines-operator-rh.v1.23.1
-    - objectDefinition:
-        apiVersion: policy.open-cluster-management.io/v1
-        kind: ConfigurationPolicy
-        metadata:
-          name: openshift-pipelines-console-plugin
-        spec:
-          remediationAction: inform
-          severity: high
-          object-templates:
-            - complianceType: musthave
-              objectDefinition:
-                apiVersion: operator.openshift.io/v1
-                kind: Console
-                metadata:
-                  name: cluster
-                spec:
-                  plugins:
-                    - pipelines-console-plugin
