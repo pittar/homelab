@@ -1,0 +1,4 @@
+namespace: openshift-gitops
+
+resources:
+  - console-plugins-application.yaml
