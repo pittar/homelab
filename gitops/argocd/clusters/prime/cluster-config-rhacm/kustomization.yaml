@@ -31,11 +31,7 @@ resources:
 #   - ../../../cluster-config/etcd
 #   # Give kubelet more resources.
 #   - ../../../cluster-config/kubeletconfig
-
-
-
-  # - ../../../cluster-config/keycloak/operator
-  # - ../../../cluster-config/keycloak/instance
+  - ../../../cluster-config/console-plugins/prime
 
 
 
