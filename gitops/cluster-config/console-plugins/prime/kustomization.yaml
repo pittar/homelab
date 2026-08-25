@@ -1,2 +1,2 @@
-resources:
-  - console-plugins.yaml
+resources: []
+  - console-plugins.yaml?
