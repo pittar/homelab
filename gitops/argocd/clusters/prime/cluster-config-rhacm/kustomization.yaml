@@ -31,7 +31,7 @@ resources:
 #   - ../../../cluster-config/etcd
 #   # Give kubelet more resources.
 #   - ../../../cluster-config/kubeletconfig
-  - ../../../cluster-config/console-plugins/prime
+  # - ../../../cluster-config/console-plugins/prime
 
 
 
