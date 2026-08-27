@@ -44,4 +44,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - openshift-pipelines-operator-rh.v1.23.1
+            - openshift-pipelines-operator-rh.v1.23.2
