@@ -40,7 +40,7 @@ spec:
           subscription:
             name: gpu-operator-certified
             namespace: nvidia-gpu-operator
-            channel: v26.3
+            channel: v26.7
             #channel: v25.3
             source: certified-operators
             sourceNamespace: openshift-marketplace
