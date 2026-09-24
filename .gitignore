@@ -5,3 +5,4 @@ gitops/catalog/openshift-cert-manager-operator/instances/route53/route53-creds-s
 bootstrap/homelab/init/external-secrets-operator/doppler-secret.yaml
 bootstrap/init/external-secrets-operator/doppler-secret.yaml
 scratch
+.venv
