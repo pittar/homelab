@@ -17,6 +17,9 @@ spec:
       openVSXURL: 'https://open-vsx.org'
   containerRegistry: {}
   devEnvironments:
+    defaultEnv:
+      - name: NVIDIA_VISIBLE_DEVICES
+        value: "void"
     disableContainerRunCapabilities: false
     startTimeoutSeconds: 300
     secondsOfRunBeforeIdling: -1
