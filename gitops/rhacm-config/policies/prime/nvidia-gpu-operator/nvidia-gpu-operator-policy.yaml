@@ -162,4 +162,7 @@ spec:
                     enabled: true
                   toolkit:
                     enabled: true
+                    env:
+                      - name: NVIDIA_CONTAINER_TOOLKIT_NO_CGROUPS
+                        value: "true"
                     installDir: /usr/local/nvidia
