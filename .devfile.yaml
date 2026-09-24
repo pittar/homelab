@@ -25,6 +25,9 @@ components:
     container:
       image: quay.io/pittar/custom-udi-demo:latest
       args: ['tail', '-f', '/dev/null']
+      env:
+        - name: NVIDIA_VISIBLE_DEVICES
+          value: "void"
       mountSources: true
       cpuLimit: '2'
       cpuRequest: '100m'
