@@ -7,7 +7,7 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/source/name
-        value: 'Lab - Prime'
+        value: 'Lab Cost - Prime'
     target:
       group: costmanagement-metrics-cfg.openshift.io
       version: v1beta1
