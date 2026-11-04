@@ -44,7 +44,7 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - nfd.4.22.0-202610231407
+            - nfd.4.22.0-202610271454
           operatorGroup:
             name: nfd-og
             namespace: openshift-nfd
