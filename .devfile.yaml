@@ -35,6 +35,10 @@ components:
       memoryLimit: '2G'
       memoryRequest: '1G'
 commands:
+  - id: authenticate-opencode
+    exec:
+      component: tools
+      commandLine: opencode mcp auth redhat-docs
   - id: configure-opencode
     exec:
       component: tools
