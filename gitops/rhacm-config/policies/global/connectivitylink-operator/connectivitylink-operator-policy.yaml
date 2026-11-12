@@ -43,7 +43,7 @@ spec:
           subscription:
             name: rhcl-operator
             namespace: kuadrant-system
-            channel: stable
+            channel: stable-1.5
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
