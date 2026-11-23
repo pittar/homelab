@@ -1,8 +1,11 @@
 namespace: openshift-lightspeed
 
 resources:
+  - rbac.yaml
+  - rbac-binding.yaml
   - maas-creds-externalsecret.yaml
   - alerts-adapter-config.yaml
   - llm-provider.yaml
   - OSLConfig.yaml
   - agent.yaml
+  - approvalpolicy.yaml
