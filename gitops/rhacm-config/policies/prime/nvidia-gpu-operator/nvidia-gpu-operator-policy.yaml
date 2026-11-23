@@ -8,7 +8,7 @@ metadata:
     policy.open-cluster-management.io/controls: Hardware
 spec:
   remediationAction: enforce
-  disabled: true
+  disabled: false
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -45,7 +45,7 @@ spec:
             source: certified-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - gpu-operator-certified.v26.7.2
+            - gpu-operator-certified.v26.7.3
             #- gpu-operator-certified.v26.3.3
             #- gpu-operator-certified.v25.3.4
           operatorGroup:
