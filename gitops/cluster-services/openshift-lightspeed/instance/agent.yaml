@@ -5,5 +5,5 @@ metadata:
 spec:
   llmProvider:
     name: vllm-anthropic 
-  model: openai/deepseek-r1-distill-qwen-14b 
+  model: gpt-oss-120b 
   maxTurns: 200
