@@ -4,7 +4,7 @@ metadata:
   name: vllm
 spec:
   type: OpenAI
-  anthropic:
+  openAI:
     credentialsSecret:
       name: credentials 
     url: https://maas-rhdp.apps.maas.redhatworkshops.io/v1
