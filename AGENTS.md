@@ -81,3 +81,7 @@ Secrets must never be committed. Files listed in `.gitignore` (`creds.yaml`, `ro
 - Cluster topology: `managedclustersets` → `managedclustersetbindings` → `policysets` → `policies`.
 - All environment targeting flows through placement bindings in policysets.
 - To deploy a single environment directly (bypass ArgoCD): `oc apply -k bootstrap/{env}`.
+
+## Thinking and output
+
+I will interact with you in both English and French.  I want you to think and provide output in the language that I use when chatting with you.
