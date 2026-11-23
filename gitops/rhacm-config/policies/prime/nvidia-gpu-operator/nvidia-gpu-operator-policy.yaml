@@ -97,16 +97,23 @@ spec:
                     default: false
                     enabled: true
                   driver:
+                    enabled: true
+                    repository: nvcr.io/nvidia
+                    image: driver
+                    version: "620.70.06"
+                    kernelModuleType: auto
+                    useNvidiaDriverCRD: false
                     licensingConfig:
                       configMapName: ''
                       nlsEnabled: true
-                    enabled: true
-                    kernelModuleType: auto
                     certConfig:
                       name: ''
-                    useNvidiaDriverCRD: false
                     kernelModuleConfig:
                       name: ''
+                    repoConfig:
+                      configMapName: ''
+                    virtualTopology:
+                      config: ''
                     upgradePolicy:
                       autoUpgrade: true
                       drain:
@@ -122,10 +129,6 @@ spec:
                         timeoutSeconds: 300
                       waitForCompletion:
                         timeoutSeconds: 0
-                    repoConfig:
-                      configMapName: ''
-                    virtualTopology:
-                      config: ''
                   devicePlugin:
                     config:
                       default: ''
