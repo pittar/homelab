@@ -5,5 +5,5 @@ metadata:
 spec:
   llmProvider:
     name: vllm
-  model: minimax-m2 
+  model: minimax-m2
   maxTurns: 200
