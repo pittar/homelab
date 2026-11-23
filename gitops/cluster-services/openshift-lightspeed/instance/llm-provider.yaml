@@ -1,10 +1,10 @@
 apiVersion: agentic.openshift.io/v1alpha1
 kind: LLMProvider
 metadata:
-  name: vllm-anthropic
+  name: vllm
 spec:
-  type: Anthropic
+  type: OpenAI
   anthropic:
     credentialsSecret:
       name: credentials 
-    url: https://maas-rhdp.apps.maas.redhatworkshops.io
+    url: https://maas-rhdp.apps.maas.redhatworkshops.io/v1

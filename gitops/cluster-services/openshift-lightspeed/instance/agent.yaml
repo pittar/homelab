@@ -4,6 +4,6 @@ metadata:
   name: default
 spec:
   llmProvider:
-    name: vllm-anthropic 
-  model: minimax-m2 
+    name: vllm 
+  model: gpt-oss-120b 
   maxTurns: 200
