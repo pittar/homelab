@@ -17,3 +17,7 @@ spec:
     defaultProvider: red_hat_openshift_ai
     introspectionEnabled: true
     logLevel: INFO
+    deployment:
+      alertsAdapter:
+        configMapRef:
+          name: alerts-adapter-config

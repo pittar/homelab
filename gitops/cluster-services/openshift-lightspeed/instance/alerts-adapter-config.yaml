@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alerts-adapter-config
+data:
+  config.yaml: |
+    filtering:
+      allowedReceivers:
+      - Critical
+    tools:
+      skills:
+        - image: quay.io/openshiftanalytics/agentic-skills:ocp-5.0
+          paths:
+            - /skills/cluster-troubleshoot/investigate-alert

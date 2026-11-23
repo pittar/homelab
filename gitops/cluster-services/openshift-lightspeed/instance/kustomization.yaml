@@ -2,4 +2,7 @@ namespace: openshift-lightspeed
 
 resources:
   - maas-creds-externalsecret.yaml
+  - alerts-adapter-config.yaml
+  - llm-provider.yaml
   - OSLConfig.yaml
+  - agent.yaml

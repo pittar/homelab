@@ -1,0 +1,9 @@
+apiVersion: agentic.openshift.io/v1alpha1
+kind: Agent
+metadata:
+  name: default 
+spec:
+  llmProvider:
+    name: vllm-anthropic 
+  model: openai/deepseek-r1-distill-qwen-14b 
+  maxTurns: 200
