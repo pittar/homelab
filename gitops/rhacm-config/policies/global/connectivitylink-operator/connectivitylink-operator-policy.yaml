@@ -8,7 +8,7 @@ metadata:
     policy.open-cluster-management.io/controls: Kuadrant
 spec:
   remediationAction: enforce
-  disabled: false
+  disabled: true
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -43,8 +43,8 @@ spec:
           subscription:
             name: rhcl-operator
             namespace: kuadrant-system
-            channel: stable
+            channel: stable-1.5
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - rhcl-operator.v1.4.3
+            - rhcl-operator.v1.5.0

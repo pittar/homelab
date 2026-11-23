@@ -8,7 +8,7 @@ metadata:
     policy.open-cluster-management.io/controls: Keycloak
 spec:
   remediationAction: enforce
-  disabled: false
+  disabled: true
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -49,4 +49,4 @@ spec:
             targetNamespaces:
               - keycloak
           versions:
-            - rhbk-operator.v26.6.7-opr.3
+            - rhbk-operator.v26.6.8-opr.1

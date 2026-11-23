@@ -8,7 +8,7 @@ metadata:
     policy.open-cluster-management.io/controls: Cluster Security
 spec:
   remediationAction: enforce
-  disabled: false
+  disabled: true
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -42,4 +42,4 @@ spec:
             source: redhat-operators
             sourceNamespace: openshift-marketplace
           versions:
-            - rhacs-operator.v4.11.7
+            - rhacs-operator.v5.0.0

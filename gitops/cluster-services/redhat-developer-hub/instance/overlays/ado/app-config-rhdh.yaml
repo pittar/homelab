@@ -121,7 +121,7 @@ data:
             prompt: auto
             signIn:
               resolvers:
-                - resolver: preferredUsernameMatchingUserEntityName
+                - resolver: emailLocalPartMatchingUserEntityName
 
     catalog:
       rules:
