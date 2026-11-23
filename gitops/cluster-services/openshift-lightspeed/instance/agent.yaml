@@ -1,7 +1,7 @@
 apiVersion: agentic.openshift.io/v1alpha1
 kind: Agent
 metadata:
-  name: default 
+  name: default
 spec:
   llmProvider:
     name: vllm-anthropic 
