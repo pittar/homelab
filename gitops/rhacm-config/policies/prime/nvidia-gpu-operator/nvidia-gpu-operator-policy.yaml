@@ -70,14 +70,14 @@ spec:
                   name: gpu-cluster-policy
                 spec:
                   vgpuDeviceManager:
-                    config:
-                      default: default
-                    enabled: true
+                    # config:
+                    #   default: default
+                    enabled: false
                   migManager:
-                    config:
-                      default: all-disabled
-                      name: default-mig-parted-config
-                    enabled: true
+                    # config:
+                    #   default: all-disabled
+                    #   name: default-mig-parted-config
+                    enabled: false
                   operator:
                     defaultRuntime: crio
                     initContainer: {}
@@ -104,8 +104,8 @@ spec:
                     kernelModuleType: auto
                     useNvidiaDriverCRD: false
                     licensingConfig:
-                      configMapName: ''
-                      nlsEnabled: true
+                      #configMapName: ''
+                      nlsEnabled: false
                     certConfig:
                       name: ''
                     kernelModuleConfig:
