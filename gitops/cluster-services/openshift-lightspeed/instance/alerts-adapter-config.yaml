@@ -7,6 +7,7 @@ data:
     filtering:
       allowedReceivers:
       - Critical
+      - Warning
     tools:
       skills:
         - image: quay.io/openshiftanalytics/agentic-skills:ocp-5.0
