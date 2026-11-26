@@ -7,7 +7,7 @@ data:
     filtering:
       allowedReceivers:
       - Critical
-      - Default
+      #- Default
     tools:
       skills:
         - image: quay.io/openshiftanalytics/agentic-skills:ocp-5.0
